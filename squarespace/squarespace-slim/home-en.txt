@@ -17,9 +17,12 @@
     <div class="diagram-card hero-in" style="animation-delay:0.2s">
       <div class="diagram-head">
         <span>WORKFLOW_ENGINE // trustcodemx</span>
-        <span style="color:var(--emerald)">&#9679; live</span>
+        <span style="color:var(--status-done)">&#9679; live</span>
       </div>
       <svg viewBox="0 0 400 220" width="100%" style="height:auto; display:block;">
+        <line class="board-row" x1="24" y1="50" x2="376" y2="50"/>
+        <line class="board-row" x1="24" y1="110" x2="376" y2="110"/>
+        <line class="board-row" x1="24" y1="170" x2="376" y2="170"/>
         <path id="h1" class="path-line" d="M50,110 C120,110 120,50 200,50"/>
         <path id="h2" class="path-line" d="M50,110 C120,110 120,110 200,110"/>
         <path id="h3" class="path-line" d="M50,110 C120,110 120,170 200,170"/>
@@ -28,20 +31,23 @@
         <path id="h6" class="path-line" d="M200,170 C260,170 260,110 320,110"/>
         <circle class="node-circle" cx="50" cy="110" r="20"/>
         <circle class="node-circle" cx="200" cy="50" r="14"/>
+        <circle cx="211" cy="41" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle" cx="200" cy="110" r="14"/>
+        <circle cx="211" cy="101" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle" cx="200" cy="170" r="14"/>
+        <circle cx="211" cy="161" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle lit" cx="320" cy="110" r="20"/>
         <text class="node-label" x="50" y="145" text-anchor="middle">INTAKE</text>
         <text class="node-label" x="200" y="30" text-anchor="middle">BOARDS</text>
         <text class="node-label" x="200" y="132" text-anchor="middle">AUTOMATE</text>
         <text class="node-label" x="200" y="192" text-anchor="middle">REPORT</text>
         <text class="node-label active" x="320" y="145" text-anchor="middle">DELIVERED</text>
-        <circle class="pulse" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#h1"/></animateMotion></circle>
-        <circle class="pulse pulse-em" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.5s"><mpath href="#h4"/></animateMotion></circle>
-        <circle class="pulse pulse-em" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.1s"><mpath href="#h2"/></animateMotion></circle>
-        <circle class="pulse" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#h5"/></animateMotion></circle>
-        <circle class="pulse" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="0.9s"><mpath href="#h3"/></animateMotion></circle>
-        <circle class="pulse pulse-em" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="1.5s"><mpath href="#h6"/></animateMotion></circle>
+        <circle class="pulse-working" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#h1"/></animateMotion></circle>
+        <circle class="pulse-done" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.5s"><mpath href="#h4"/></animateMotion></circle>
+        <circle class="pulse-working" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.1s"><mpath href="#h2"/></animateMotion></circle>
+        <circle class="pulse-done" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#h5"/></animateMotion></circle>
+        <circle class="pulse-working" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="0.9s"><mpath href="#h3"/></animateMotion></circle>
+        <circle class="pulse-done" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="1.5s"><mpath href="#h6"/></animateMotion></circle>
       </svg>
     </div>
   </div>
@@ -91,16 +97,13 @@
       <span class="eyebrow"><span class="i18n" data-es="nuestro proceso" data-en="our process">our process</span></span>
       <h2><span class="i18n" data-es="Tu motor de eficiencia a la medida" data-en="Your custom engine for efficiency">Your custom engine for efficiency</span></h2>
     </div>
+    <div class="timeline reveal"><div class="step reveal" style="transition-delay:0.18s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">01</span></div>
+          <div><h4><span class="i18n" data-es="An&amp;aacute;lisis de Flujo" data-en="Workflow Analysis">Workflow Analysis</span></h4><p><span class="i18n" data-es="Mapeamos cuellos de botella en un plan claro." data-en="Map bottlenecks into a clear blueprint.">Map bottlenecks into a clear blueprint.</span></p></div></div><div class="step reveal" style="transition-delay:0.74s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">02</span></div>
+          <div><h4><span class="i18n" data-es="Automatizaci&amp;oacute;n a Medida" data-en="Custom Automation">Custom Automation</span></h4><p><span class="i18n" data-es="Tableros y automatizaciones hechos para ti." data-en="Boards and automations built for you.">Boards and automations built for you.</span></p></div></div><div class="step reveal" style="transition-delay:1.30s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">03</span></div>
+          <div><h4><span class="i18n" data-es="Integraciones" data-en="Integrations">Integrations</span></h4><p><span class="i18n" data-es="monday.com conectado a tus herramientas." data-en="monday.com connected to your tools.">monday.com connected to your tools.</span></p></div></div><div class="step reveal" style="transition-delay:1.86s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">04</span></div>
+          <div><h4><span class="i18n" data-es="Reportes y KPIs" data-en="Reporting &amp;amp; KPIs">Reporting &amp; KPIs</span></h4><p><span class="i18n" data-es="Dashboards en tiempo real que importan." data-en="Real-time dashboards that matter.">Real-time dashboards that matter.</span></p></div></div><div class="step reveal" style="transition-delay:2.42s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">05</span></div>
+          <div><h4><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></h4><p><span class="i18n" data-es="Adopci&amp;oacute;n r&amp;aacute;pida, productividad real." data-en="Fast adoption, real productivity.">Fast adoption, real productivity.</span></p></div></div></div>
   </div>
-  <div class="hscroll-outer" id="hscrollOuter">
-    <div class="hscroll-sticky">
-      <div class="tc-wrap" id="hscrollViewport" style="height:100%;">
-        <div class="hscroll-track" id="hscrollTrack"><div class="hcard"><span class="hnum">01</span><h4><span class="i18n" data-es="An&amp;aacute;lisis de Flujo" data-en="Workflow Analysis">Workflow Analysis</span></h4><p><span class="i18n" data-es="Mapeamos cuellos de botella en un plan claro." data-en="Map bottlenecks into a clear blueprint.">Map bottlenecks into a clear blueprint.</span></p></div><div class="hcard"><span class="hnum">02</span><h4><span class="i18n" data-es="Automatizaci&amp;oacute;n a Medida" data-en="Custom Automation">Custom Automation</span></h4><p><span class="i18n" data-es="Tableros y automatizaciones hechos para ti." data-en="Boards and automations built for you.">Boards and automations built for you.</span></p></div><div class="hcard"><span class="hnum">03</span><h4><span class="i18n" data-es="Integraciones" data-en="Integrations">Integrations</span></h4><p><span class="i18n" data-es="monday.com conectado a tus herramientas." data-en="monday.com connected to your tools.">monday.com connected to your tools.</span></p></div><div class="hcard"><span class="hnum">04</span><h4><span class="i18n" data-es="Reportes y KPIs" data-en="Reporting &amp;amp; KPIs">Reporting &amp; KPIs</span></h4><p><span class="i18n" data-es="Dashboards en tiempo real que importan." data-en="Real-time dashboards that matter.">Real-time dashboards that matter.</span></p></div><div class="hcard"><span class="hnum">05</span><h4><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></h4><p><span class="i18n" data-es="Adopci&amp;oacute;n r&amp;aacute;pida, productividad real." data-en="Fast adoption, real productivity.">Fast adoption, real productivity.</span></p></div></div>
-      </div>
-      <div class="hscroll-progress"><div class="hscroll-progress-fill" id="hscrollFill"></div></div>
-    </div>
-  </div>
-  <div class="tc-wrap"><p class="hscroll-hint"><span class="i18n" data-es="&amp;uarr; sigue desplaz&amp;aacute;ndote &amp;darr;" data-en="&amp;uarr; keep scrolling &amp;darr;">&uarr; keep scrolling &darr;</span></p></div>
 </section>
 <section id="advantage">
   <div class="tc-wrap">

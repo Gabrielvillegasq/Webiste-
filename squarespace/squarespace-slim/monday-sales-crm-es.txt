@@ -17,9 +17,9 @@
       <div class="chart-wrap roi-target" id="sc" style="padding:4px 6px;">
         <div class="chart-num-row">
           <span class="chart-num count-num" data-target="284500" data-prefix="$">$0</span>
-          <span style="color:var(--emerald); font-size:13px;">&#9650; +18%</span>
+          <span style="color:var(--status-done); font-size:13px;">&#9650; +18%</span>
         </div>
-        <div class="chart-bars-row"><div class="roi-bar b1" style="height:38%; transition-delay:0.00s;"></div><div class="roi-bar b2" style="height:55%; transition-delay:0.08s;"></div><div class="roi-bar b3" style="height:46%; transition-delay:0.16s;"></div><div class="roi-bar b1" style="height:72%; transition-delay:0.24s;"></div><div class="roi-bar b2" style="height:64%; transition-delay:0.32s;"></div><div class="roi-bar b3" style="height:95%; transition-delay:0.40s;"></div></div>
+        <div class="chart-bars-row"><div class="roi-bar" style="height:38%; background:var(--status-stuck); transition-delay:0.00s;"></div><div class="roi-bar" style="height:55%; background:var(--status-stuck); transition-delay:0.08s;"></div><div class="roi-bar" style="height:46%; background:var(--status-working); transition-delay:0.16s;"></div><div class="roi-bar" style="height:72%; background:var(--status-working); transition-delay:0.24s;"></div><div class="roi-bar" style="height:64%; background:var(--status-done); transition-delay:0.32s;"></div><div class="roi-bar" style="height:95%; background:var(--status-done); transition-delay:0.40s;"></div></div>
         <div class="ring-caption" style="margin-top:10px;"><span class="i18n" data-es="Valor del Pipeline (MXN)" data-en="Pipeline Value (MXN)">Pipeline Value (MXN)</span></div>
       </div>
       <script>document.getElementById('sc').classList.add('visible'); animateCounters(document.getElementById('sc'));</script>

@@ -14,12 +14,11 @@
         <span>OPS_ENGINE // trustcodemx</span>
         <span style="color:var(--emerald)">&#9679; live</span>
       </div>
-      <div class="gear-wrap" id="op">
-        <svg class="gear" width="110" height="110" viewBox="-40 -40 80 80" style="left:38%; top:14%; animation-duration:14s;"><polygon points="34.0,0.0 25.7,8.3 27.5,20.0 15.9,21.8 10.5,32.3 0.0,27.0 -10.5,32.3 -15.9,21.8 -27.5,20.0 -25.7,8.3 -34.0,0.0 -25.7,-8.3 -27.5,-20.0 -15.9,-21.8 -10.5,-32.3 -0.0,-27.0 10.5,-32.3 15.9,-21.8 27.5,-20.0 25.7,-8.3" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.5"/><circle cx="0" cy="0" r="11" fill="var(--bg)" stroke="var(--line)" stroke-width="1.5"/></svg>
-        <svg class="gear rev" width="76" height="76" viewBox="-26 -26 52 52" style="left:58%; top:42%; animation-duration:9s;"><polygon points="22.0,0.0 15.7,6.5 15.6,15.6 6.5,15.7 0.0,22.0 -6.5,15.7 -15.6,15.6 -15.7,6.5 -22.0,0.0 -15.7,-6.5 -15.6,-15.6 -6.5,-15.7 -0.0,-22.0 6.5,-15.7 15.6,-15.6 15.7,-6.5" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.5"/><circle cx="0" cy="0" r="7" fill="var(--bg)" stroke="var(--line)" stroke-width="1.5"/></svg>
+      <div class="board-wrap" id="op">
+        <div class="board-card" style="border-left-color:var(--status-stuck);"><span class="chip-line" style="width:55%;"></span></div><div class="board-card" style="border-left-color:var(--status-working);"><span class="chip-line" style="width:72%;"></span></div><div class="board-card" style="border-left-color:var(--status-working);"><span class="chip-line" style="width:44%;"></span></div><div class="board-card" style="border-left-color:var(--status-stuck);"><span class="chip-line" style="width:80%;"></span></div><div class="board-card" style="border-left-color:var(--status-done);"><span class="chip-line" style="width:60%;"></span></div>
         <span class="uptime-tag">&#9679; <span class="count-num" data-target="99.9" data-suffix="%">0%</span> <span class="i18n" data-es="Disponibilidad" data-en="Uptime">Uptime</span></span>
       </div>
-      <script>animateCounters(document.getElementById('op'));</script>
+      <script>document.getElementById('op').classList.add('visible'); animateCounters(document.getElementById('op'));</script>
     </div>
   </div>
 </section>

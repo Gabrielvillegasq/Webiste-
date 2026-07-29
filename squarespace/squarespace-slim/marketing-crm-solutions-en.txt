@@ -16,10 +16,10 @@
       </div>
       <div class="funnel-wrap" id="mk" style="position:relative;">
         <div class="funnel-dot" style="animation-delay:0.0s; left:48%;"></div><div class="funnel-dot" style="animation-delay:0.7s; left:50%;"></div><div class="funnel-dot" style="animation-delay:1.4s; left:52%;"></div><div class="funnel-dot" style="animation-delay:2.1s; left:54%;"></div><div class="funnel-dot" style="animation-delay:2.8s; left:56%;"></div>
-        <div class="funnel-seg" style="width:100%;"><span><span class="i18n" data-es="Visitantes" data-en="Visitors">Visitors</span></span><span class="count-num" data-target="2400">0</span></div>
-<div class="funnel-seg" style="width:76%;"><span><span class="i18n" data-es="Leads" data-en="Leads">Leads</span></span><span class="count-num" data-target="640">0</span></div>
-<div class="funnel-seg" style="width:52%;"><span><span class="i18n" data-es="MQLs" data-en="MQLs">MQLs</span></span><span class="count-num" data-target="180">0</span></div>
-<div class="funnel-seg" style="width:30%;"><span><span class="i18n" data-es="Clientes" data-en="Customers">Customers</span></span><span class="count-num" data-target="42">0</span></div>
+        <div class="funnel-seg" style="width:100%; background:var(--muted);"><span><span class="i18n" data-es="Visitantes" data-en="Visitors">Visitors</span></span><span class="count-num" data-target="2400">0</span></div>
+<div class="funnel-seg" style="width:76%; background:var(--status-stuck);"><span><span class="i18n" data-es="Leads" data-en="Leads">Leads</span></span><span class="count-num" data-target="640">0</span></div>
+<div class="funnel-seg" style="width:52%; background:var(--status-working);"><span><span class="i18n" data-es="MQLs" data-en="MQLs">MQLs</span></span><span class="count-num" data-target="180">0</span></div>
+<div class="funnel-seg" style="width:30%; background:var(--status-done);"><span><span class="i18n" data-es="Clientes" data-en="Customers">Customers</span></span><span class="count-num" data-target="42">0</span></div>
 
       </div>
       <script>document.getElementById('mk').classList.add('visible'); animateCounters(document.getElementById('mk'));</script>

@@ -16,14 +16,48 @@ Four things were added to the HOMEPAGE only (subpages are unchanged):
     (Slack, Microsoft Teams, Gmail/Outlook, Google Drive/Calendar,
     QuickBooks, WhatsApp, Zoom, Zapier, Make). Don't add others without
     telling me first -- this list is only as trustworthy as it is accurate.
-  - The "Our Process" section is now a horizontal-scroll sequence
-    (cards slide sideways as you scroll down) instead of the old
-    vertical timeline -- same 5 steps, same copy, new motion.
   - Every primary (purple) button site-wide now has a subtle "magnetic"
     pull toward your cursor on hover.
+("Our Process" briefly became a horizontal-scroll sequence in this round,
+then was reverted back to the vertical 1-5 timeline per direct feedback --
+see round 3 below.)
 Re-paste squarespace-slim/home-en.txt, home-es.txt, and both site-wide
 injection files (head + footer) to pick these up -- nothing else changed,
 so you don't need to touch the other 16 pages' files.
+
+UPDATE (round 3) -- process section reverted + animation quality pass
+----------------------------------------------------------------------------
+- "Our Process" is back to the vertical 1-5 numbered list with the
+  connecting line, per your direct feedback on the horizontal version.
+- Went through both animation-feedback docs and did a full quality pass
+  on the 5 animated illustrations (home hero + Work Management, Training,
+  Marketing & CRM, Operations, Sales & CRM, Certified Partner, About):
+    - One consistent set of 3 easing curves used everywhere now, instead
+      of every component inventing its own.
+    - Brought in monday.com's real product status colors (Stuck red /
+      Working-on-it yellow / Done green) into these 5 illustrations only
+      -- the rest of the site's purple/emerald palette is untouched.
+    - The Operations gears (flagged as the weakest, most generic metaphor)
+      are now scattered task-cards settling into an ordered column --
+      directly illustrates "scale without scaling the chaos" instead of
+      literal machinery.
+    - The Training ring (you said you didn't find it meaningful) is now a
+      literal checklist of the 4 real training modules from that page,
+      checking themselves off one by one, ending in the 94% stat --
+      directly tied to the actual page content instead of an abstract %.
+    - Caught and fixed two real bugs while testing this: the sales-chart
+      dollar figure and the training stat number were rendering dark text
+      on the diagram's dark panel in the (shipped) light theme -- both
+      were genuinely invisible before this fix, on every page that used
+      them, since before this round.
+- Tried to fetch the real tool logos from the official brand-kit URLs you
+  sourced -- blocked by this environment's network policy, same as every
+  other external site this project. Placeholder tool-marquee dots are
+  still what's live; see Step 4 above for the swap-in path once you have
+  the files, same as the main logo/badge.
+Re-paste ALL squarespace-slim/*.txt files and both site-wide injection
+files this time -- the shared style/motion tokens changed, so every page
+is affected even though most page content itself didn't change.
 
 WHAT'S IN THIS FOLDER
 ----------------------

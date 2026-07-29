@@ -14,14 +14,23 @@
         <span>TRAINING_ENGINE // trustcodemx</span>
         <span style="color:var(--emerald)">&#9679; live</span>
       </div>
-      <div class="ring-box" id="tr" style="position:relative; height:180px; --circ:364.4px; --offset:21.9px;">
-        <svg width="150" height="150" viewBox="0 0 150 150">
-          <circle cx="75" cy="75" r="58" fill="none" stroke="var(--line)" stroke-width="10"/>
-          <circle class="ring-fill" cx="75" cy="75" r="58" fill="none" stroke="var(--purple-bright)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 75 75)"/>
-        </svg>
-        <div class="ring-overlay">
-          <div class="ring-num count-num" data-target="94" data-suffix="%">0%</div>
-          <div class="ring-caption"><span class="i18n" data-es="Dominio del Equipo" data-en="Team Proficiency">Team Proficiency</span></div>
+      <div class="tchk-wrap" id="tr">
+        <div class="tchk-row" style="transition-delay:0.00s;">
+              <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="tchk-label"><span class="i18n" data-es="Curr&amp;iacute;culo por Rol" data-en="Role-Based Curriculum">Role-Based Curriculum</span></span>
+            </div><div class="tchk-row" style="transition-delay:0.22s;">
+              <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="tchk-label"><span class="i18n" data-es="Talleres Pr&amp;aacute;cticos" data-en="Hands-On Workshops">Hands-On Workshops</span></span>
+            </div><div class="tchk-row" style="transition-delay:0.44s;">
+              <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="tchk-label"><span class="i18n" data-es="Formaci&amp;oacute;n de Formadores" data-en="Train-the-Trainer">Train-the-Trainer</span></span>
+            </div><div class="tchk-row" style="transition-delay:0.66s;">
+              <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
+              <span class="tchk-label"><span class="i18n" data-es="Soporte Continuo" data-en="Ongoing Support">Ongoing Support</span></span>
+            </div>
+        <div class="tchk-result" style="transition-delay:1.03s;">
+          <span class="ring-num count-num" data-target="94" data-suffix="%">0%</span>
+          <span class="ring-caption" style="text-align:left; margin-top:0;"><span class="i18n" data-es="Dominio del Equipo" data-en="Team Proficiency">Team Proficiency</span></span>
         </div>
       </div>
       <script>document.getElementById('tr').classList.add('visible'); animateCounters(document.getElementById('tr'));</script>

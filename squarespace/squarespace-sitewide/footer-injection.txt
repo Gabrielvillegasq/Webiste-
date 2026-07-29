@@ -160,26 +160,5 @@
     });
   }
 
-  // Horizontal-scroll process section (homepage only -- no-ops elsewhere)
-  (function () {
-    const outer = document.getElementById('hscrollOuter');
-    const track = document.getElementById('hscrollTrack');
-    const viewport = document.getElementById('hscrollViewport');
-    const fill = document.getElementById('hscrollFill');
-    if (!outer || !track || !viewport) return;
-    function update() {
-      const r = outer.getBoundingClientRect();
-      const stickyH = 320;
-      const total = r.height - stickyH;
-      const scrolled = -r.top;
-      const progress = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
-      const maxShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
-      if (!reduceMotion) track.style.transform = `translateX(-${progress * maxShift}px)`;
-      if (fill) fill.style.width = (progress * 100) + '%';
-    }
-    document.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  })();
 </script>
 

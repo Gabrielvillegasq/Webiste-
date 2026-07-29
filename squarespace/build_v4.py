@@ -83,6 +83,16 @@ STYLE = """
     --emerald: #00CA72;
     --font-display: 'Manrope', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
+    /* motion language: 3 curves used consistently, not invented per-component */
+    --ease-entrance: cubic-bezier(.16,1,.3,1);      /* one-time reveals */
+    --ease-interactive: cubic-bezier(.4,0,.2,1);    /* hover / interactive feedback */
+    --ease-emphasis: cubic-bezier(.34,1.56,.64,1);  /* pulses, pops, gentle overshoot */
+    /* monday.com product status colors -- scoped to the 5 illustrative diagram
+       components ONLY (workflow/funnel/chart/ring/board). Brand-fixed, not
+       swapped between themes. Do not use these on site chrome/buttons/cards. */
+    --status-stuck: #FB275D;
+    --status-working: #FFCC00;
+    --status-done: #00CA72;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   @media (prefers-reduced-motion: reduce) {
@@ -152,26 +162,27 @@ STYLE = """
   .diagram-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
   .diagram-head span { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); letter-spacing: 0.06em; }
   .node-label { font-family: var(--font-mono); font-size: 10px; fill: var(--muted); letter-spacing: 0.04em; }
-  .node-label.active { fill: var(--emerald); }
+  .node-label.active { fill: var(--status-done); }
   .node-circle { fill: var(--surface-2); stroke: var(--line); stroke-width: 1.4; }
-  .node-circle.lit { stroke: var(--emerald); }
+  .node-circle.lit { stroke: var(--status-done); }
   .path-line { fill: none; stroke: var(--line); stroke-width: 1.4; }
-  .pulse { fill: var(--purple-bright); filter: drop-shadow(0 0 6px rgba(138,138,255,0.9)); }
-  .pulse.pulse-em { fill: var(--emerald); filter: drop-shadow(0 0 6px rgba(0,202,114,0.9)); }
+  .board-row { stroke: var(--line); stroke-width: 1; }
+  .pulse-working { fill: var(--status-working); filter: drop-shadow(0 0 5px rgba(255,204,0,0.7)); }
+  .pulse-done { fill: var(--status-done); filter: drop-shadow(0 0 6px rgba(0,202,114,0.9)); }
 
   section { padding: 90px 0; border-bottom: 1px solid var(--line); }
   section:last-of-type { border-bottom: none; }
   .section-head { max-width: 600px; margin: 0 auto 46px; text-align: center; }
   .section-head h2 { font-size: clamp(24px, 3vw, 34px); margin-top: 14px; }
 
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease-entrance), transform 0.6s var(--ease-entrance); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-  .icon-pop { transform: scale(0.5); opacity: 0; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease; }
+  .icon-pop { transform: scale(0.5); opacity: 0; transition: transform 0.45s var(--ease-emphasis), opacity 0.3s ease; }
   .reveal.visible .icon-pop { transform: scale(1); opacity: 1; }
   .icon-pop.reveal { transform: translateY(14px) scale(0.94); }
   .icon-pop.reveal.visible { transform: translateY(0) scale(1); }
 
-  .hero-in { opacity: 0; transform: translateY(16px); animation: heroFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .hero-in { opacity: 0; transform: translateY(16px); animation: heroFadeUp 0.7s var(--ease-entrance) forwards; }
   @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
 
   .ambient-blob {
@@ -195,7 +206,7 @@ STYLE = """
   .dropdown-inner {
     background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px;
     min-width: 220px; box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    transform: translateY(6px); transition: transform 0.18s ease;
+    transform: translateY(6px); transition: transform 0.2s var(--ease-interactive);
   }
   .has-dropdown.open .dropdown-inner, .has-dropdown:hover .dropdown-inner { transform: translateY(0); }
   .dropdown-menu a { display: block; padding: 9px 12px; border-radius: 5px; font-size: 13.5px; color: var(--ink) !important; transition: background 0.15s ease; }
@@ -208,6 +219,47 @@ STYLE = """
   .problem-card h4 { font-size: 15.5px; margin-bottom: 6px; font-weight: 600; }
   .problem-card p { font-size: 13.5px; color: var(--muted); }
 
+  .timeline { position: relative; max-width: 720px; margin: 0 auto; }
+  .timeline::before { content: ''; position: absolute; left: 25px; top: 6px; bottom: 6px; width: 1px; background: var(--line); z-index: 0; }
+  .timeline::after {
+    content: ''; position: absolute; left: 25px; top: 6px; width: 1px; background: var(--purple); z-index: 0;
+    transform-origin: top; transform: scaleY(0); height: calc(100% - 12px);
+  }
+  .timeline.visible::after { animation: lineGrowPause 2.6s var(--ease-entrance) forwards; }
+  @keyframes lineGrowPause {
+    0%   { transform: scaleY(0); }
+    8%   { transform: scaleY(0.2); }
+    20%  { transform: scaleY(0.2); }
+    28%  { transform: scaleY(0.4); }
+    40%  { transform: scaleY(0.4); }
+    48%  { transform: scaleY(0.6); }
+    60%  { transform: scaleY(0.6); }
+    68%  { transform: scaleY(0.8); }
+    80%  { transform: scaleY(0.8); }
+    88%  { transform: scaleY(1); }
+    100% { transform: scaleY(1); }
+  }
+  .step { display: flex; gap: 22px; padding-bottom: 38px; position: relative; z-index: 1; }
+  .step:last-child { padding-bottom: 0; }
+  .step-num {
+    flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; position: relative;
+    display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700;
+    color: var(--purple-bright); font-size: 15px; letter-spacing: 0; z-index: 2;
+  }
+  .step-num-ring { position: absolute; inset: 0; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); }
+  .step-num-txt { position: relative; }
+  @keyframes stepRingPulse {
+    0% { transform: scale(1); border-color: var(--line); box-shadow: none; }
+    45% { transform: scale(1.14); border-color: var(--purple); box-shadow: 0 0 0 6px rgba(97,97,255,0.14); }
+    100% { transform: scale(1); border-color: var(--line); box-shadow: none; }
+  }
+  .timeline.visible .step:nth-child(1) .step-num-ring { animation: stepRingPulse 0.65s var(--ease-emphasis) .18s; }
+  .timeline.visible .step:nth-child(2) .step-num-ring { animation: stepRingPulse 0.65s var(--ease-emphasis) .68s; }
+  .timeline.visible .step:nth-child(3) .step-num-ring { animation: stepRingPulse 0.65s var(--ease-emphasis) 1.18s; }
+  .timeline.visible .step:nth-child(4) .step-num-ring { animation: stepRingPulse 0.65s var(--ease-emphasis) 1.68s; }
+  .timeline.visible .step:nth-child(5) .step-num-ring { animation: stepRingPulse 0.65s var(--ease-emphasis) 2.18s; }
+  .step h4 { font-size: 16px; margin-bottom: 4px; font-weight: 600; }
+  .step p { color: var(--muted); font-size: 13.5px; max-width: 500px; }
 
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
   .adv-card { background: var(--bg); display: flex; gap: 16px; padding: 24px; transition: background 0.25s ease; align-items: flex-start; }
@@ -215,45 +267,79 @@ STYLE = """
   .adv-card .ic { color: var(--emerald); }
   .adv-card h4 { font-size: 15px; margin-bottom: 4px; font-weight: 600; }
   .adv-card p { font-size: 13px; color: var(--muted); }
-  .roi-bar { transform: scaleY(0); transform-origin: bottom; transform-box: fill-box; transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1); }
+  .roi-bar { transform: scaleY(0); transform-origin: bottom; transform-box: fill-box; transition: transform 0.6s var(--ease-emphasis); }
   .adv-card.visible .roi-bar.b1, .roi-target.visible .roi-bar.b1 { transition-delay: .05s; }
   .adv-card.visible .roi-bar.b2, .roi-target.visible .roi-bar.b2 { transition-delay: .15s; }
   .adv-card.visible .roi-bar.b3, .roi-target.visible .roi-bar.b3 { transition-delay: .25s; }
   .adv-card.visible .roi-bar, .roi-target.visible .roi-bar { transform: scaleY(1); }
 
-  .ring-box { display: flex; align-items: center; justify-content: center; padding: 10px 0; }
-  .ring-fill { stroke-dasharray: var(--circ); stroke-dashoffset: var(--circ); transition: stroke-dashoffset 1.5s cubic-bezier(.16,1,.3,1); }
-  .ring-box.visible .ring-fill { stroke-dashoffset: var(--offset); }
-  .ring-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .ring-num { font-family: var(--font-display); font-weight: 800; font-size: 32px; color: var(--ink); }
   .ring-caption { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; text-align: center; max-width: 120px; }
 
+  /* --- training checklist (modules checking off one by one) --- */
+  .tchk-wrap { display: flex; flex-direction: column; gap: 11px; padding: 6px 4px 2px; }
+  .tchk-row { display: flex; align-items: center; gap: 11px; }
+  .tchk-box {
+    width: 21px; height: 21px; border-radius: 6px; border: 1.5px solid var(--line); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s var(--ease-emphasis), border-color 0.3s var(--ease-emphasis);
+  }
+  .tchk-box svg { width: 13px; height: 13px; color: #fff; opacity: 0; transform: scale(0.4);
+    transition: opacity 0.3s var(--ease-emphasis), transform 0.3s var(--ease-emphasis); }
+  .tchk-wrap.visible .tchk-box { background: var(--status-done); border-color: var(--status-done); }
+  .tchk-wrap.visible .tchk-box svg { opacity: 1; transform: scale(1); }
+  .tchk-label { font-size: 13px; color: var(--muted); transition: color 0.3s ease; }
+  .tchk-wrap.visible .tchk-label { color: var(--ink); }
+  .tchk-result {
+    display: flex; align-items: baseline; gap: 10px; margin-top: 8px; padding-top: 14px;
+    border-top: 1px solid var(--line); opacity: 0; transform: translateY(6px);
+    transition: opacity 0.5s var(--ease-entrance), transform 0.5s var(--ease-entrance);
+  }
+  .tchk-wrap.visible .tchk-result { opacity: 1; transform: translateY(0); }
+  .tchk-result .ring-caption { text-transform: none; font-family: var(--font-display); font-size: 12.5px; font-weight: 600; max-width: none; }
+
   .funnel-wrap { position: relative; padding: 10px 30px 4px; }
   .funnel-seg { height: 34px; margin: 0 auto 6px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; padding: 0 14px;
-    font-size: 11.5px; color: #fff; background: linear-gradient(90deg, var(--purple-bright), var(--purple));
-    transform: scaleX(0); transform-origin: center; transition: transform 0.5s cubic-bezier(.16,1,.3,1); }
+    font-size: 11.5px; color: #fff; font-weight: 600;
+    transform: scaleX(0); transform-origin: center; transition: transform 0.5s var(--ease-entrance); }
   .funnel-seg span:last-child { font-family: var(--font-mono); font-weight: 600; }
   .ring-box.visible .funnel-seg, .funnel-wrap.visible .funnel-seg { transform: scaleX(1); }
   .funnel-wrap.visible .funnel-seg:nth-child(1) { transition-delay: .05s; }
   .funnel-wrap.visible .funnel-seg:nth-child(2) { transition-delay: .18s; }
   .funnel-wrap.visible .funnel-seg:nth-child(3) { transition-delay: .31s; }
   .funnel-wrap.visible .funnel-seg:nth-child(4) { transition-delay: .44s; }
-  .funnel-dot { position: absolute; left: 50%; width: 5px; height: 5px; border-radius: 50%; background: var(--emerald);
+  .funnel-dot { position: absolute; left: 50%; width: 5px; height: 5px; border-radius: 50%; background: var(--status-done);
     filter: drop-shadow(0 0 4px rgba(0,202,114,0.9)); animation: funnelFall 3.6s linear infinite; }
   @keyframes funnelFall { 0% { top: 6%; opacity: 0; transform: translateX(-50%) scale(1); } 8% { opacity: 1; } 92% { opacity: 1; } 100% { top: 92%; opacity: 0; transform: translateX(-50%) scale(0.4); } }
 
-  .gear-wrap { position: relative; height: 168px; display: flex; align-items: center; justify-content: center; }
-  .gear { position: absolute; animation: gearSpin linear infinite; }
-  .gear.rev { animation-direction: reverse; }
-  @keyframes gearSpin { to { transform: rotate(360deg); } }
-  .uptime-tag { position: absolute; bottom: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--emerald); letter-spacing: .04em; }
+  /* scattered task-cards settling into an ordered board column --
+     "scale without scaling the chaos", not a literal gear metaphor */
+  .board-wrap { position: relative; height: 214px; }
+  .board-card {
+    position: absolute; left: 12%; width: 76%; height: 26px; border-radius: 6px;
+    background: var(--surface-2); border: 1px solid var(--line); border-left: 3px solid var(--line);
+    display: flex; align-items: center; padding: 0 10px; box-sizing: border-box;
+    transition: transform 0.75s var(--ease-emphasis), opacity 0.4s ease;
+  }
+  .board-card .chip-line { height: 6px; border-radius: 3px; background: var(--line); }
+  .board-card:nth-child(1) { top: 6px;   transform: translate(-36px,-12px) rotate(-13deg); }
+  .board-card:nth-child(2) { top: 42px;  transform: translate(32px,10px) rotate(10deg); }
+  .board-card:nth-child(3) { top: 78px;  transform: translate(-22px,20px) rotate(-8deg); }
+  .board-card:nth-child(4) { top: 114px; transform: translate(28px,-16px) rotate(9deg); }
+  .board-card:nth-child(5) { top: 150px; transform: translate(-30px,6px) rotate(-6deg); }
+  .board-wrap.visible .board-card { transform: translate(0,0) rotate(0deg); }
+  .board-wrap.visible .board-card:nth-child(1) { transition-delay: .05s; }
+  .board-wrap.visible .board-card:nth-child(2) { transition-delay: .16s; }
+  .board-wrap.visible .board-card:nth-child(3) { transition-delay: .27s; }
+  .board-wrap.visible .board-card:nth-child(4) { transition-delay: .38s; }
+  .board-wrap.visible .board-card:nth-child(5) { transition-delay: .49s; }
+  .uptime-tag { position: absolute; bottom: 6px; left: 12%; font-family: var(--font-mono); font-size: 11px; color: var(--status-done); letter-spacing: .04em; }
 
   .chart-wrap { padding: 4px 6px; }
   .chart-num-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
   .chart-num { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--ink); }
   .chart-bars-row { display: flex; align-items: flex-end; gap: 10px; height: 100px; }
-  .chart-bars-row .roi-bar { flex: 1; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, var(--purple-bright), var(--purple)); }
-  .chart-bars-row .roi-bar:last-child { background: linear-gradient(180deg, #4FD69C, var(--emerald)); }
+  .chart-bars-row .roi-bar { flex: 1; border-radius: 4px 4px 0 0; }
 
   .count-num { font-variant-numeric: tabular-nums; }
 
@@ -320,8 +406,14 @@ STYLE = """
     display: inline-flex; align-items: center; gap: 9px; white-space: nowrap;
     background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
     padding: 11px 18px; font-size: 13.5px; font-weight: 600; color: var(--ink);
+    transition: border-color 0.2s var(--ease-interactive), transform 0.2s var(--ease-interactive);
   }
-  .tool-chip .dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+  .tool-chip:hover { border-color: var(--purple-bright); transform: translateY(-2px); }
+  .tool-chip .dot {
+    width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0;
+    filter: grayscale(1) opacity(0.55); transition: filter 0.2s var(--ease-interactive);
+  }
+  .tool-chip:hover .dot { filter: grayscale(0) opacity(1); }
 
   /* --- proof stat row --- */
   .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -335,22 +427,6 @@ STYLE = """
   .btn-primary { transform: translate(var(--mx, 0px), var(--my, 0px)); }
   .btn-primary:hover { transform: translate(var(--mx, 0px), calc(var(--my, 0px) - 2px)); }
 
-  /* --- horizontal-scroll process (replaces vertical timeline) --- */
-  .hscroll-outer { height: 620px; position: relative; }
-  .hscroll-sticky { position: sticky; top: 98px; height: 320px; overflow: hidden; }
-  .hscroll-track { display: flex; gap: 22px; height: 100%; align-items: center; will-change: transform; }
-  .hcard {
-    flex: 0 0 260px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
-    padding: 26px; height: 220px; display: flex; flex-direction: column; gap: 10px; justify-content: center;
-    box-shadow: 0 16px 34px -26px rgba(15,17,25,0.2);
-  }
-  .hcard .hnum { font-family: var(--font-mono); font-size: 11.5px; color: var(--purple-bright); letter-spacing: .04em; }
-  .hcard h4 { font-size: 17px; }
-  .hcard p { font-size: 13.5px; color: var(--muted); max-width: 28ch; }
-  .hscroll-progress { position: absolute; bottom: 20px; left: 0; right: 0; height: 2px; background: var(--line); border-radius: 2px; max-width: 640px; margin: 0 auto; }
-  .hscroll-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--purple), var(--emerald)); border-radius: 2px; }
-  .hscroll-hint { text-align: center; font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-top: 8px; }
-
   @media (max-width: 900px) {
     .hero .tc-wrap, .hero-split { grid-template-columns: 1fr; }
     .diagram-card { order: -1; }
@@ -362,7 +438,6 @@ STYLE = """
     .grid-4, .grid-5, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr; }
     .tc-wrap { padding: 0 20px; }
     .stat-row { grid-template-columns: 1fr; }
-    .hscroll-sticky { top: 78px; }
   }
 </style>
 """
@@ -380,6 +455,12 @@ LIGHT_ROOT = """
     --emerald: #00A05C;
     --font-display: 'Manrope', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
+    --ease-entrance: cubic-bezier(.16,1,.3,1);
+    --ease-interactive: cubic-bezier(.4,0,.2,1);
+    --ease-emphasis: cubic-bezier(.34,1.56,.64,1);
+    --status-stuck: #FB275D;
+    --status-working: #FFCC00;
+    --status-done: #00CA72;
   }
 """
 
@@ -393,16 +474,18 @@ LIGHT_OVERRIDES = """
   .marquee-wrap { background: var(--surface-2); }
   .marquee-wrap::before { background: linear-gradient(to right, var(--surface-2), transparent); }
   .marquee-wrap::after { background: linear-gradient(to left, var(--surface-2), transparent); }
+  .step-num-ring { background: var(--surface); }
   /* diagram card stays dark deliberately, as a product-UI accent panel */
   .diagram-card { background: #14171D; border-color: rgba(255,255,255,0.09); }
   .diagram-head span { color: rgba(255,255,255,0.5); }
   .node-circle { fill: #1B1F27; stroke: rgba(255,255,255,0.09); }
-  .node-circle.lit { stroke: #00CA72; }
   .node-label { fill: rgba(255,255,255,0.45); }
-  .node-label.active { fill: #00CA72; }
   .path-line { stroke: rgba(255,255,255,0.12); }
-  .pulse { fill: #8A8AFF !important; filter: drop-shadow(0 0 6px rgba(138,138,255,0.9)); }
-  .pulse.pulse-em { fill: #00CA72 !important; filter: drop-shadow(0 0 6px rgba(0,202,114,0.9)); }
+  .board-row { stroke: rgba(255,255,255,0.12); }
+  /* these headline numbers sit inside the always-dark diagram-card even in
+     light theme -- var(--ink) resolves dark-on-dark there without this fix */
+  .ring-num, .chart-num { color: #fff; }
+  .tchk-wrap.visible .tchk-label { color: rgba(255,255,255,0.85); }
   .badge, .eyebrow-logo { background: #0B0D12; }
   .badge span, .eyebrow-logo span { color: rgba(255,255,255,0.6); }
   section { border-bottom-color: var(--line); }
@@ -526,27 +609,6 @@ LANG_SCRIPT = """
     });
   }
 
-  // Horizontal-scroll process section (homepage only -- no-ops elsewhere)
-  (function () {
-    const outer = document.getElementById('hscrollOuter');
-    const track = document.getElementById('hscrollTrack');
-    const viewport = document.getElementById('hscrollViewport');
-    const fill = document.getElementById('hscrollFill');
-    if (!outer || !track || !viewport) return;
-    function update() {
-      const r = outer.getBoundingClientRect();
-      const stickyH = 320;
-      const total = r.height - stickyH;
-      const scrolled = -r.top;
-      const progress = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
-      const maxShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
-      if (!reduceMotion) track.style.transform = `translateX(-${progress * maxShift}px)`;
-      if (fill) fill.style.width = (progress * 100) + '%';
-    }
-    document.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  })();
 </script>
 """
 
@@ -709,9 +771,12 @@ def workflow_diagram(labels, id_prefix="h", tag_text="WORKFLOW_ENGINE // trustco
     return f"""<div class="diagram-card hero-in" style="animation-delay:{delay}">
       <div class="diagram-head">
         <span>{tag_text}</span>
-        <span style="color:var(--emerald)">&#9679; live</span>
+        <span style="color:var(--status-done)">&#9679; live</span>
       </div>
       <svg viewBox="0 0 400 220" width="100%" style="height:auto; display:block;">
+        <line class="board-row" x1="24" y1="50" x2="376" y2="50"/>
+        <line class="board-row" x1="24" y1="110" x2="376" y2="110"/>
+        <line class="board-row" x1="24" y1="170" x2="376" y2="170"/>
         <path id="{p}1" class="path-line" d="M50,110 C120,110 120,50 200,50"/>
         <path id="{p}2" class="path-line" d="M50,110 C120,110 120,110 200,110"/>
         <path id="{p}3" class="path-line" d="M50,110 C120,110 120,170 200,170"/>
@@ -720,20 +785,23 @@ def workflow_diagram(labels, id_prefix="h", tag_text="WORKFLOW_ENGINE // trustco
         <path id="{p}6" class="path-line" d="M200,170 C260,170 260,110 320,110"/>
         <circle class="node-circle" cx="50" cy="110" r="20"/>
         <circle class="node-circle" cx="200" cy="50" r="14"/>
+        <circle cx="211" cy="41" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle" cx="200" cy="110" r="14"/>
+        <circle cx="211" cy="101" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle" cx="200" cy="170" r="14"/>
+        <circle cx="211" cy="161" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle lit" cx="320" cy="110" r="20"/>
         <text class="node-label" x="50" y="145" text-anchor="middle">{left}</text>
         <text class="node-label" x="200" y="30" text-anchor="middle">{top}</text>
         <text class="node-label" x="200" y="132" text-anchor="middle">{center}</text>
         <text class="node-label" x="200" y="192" text-anchor="middle">{bottom}</text>
         <text class="node-label active" x="320" y="145" text-anchor="middle">{right}</text>
-        <circle class="pulse" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#{p}1"/></animateMotion></circle>
-        <circle class="pulse pulse-em" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.5s"><mpath href="#{p}4"/></animateMotion></circle>
-        <circle class="pulse pulse-em" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.1s"><mpath href="#{p}2"/></animateMotion></circle>
-        <circle class="pulse" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#{p}5"/></animateMotion></circle>
-        <circle class="pulse" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="0.9s"><mpath href="#{p}3"/></animateMotion></circle>
-        <circle class="pulse pulse-em" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="1.5s"><mpath href="#{p}6"/></animateMotion></circle>
+        <circle class="pulse-working" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#{p}1"/></animateMotion></circle>
+        <circle class="pulse-done" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.5s"><mpath href="#{p}4"/></animateMotion></circle>
+        <circle class="pulse-working" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.1s"><mpath href="#{p}2"/></animateMotion></circle>
+        <circle class="pulse-done" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#{p}5"/></animateMotion></circle>
+        <circle class="pulse-working" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="0.9s"><mpath href="#{p}3"/></animateMotion></circle>
+        <circle class="pulse-done" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="1.5s"><mpath href="#{p}6"/></animateMotion></circle>
       </svg>
     </div>"""
 
@@ -746,17 +814,25 @@ def _card_shell(inner, tag_text, id_attr, delay=".2s", extra_class=""):
       {inner}
     </div>"""
 
-def training_ring(id_prefix, tag_text, percent, cap_en, cap_es):
-    r = 58; circ = round(2 * 3.14159265 * r, 1)
-    offset = round(circ * (1 - percent / 100), 1)
-    inner = f"""<div class="ring-box" id="{id_prefix}" style="position:relative; height:180px; --circ:{circ}px; --offset:{offset}px;">
-        <svg width="150" height="150" viewBox="0 0 150 150">
-          <circle cx="75" cy="75" r="{r}" fill="none" stroke="var(--line)" stroke-width="10"/>
-          <circle class="ring-fill" cx="75" cy="75" r="{r}" fill="none" stroke="var(--purple-bright)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 75 75)"/>
-        </svg>
-        <div class="ring-overlay">
-          <div class="ring-num count-num" data-target="{percent}" data-suffix="%">0%</div>
-          <div class="ring-caption">{T(cap_en, cap_es)}</div>
+def training_checklist(id_prefix, tag_text, percent, items, cap_en, cap_es):
+    # A literal training curriculum checking itself off, module by module --
+    # replaces an abstract progress ring that read as "generic KPI," not
+    # obviously about training. Reuses the same 4 real modules described on
+    # the Training page itself, so the diagram is directly tied to that
+    # content instead of an unrelated illustration.
+    rows = "".join(
+        f"""<div class="tchk-row" style="transition-delay:{i*0.22:.2f}s;">
+              <span class="tchk-box">{ICONS['check']}</span>
+              <span class="tchk-label">{T(en_l, es_l)}</span>
+            </div>"""
+        for i, (en_l, es_l) in enumerate(items)
+    )
+    result_delay = len(items) * 0.22 + 0.15
+    inner = f"""<div class="tchk-wrap" id="{id_prefix}">
+        {rows}
+        <div class="tchk-result" style="transition-delay:{result_delay:.2f}s;">
+          <span class="ring-num count-num" data-target="{percent}" data-suffix="%">0%</span>
+          <span class="ring-caption" style="text-align:left; margin-top:0;">{T(cap_en, cap_es)}</span>
         </div>
       </div>
       <script>document.getElementById('{id_prefix}').classList.add('visible'); animateCounters(document.getElementById('{id_prefix}'));</script>"""
@@ -764,9 +840,13 @@ def training_ring(id_prefix, tag_text, percent, cap_en, cap_es):
 
 def marketing_funnel(id_prefix, tag_text, stages):
     widths = [100, 76, 52, 30]
+    # Visitors haven't entered the pipeline yet (neutral); Leads/MQLs/Customers
+    # follow monday.com's real Stuck -> Working on it -> Done status progression
+    # as they move down the funnel toward becoming a customer.
+    colors = ["var(--muted)", "var(--status-stuck)", "var(--status-working)", "var(--status-done)"]
     rows = ""
-    for (en_l, es_l, count), w in zip(stages, widths):
-        rows += f'<div class="funnel-seg" style="width:{w}%;"><span>{T(en_l, es_l)}</span><span class="count-num" data-target="{count}">0</span></div>\n'
+    for (en_l, es_l, count), w, c in zip(stages, widths, colors):
+        rows += f'<div class="funnel-seg" style="width:{w}%; background:{c};"><span>{T(en_l, es_l)}</span><span class="count-num" data-target="{count}">0</span></div>\n'
     dots = "".join(f'<div class="funnel-dot" style="animation-delay:{i*0.7:.1f}s; left:{48+i*2}%;"></div>' for i in range(5))
     inner = f"""<div class="funnel-wrap" id="{id_prefix}" style="position:relative;">
         {dots}
@@ -775,35 +855,44 @@ def marketing_funnel(id_prefix, tag_text, stages):
       <script>document.getElementById('{id_prefix}').classList.add('visible'); animateCounters(document.getElementById('{id_prefix}'));</script>"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
-def _gear_path(cx, cy, r_out, r_in, teeth, hole_r):
-    import math
-    pts = []
-    n = teeth * 2
-    for i in range(n):
-        ang = math.pi * 2 * i / n
-        r = r_out if i % 2 == 0 else r_in
-        pts.append(f"{cx + r*math.cos(ang):.1f},{cy + r*math.sin(ang):.1f}")
-    poly = " ".join(pts)
-    return f'<polygon points="{poly}" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.5"/><circle cx="{cx}" cy="{cy}" r="{hole_r}" fill="var(--bg)" stroke="var(--line)" stroke-width="1.5"/>'
-
-def operations_gears(id_prefix, tag_text, uptime_en, uptime_es):
-    gear_big = _gear_path(0, 0, 34, 27, 10, 11)
-    gear_small = _gear_path(0, 0, 22, 17, 8, 7)
-    inner = f"""<div class="gear-wrap" id="{id_prefix}">
-        <svg class="gear" width="110" height="110" viewBox="-40 -40 80 80" style="left:38%; top:14%; animation-duration:14s;">{gear_big}</svg>
-        <svg class="gear rev" width="76" height="76" viewBox="-26 -26 52 52" style="left:58%; top:42%; animation-duration:9s;">{gear_small}</svg>
+def operations_board(id_prefix, tag_text, uptime_en, uptime_es):
+    # Replaces the old rotating-gears metaphor (flagged as generic/clichéd) with
+    # scattered task-cards settling into an ordered column -- directly
+    # illustrating "scale without scaling the chaos" instead of literal machinery.
+    # Card colors are a believable snapshot of a real ops board mid-flight, using
+    # monday.com's actual status colors.
+    card_colors = ["var(--status-stuck)", "var(--status-working)", "var(--status-working)",
+                   "var(--status-stuck)", "var(--status-done)"]
+    widths = [55, 72, 44, 80, 60]
+    cards = "".join(
+        f'<div class="board-card" style="border-left-color:{c};"><span class="chip-line" style="width:{w}%;"></span></div>'
+        for c, w in zip(card_colors, widths)
+    )
+    inner = f"""<div class="board-wrap" id="{id_prefix}">
+        {cards}
         <span class="uptime-tag">&#9679; <span class="count-num" data-target="99.9" data-suffix="%">0%</span> {T(uptime_en, uptime_es)}</span>
       </div>
-      <script>animateCounters(document.getElementById('{id_prefix}'));</script>"""
+      <script>document.getElementById('{id_prefix}').classList.add('visible'); animateCounters(document.getElementById('{id_prefix}'));</script>"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
 def sales_chart(id_prefix, tag_text, target_value, label_en, label_es):
     bars_h = [38, 55, 46, 72, 64, 95]
-    bars = "".join(f'<div class="roi-bar b{(i%3)+1}" style="height:{h}%; transition-delay:{i*0.08:.2f}s;"></div>' for i, h in enumerate(bars_h))
+    # Deal stages mature left-to-right: earlier bars = Stuck (red), mid = Working
+    # on it (yellow), most recent/tallest = Done (green) -- ties the growth
+    # metaphor to monday.com's real status progression, not a generic gradient.
+    bar_colors = [
+        "var(--status-stuck)", "var(--status-stuck)",
+        "var(--status-working)", "var(--status-working)",
+        "var(--status-done)", "var(--status-done)",
+    ]
+    bars = "".join(
+        f'<div class="roi-bar" style="height:{h}%; background:{bar_colors[i % len(bar_colors)]}; transition-delay:{i*0.08:.2f}s;"></div>'
+        for i, h in enumerate(bars_h)
+    )
     inner = f"""<div class="chart-wrap roi-target" id="{id_prefix}" style="padding:4px 6px;">
         <div class="chart-num-row">
           <span class="chart-num count-num" data-target="{target_value}" data-prefix="$">$0</span>
-          <span style="color:var(--emerald); font-size:13px;">&#9650; +18%</span>
+          <span style="color:var(--status-done); font-size:13px;">&#9650; +18%</span>
         </div>
         <div class="chart-bars-row">{bars}</div>
         <div class="ring-caption" style="margin-top:10px;">{T(label_en, label_es)}</div>
@@ -935,25 +1024,19 @@ PROCESS = [
 ]
 
 def home_process():
-    cards = ""
+    steps = ""
+    arrival = [0.18, 0.74, 1.30, 1.86, 2.42]
     for i, (en_t, es_t, en_d, es_d) in enumerate(PROCESS, 1):
-        cards += f"""<div class="hcard"><span class="hnum">{i:02d}</span><h4>{T(en_t, es_t)}</h4><p>{T(en_d, es_d)}</p></div>"""
+        steps += f"""<div class="step reveal" style="transition-delay:{arrival[i-1]:.2f}s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">{i:02d}</span></div>
+          <div><h4>{T(en_t, es_t)}</h4><p>{T(en_d, es_d)}</p></div></div>"""
     return f"""<section>
   <div class="tc-wrap">
     <div class="section-head reveal">
       <span class="eyebrow">{T('our process','nuestro proceso')}</span>
       <h2>{T('Your custom engine for efficiency','Tu motor de eficiencia a la medida')}</h2>
     </div>
+    <div class="timeline reveal">{steps}</div>
   </div>
-  <div class="hscroll-outer" id="hscrollOuter">
-    <div class="hscroll-sticky">
-      <div class="tc-wrap" id="hscrollViewport" style="height:100%;">
-        <div class="hscroll-track" id="hscrollTrack">{cards}</div>
-      </div>
-      <div class="hscroll-progress"><div class="hscroll-progress-fill" id="hscrollFill"></div></div>
-    </div>
-  </div>
-  <div class="tc-wrap"><p class="hscroll-hint">{T('&uarr; keep scrolling &darr;','&uarr; sigue desplaz&aacute;ndote &darr;')}</p></div>
 </section>
 """
 
@@ -1276,7 +1359,12 @@ build_subpage(
     final_h2_en="Ready to close the adoption gap?", final_h2_es="&iquest;Listo para cerrar la brecha de adopci&oacute;n?",
     final_lead_en="Let's build training around your workflows, not a generic deck.", final_lead_es="Construyamos capacitaci&oacute;n para tu flujo de trabajo real.",
     final_cta_en="Contact Us", final_cta_es="Cont&aacute;ctanos",
-    diagram_html=training_ring("tr", "TRAINING_ENGINE // trustcodemx", 94, "Team Proficiency", "Dominio del Equipo"),
+    diagram_html=training_checklist("tr", "TRAINING_ENGINE // trustcodemx", 94, [
+        ("Role-Based Curriculum", "Curr&iacute;culo por Rol"),
+        ("Hands-On Workshops", "Talleres Pr&aacute;cticos"),
+        ("Train-the-Trainer", "Formaci&oacute;n de Formadores"),
+        ("Ongoing Support", "Soporte Continuo"),
+    ], "Team Proficiency", "Dominio del Equipo"),
 )
 
 # ---------------- 3. Marketing & CRM ----------------
@@ -1352,7 +1440,7 @@ build_subpage(
     final_h2_en="Ready to make ops your catalyst?", final_h2_es="&iquest;Listo para que operaciones sea tu motor?",
     final_lead_en="Let's map what's actually broken and rebuild it.", final_lead_es="Mapeemos lo que realmente est&aacute; roto y reconstruy&aacute;moslo.",
     final_cta_en="Map My Processes", final_cta_es="Mapea Mis Procesos",
-    diagram_html=operations_gears("op", "OPS_ENGINE // trustcodemx", "Uptime", "Disponibilidad"),
+    diagram_html=operations_board("op", "OPS_ENGINE // trustcodemx", "Uptime", "Disponibilidad"),
 )
 
 # ---------------- 5. Sales & CRM ----------------
