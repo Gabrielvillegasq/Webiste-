@@ -136,5 +136,50 @@
       document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
     }
   });
+
+  // Magnetic primary buttons (site-wide) -- skipped entirely under reduced-motion.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    const magnetPad = 24; // extra px around each button that still pulls it
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('.btn-primary').forEach((btn) => {
+        const r = btn.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const withinX = e.clientX > r.left - magnetPad && e.clientX < r.right + magnetPad;
+        const withinY = e.clientY > r.top - magnetPad && e.clientY < r.bottom + magnetPad;
+        if (withinX && withinY) {
+          const dx = (e.clientX - cx) / (r.width / 2 + magnetPad);
+          const dy = (e.clientY - cy) / (r.height / 2 + magnetPad);
+          btn.style.setProperty('--mx', (dx * 8) + 'px');
+          btn.style.setProperty('--my', (dy * 6) + 'px');
+        } else {
+          btn.style.setProperty('--mx', '0px');
+          btn.style.setProperty('--my', '0px');
+        }
+      });
+    });
+  }
+
+  // Horizontal-scroll process section (homepage only -- no-ops elsewhere)
+  (function () {
+    const outer = document.getElementById('hscrollOuter');
+    const track = document.getElementById('hscrollTrack');
+    const viewport = document.getElementById('hscrollViewport');
+    const fill = document.getElementById('hscrollFill');
+    if (!outer || !track || !viewport) return;
+    function update() {
+      const r = outer.getBoundingClientRect();
+      const stickyH = 320;
+      const total = r.height - stickyH;
+      const scrolled = -r.top;
+      const progress = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
+      const maxShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      if (!reduceMotion) track.style.transform = `translateX(-${progress * maxShift}px)`;
+      if (fill) fill.style.width = (progress * 100) + '%';
+    }
+    document.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
 </script>
 

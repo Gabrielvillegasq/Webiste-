@@ -46,6 +46,24 @@
     </div>
   </div>
 </section>
+<section style="padding-top:60px; padding-bottom:52px;">
+  <div class="tc-wrap">
+    <div class="stat-row reveal"><div class="stat-cell">
+          <div class="stat-num count-num" data-target="4" data-suffix="+">0</div>
+          <div class="stat-label"><span class="i18n" data-es="A&amp;ntilde;os implementando monday.com" data-en="Years implementing monday.com">Years implementing monday.com</span></div>
+        </div><div class="stat-cell">
+          <div class="stat-num count-num" data-target="288" data-suffix="%">0</div>
+          <div class="stat-label"><span class="i18n" data-es="ROI promedio reportado por clientes de monday.com*" data-en="Average ROI reported by monday.com clients*">Average ROI reported by monday.com clients*</span></div>
+        </div><div class="stat-cell">
+          <div class="stat-num count-num" data-target="85" data-suffix="K+">0</div>
+          <div class="stat-label"><span class="i18n" data-es="Horas ahorradas al a&amp;ntilde;o (caso real de cliente)*" data-en="Hours saved per year (real client case)*">Hours saved per year (real client case)*</span></div>
+        </div><div class="stat-cell">
+          <div class="stat-num count-num" data-target="50" data-suffix="%">0</div>
+          <div class="stat-label"><span class="i18n" data-es="Menos tiempo en juntas con flujos centralizados*" data-en="Less time in meetings with centralized workflows*">Less time in meetings with centralized workflows*</span></div>
+        </div></div>
+    <p class="stat-source-note"><span class="i18n" data-es="*Datos de estudios independientes de Forrester y casos de clientes publicados por monday.com. Resultados individuales var&amp;iacute;an." data-en="*Data from independent Forrester studies and customer cases published by monday.com. Individual results vary.">*Data from independent Forrester studies and customer cases published by monday.com. Individual results vary.</span></p>
+  </div>
+</section>
 <section id="process">
   <div class="tc-wrap">
     <div class="section-head reveal">
@@ -73,13 +91,16 @@
       <span class="eyebrow"><span class="i18n" data-es="nuestro proceso" data-en="our process">our process</span></span>
       <h2><span class="i18n" data-es="Tu motor de eficiencia a la medida" data-en="Your custom engine for efficiency">Your custom engine for efficiency</span></h2>
     </div>
-    <div class="timeline reveal"><div class="step reveal" style="transition-delay:0.18s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">01</span></div>
-          <div><h4><span class="i18n" data-es="An&amp;aacute;lisis de Flujo" data-en="Workflow Analysis">Workflow Analysis</span></h4><p><span class="i18n" data-es="Mapeamos cuellos de botella en un plan claro." data-en="Map bottlenecks into a clear blueprint.">Map bottlenecks into a clear blueprint.</span></p></div></div><div class="step reveal" style="transition-delay:0.74s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">02</span></div>
-          <div><h4><span class="i18n" data-es="Automatizaci&amp;oacute;n a Medida" data-en="Custom Automation">Custom Automation</span></h4><p><span class="i18n" data-es="Tableros y automatizaciones hechos para ti." data-en="Boards and automations built for you.">Boards and automations built for you.</span></p></div></div><div class="step reveal" style="transition-delay:1.30s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">03</span></div>
-          <div><h4><span class="i18n" data-es="Integraciones" data-en="Integrations">Integrations</span></h4><p><span class="i18n" data-es="monday.com conectado a tus herramientas." data-en="monday.com connected to your tools.">monday.com connected to your tools.</span></p></div></div><div class="step reveal" style="transition-delay:1.86s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">04</span></div>
-          <div><h4><span class="i18n" data-es="Reportes y KPIs" data-en="Reporting &amp;amp; KPIs">Reporting &amp; KPIs</span></h4><p><span class="i18n" data-es="Dashboards en tiempo real que importan." data-en="Real-time dashboards that matter.">Real-time dashboards that matter.</span></p></div></div><div class="step reveal" style="transition-delay:2.42s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">05</span></div>
-          <div><h4><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></h4><p><span class="i18n" data-es="Adopci&amp;oacute;n r&amp;aacute;pida, productividad real." data-en="Fast adoption, real productivity.">Fast adoption, real productivity.</span></p></div></div></div>
   </div>
+  <div class="hscroll-outer" id="hscrollOuter">
+    <div class="hscroll-sticky">
+      <div class="tc-wrap" id="hscrollViewport" style="height:100%;">
+        <div class="hscroll-track" id="hscrollTrack"><div class="hcard"><span class="hnum">01</span><h4><span class="i18n" data-es="An&amp;aacute;lisis de Flujo" data-en="Workflow Analysis">Workflow Analysis</span></h4><p><span class="i18n" data-es="Mapeamos cuellos de botella en un plan claro." data-en="Map bottlenecks into a clear blueprint.">Map bottlenecks into a clear blueprint.</span></p></div><div class="hcard"><span class="hnum">02</span><h4><span class="i18n" data-es="Automatizaci&amp;oacute;n a Medida" data-en="Custom Automation">Custom Automation</span></h4><p><span class="i18n" data-es="Tableros y automatizaciones hechos para ti." data-en="Boards and automations built for you.">Boards and automations built for you.</span></p></div><div class="hcard"><span class="hnum">03</span><h4><span class="i18n" data-es="Integraciones" data-en="Integrations">Integrations</span></h4><p><span class="i18n" data-es="monday.com conectado a tus herramientas." data-en="monday.com connected to your tools.">monday.com connected to your tools.</span></p></div><div class="hcard"><span class="hnum">04</span><h4><span class="i18n" data-es="Reportes y KPIs" data-en="Reporting &amp;amp; KPIs">Reporting &amp; KPIs</span></h4><p><span class="i18n" data-es="Dashboards en tiempo real que importan." data-en="Real-time dashboards that matter.">Real-time dashboards that matter.</span></p></div><div class="hcard"><span class="hnum">05</span><h4><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></h4><p><span class="i18n" data-es="Adopci&amp;oacute;n r&amp;aacute;pida, productividad real." data-en="Fast adoption, real productivity.">Fast adoption, real productivity.</span></p></div></div>
+      </div>
+      <div class="hscroll-progress"><div class="hscroll-progress-fill" id="hscrollFill"></div></div>
+    </div>
+  </div>
+  <div class="tc-wrap"><p class="hscroll-hint"><span class="i18n" data-es="&amp;uarr; sigue desplaz&amp;aacute;ndote &amp;darr;" data-en="&amp;uarr; keep scrolling &amp;darr;">&uarr; keep scrolling &darr;</span></p></div>
 </section>
 <section id="advantage">
   <div class="tc-wrap">
@@ -125,6 +146,15 @@
           <h4><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></h4><p><span class="i18n" data-es="Ciclos m&amp;aacute;s cortos, m&amp;aacute;s cierres." data-en="Shorter cycles, more closed deals.">Shorter cycles, more closed deals.</span></p>
         </a></div>
   </div>
+</section>
+<section style="padding-top:56px; padding-bottom:56px;">
+  <div class="tc-wrap">
+    <div class="section-head reveal" style="margin-bottom:26px;">
+      <span class="eyebrow"><span class="i18n" data-es="integraciones" data-en="integrations">integrations</span></span>
+      <h2><span class="i18n" data-es="Conectado a las herramientas que tu equipo ya usa" data-en="Connected to the tools your team already uses">Connected to the tools your team already uses</span></h2>
+    </div>
+  </div>
+  <div class="tool-marquee"><div class="tool-track"><span class="tool-chip"><span class="dot" style="background:#4A154B"></span>Slack</span><span class="tool-chip"><span class="dot" style="background:#6264A7"></span>Microsoft Teams</span><span class="tool-chip"><span class="dot" style="background:#EA4335"></span>Gmail / Outlook</span><span class="tool-chip"><span class="dot" style="background:#0F9D58"></span>Google Drive / Calendar</span><span class="tool-chip"><span class="dot" style="background:#2CA01C"></span>QuickBooks</span><span class="tool-chip"><span class="dot" style="background:#25D366"></span>WhatsApp</span><span class="tool-chip"><span class="dot" style="background:#2D8CFF"></span>Zoom</span><span class="tool-chip"><span class="dot" style="background:#FF4A00"></span>Zapier</span><span class="tool-chip"><span class="dot" style="background:#6D00CC"></span>Make</span><span class="tool-chip"><span class="dot" style="background:#4A154B"></span>Slack</span><span class="tool-chip"><span class="dot" style="background:#6264A7"></span>Microsoft Teams</span><span class="tool-chip"><span class="dot" style="background:#EA4335"></span>Gmail / Outlook</span><span class="tool-chip"><span class="dot" style="background:#0F9D58"></span>Google Drive / Calendar</span><span class="tool-chip"><span class="dot" style="background:#2CA01C"></span>QuickBooks</span><span class="tool-chip"><span class="dot" style="background:#25D366"></span>WhatsApp</span><span class="tool-chip"><span class="dot" style="background:#2D8CFF"></span>Zoom</span><span class="tool-chip"><span class="dot" style="background:#FF4A00"></span>Zapier</span><span class="tool-chip"><span class="dot" style="background:#6D00CC"></span>Make</span></div></div>
 </section>
 <div id="quotes" class="marquee-wrap"><div class="marquee-track"><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La innovaci&amp;oacute;n distingue a un l&amp;iacute;der de un seguidor." data-en="Innovation distinguishes a leader from a follower.">Innovation distinguishes a leader from a follower.</span><span>Steve Jobs</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La mejor manera de predecir el futuro es crearlo." data-en="The best way to predict the future is to create it.">The best way to predict the future is to create it.</span><span>Peter Drucker</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="Toda empresa es, hoy, una empresa de software." data-en="Every company is a software company.">Every company is a software company.</span><span>Satya Nadella</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La transformaci&amp;oacute;n digital comienza con el cliente." data-en="Digital transformation begins with the customer.">Digital transformation begins with the customer.</span><span>Marc Benioff</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La innovaci&amp;oacute;n distingue a un l&amp;iacute;der de un seguidor." data-en="Innovation distinguishes a leader from a follower.">Innovation distinguishes a leader from a follower.</span><span>Steve Jobs</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La mejor manera de predecir el futuro es crearlo." data-en="The best way to predict the future is to create it.">The best way to predict the future is to create it.</span><span>Peter Drucker</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="Toda empresa es, hoy, una empresa de software." data-en="Every company is a software company.">Every company is a software company.</span><span>Satya Nadella</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La transformaci&amp;oacute;n digital comienza con el cliente." data-en="Digital transformation begins with the customer.">Digital transformation begins with the customer.</span><span>Marc Benioff</span></div></div></div><section id="partner">
   <div class="tc-wrap final-cta reveal">

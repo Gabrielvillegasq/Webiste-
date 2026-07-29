@@ -4,6 +4,27 @@ Everything below refers to files in this same folder. Read this whole
 thing once before touching Squarespace -- the four code locations are
 easy to mix up.
 
+UPDATE (round 2) -- homepage got more dynamic, per your reference sites
+----------------------------------------------------------------------------
+Four things were added to the HOMEPAGE only (subpages are unchanged):
+  - A proof stat row right under the hero: "4+ / 288% / 85K+ / 50%".
+    Only "4+ years" is TrustCode's own fact -- the other three cite
+    published Forrester / monday.com research, marked with * and a
+    footnote saying so. Tell me if you'd rather adjust any of these
+    four numbers or their sourcing.
+  - A scrolling "integrates with" strip using your confirmed tool list
+    (Slack, Microsoft Teams, Gmail/Outlook, Google Drive/Calendar,
+    QuickBooks, WhatsApp, Zoom, Zapier, Make). Don't add others without
+    telling me first -- this list is only as trustworthy as it is accurate.
+  - The "Our Process" section is now a horizontal-scroll sequence
+    (cards slide sideways as you scroll down) instead of the old
+    vertical timeline -- same 5 steps, same copy, new motion.
+  - Every primary (purple) button site-wide now has a subtle "magnetic"
+    pull toward your cursor on hover.
+Re-paste squarespace-slim/home-en.txt, home-es.txt, and both site-wide
+injection files (head + footer) to pick these up -- nothing else changed,
+so you don't need to touch the other 16 pages' files.
+
 WHAT'S IN THIS FOLDER
 ----------------------
 build_v4.py                  the generator script (only touch this if you

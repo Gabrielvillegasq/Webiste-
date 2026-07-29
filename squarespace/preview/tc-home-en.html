@@ -145,47 +145,6 @@
   .problem-card h4 { font-size: 15.5px; margin-bottom: 6px; font-weight: 600; }
   .problem-card p { font-size: 13.5px; color: var(--muted); }
 
-  .timeline { position: relative; max-width: 720px; margin: 0 auto; }
-  .timeline::before { content: ''; position: absolute; left: 25px; top: 6px; bottom: 6px; width: 1px; background: var(--line); z-index: 0; }
-  .timeline::after {
-    content: ''; position: absolute; left: 25px; top: 6px; width: 1px; background: var(--purple); z-index: 0;
-    transform-origin: top; transform: scaleY(0); height: calc(100% - 12px);
-  }
-  .timeline.visible::after { animation: lineGrowPause 2.8s ease-in-out forwards; }
-  @keyframes lineGrowPause {
-    0%   { transform: scaleY(0); }
-    8%   { transform: scaleY(0.2); }
-    20%  { transform: scaleY(0.2); }
-    28%  { transform: scaleY(0.4); }
-    40%  { transform: scaleY(0.4); }
-    48%  { transform: scaleY(0.6); }
-    60%  { transform: scaleY(0.6); }
-    68%  { transform: scaleY(0.8); }
-    80%  { transform: scaleY(0.8); }
-    88%  { transform: scaleY(1); }
-    100% { transform: scaleY(1); }
-  }
-  .step { display: flex; gap: 22px; padding-bottom: 38px; position: relative; z-index: 1; }
-  .step:last-child { padding-bottom: 0; }
-  .step-num {
-    flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; position: relative;
-    display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700;
-    color: var(--purple-bright); font-size: 15px; letter-spacing: 0; z-index: 2;
-  }
-  .step-num-ring { position: absolute; inset: 0; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); }
-  .step-num-txt { position: relative; }
-  @keyframes stepRingPulse {
-    0% { transform: scale(1); border-color: var(--line); box-shadow: none; }
-    40% { transform: scale(1.14); border-color: var(--purple); box-shadow: 0 0 0 6px rgba(97,97,255,0.14); }
-    100% { transform: scale(1); border-color: var(--line); box-shadow: none; }
-  }
-  .timeline.visible .step:nth-child(1) .step-num-ring { animation: stepRingPulse 0.7s ease-out .18s; }
-  .timeline.visible .step:nth-child(2) .step-num-ring { animation: stepRingPulse 0.7s ease-out .74s; }
-  .timeline.visible .step:nth-child(3) .step-num-ring { animation: stepRingPulse 0.7s ease-out 1.30s; }
-  .timeline.visible .step:nth-child(4) .step-num-ring { animation: stepRingPulse 0.7s ease-out 1.86s; }
-  .timeline.visible .step:nth-child(5) .step-num-ring { animation: stepRingPulse 0.7s ease-out 2.42s; }
-  .step h4 { font-size: 16px; margin-bottom: 4px; font-weight: 600; }
-  .step p { color: var(--muted); font-size: 13.5px; max-width: 500px; }
 
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
   .adv-card { background: var(--bg); display: flex; gap: 16px; padding: 24px; transition: background 0.25s ease; align-items: flex-start; }
@@ -288,15 +247,59 @@
   .getcard b { display: block; font-size: 14px; margin-bottom: 2px; }
   .getcard p { font-size: 13px; color: var(--muted); }
 
+  /* --- tool integration marquee --- */
+  .tool-marquee { overflow: hidden; position: relative; padding: 6px 0; }
+  .tool-marquee::before, .tool-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; }
+  .tool-marquee::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+  .tool-marquee::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+  .tool-track { display: flex; gap: 14px; width: max-content; animation: scroll-left 30s linear infinite; }
+  .tool-chip {
+    display: inline-flex; align-items: center; gap: 9px; white-space: nowrap;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    padding: 11px 18px; font-size: 13.5px; font-weight: 600; color: var(--ink);
+  }
+  .tool-chip .dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+
+  /* --- proof stat row --- */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .stat-cell { background: var(--bg); padding: 28px 20px; text-align: center; transition: background 0.25s ease; }
+  .stat-cell:hover { background: var(--surface); }
+  .stat-num { font-family: var(--font-display); font-weight: 800; font-size: 32px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .stat-label { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .stat-source-note { font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-align: center; margin-top: 18px; opacity: .8; }
+
+  /* --- magnetic primary buttons (site-wide) --- */
+  .btn-primary { transform: translate(var(--mx, 0px), var(--my, 0px)); }
+  .btn-primary:hover { transform: translate(var(--mx, 0px), calc(var(--my, 0px) - 2px)); }
+
+  /* --- horizontal-scroll process (replaces vertical timeline) --- */
+  .hscroll-outer { height: 620px; position: relative; }
+  .hscroll-sticky { position: sticky; top: 98px; height: 320px; overflow: hidden; }
+  .hscroll-track { display: flex; gap: 22px; height: 100%; align-items: center; will-change: transform; }
+  .hcard {
+    flex: 0 0 260px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    padding: 26px; height: 220px; display: flex; flex-direction: column; gap: 10px; justify-content: center;
+    box-shadow: 0 16px 34px -26px rgba(15,17,25,0.2);
+  }
+  .hcard .hnum { font-family: var(--font-mono); font-size: 11.5px; color: var(--purple-bright); letter-spacing: .04em; }
+  .hcard h4 { font-size: 17px; }
+  .hcard p { font-size: 13.5px; color: var(--muted); max-width: 28ch; }
+  .hscroll-progress { position: absolute; bottom: 20px; left: 0; right: 0; height: 2px; background: var(--line); border-radius: 2px; max-width: 640px; margin: 0 auto; }
+  .hscroll-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--purple), var(--emerald)); border-radius: 2px; }
+  .hscroll-hint { text-align: center; font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-top: 8px; }
+
   @media (max-width: 900px) {
     .hero .tc-wrap, .hero-split { grid-template-columns: 1fr; }
     .diagram-card { order: -1; }
     .nav-links { display: none; }
     .grid-4, .grid-5, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
     .grid-4, .grid-5, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr; }
     .tc-wrap { padding: 0 20px; }
+    .stat-row { grid-template-columns: 1fr; }
+    .hscroll-sticky { top: 78px; }
   }
 </style>
 
@@ -309,7 +312,6 @@
   .marquee-wrap { background: var(--surface-2); }
   .marquee-wrap::before { background: linear-gradient(to right, var(--surface-2), transparent); }
   .marquee-wrap::after { background: linear-gradient(to left, var(--surface-2), transparent); }
-  .step-num-ring { background: var(--surface); }
   /* diagram card stays dark deliberately, as a product-UI accent panel */
   .diagram-card { background: #14171D; border-color: rgba(255,255,255,0.09); }
   .diagram-head span { color: rgba(255,255,255,0.5); }
@@ -462,6 +464,24 @@
     </div>
   </div>
 </section>
+<section style="padding-top:60px; padding-bottom:52px;">
+  <div class="tc-wrap">
+    <div class="stat-row reveal"><div class="stat-cell">
+          <div class="stat-num count-num" data-target="4" data-suffix="+">0</div>
+          <div class="stat-label"><span class="i18n" data-es="A&amp;ntilde;os implementando monday.com" data-en="Years implementing monday.com">Years implementing monday.com</span></div>
+        </div><div class="stat-cell">
+          <div class="stat-num count-num" data-target="288" data-suffix="%">0</div>
+          <div class="stat-label"><span class="i18n" data-es="ROI promedio reportado por clientes de monday.com*" data-en="Average ROI reported by monday.com clients*">Average ROI reported by monday.com clients*</span></div>
+        </div><div class="stat-cell">
+          <div class="stat-num count-num" data-target="85" data-suffix="K+">0</div>
+          <div class="stat-label"><span class="i18n" data-es="Horas ahorradas al a&amp;ntilde;o (caso real de cliente)*" data-en="Hours saved per year (real client case)*">Hours saved per year (real client case)*</span></div>
+        </div><div class="stat-cell">
+          <div class="stat-num count-num" data-target="50" data-suffix="%">0</div>
+          <div class="stat-label"><span class="i18n" data-es="Menos tiempo en juntas con flujos centralizados*" data-en="Less time in meetings with centralized workflows*">Less time in meetings with centralized workflows*</span></div>
+        </div></div>
+    <p class="stat-source-note"><span class="i18n" data-es="*Datos de estudios independientes de Forrester y casos de clientes publicados por monday.com. Resultados individuales var&amp;iacute;an." data-en="*Data from independent Forrester studies and customer cases published by monday.com. Individual results vary.">*Data from independent Forrester studies and customer cases published by monday.com. Individual results vary.</span></p>
+  </div>
+</section>
 <section id="process">
   <div class="tc-wrap">
     <div class="section-head reveal">
@@ -489,13 +509,16 @@
       <span class="eyebrow"><span class="i18n" data-es="nuestro proceso" data-en="our process">our process</span></span>
       <h2><span class="i18n" data-es="Tu motor de eficiencia a la medida" data-en="Your custom engine for efficiency">Your custom engine for efficiency</span></h2>
     </div>
-    <div class="timeline reveal"><div class="step reveal" style="transition-delay:0.18s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">01</span></div>
-          <div><h4><span class="i18n" data-es="An&amp;aacute;lisis de Flujo" data-en="Workflow Analysis">Workflow Analysis</span></h4><p><span class="i18n" data-es="Mapeamos cuellos de botella en un plan claro." data-en="Map bottlenecks into a clear blueprint.">Map bottlenecks into a clear blueprint.</span></p></div></div><div class="step reveal" style="transition-delay:0.74s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">02</span></div>
-          <div><h4><span class="i18n" data-es="Automatizaci&amp;oacute;n a Medida" data-en="Custom Automation">Custom Automation</span></h4><p><span class="i18n" data-es="Tableros y automatizaciones hechos para ti." data-en="Boards and automations built for you.">Boards and automations built for you.</span></p></div></div><div class="step reveal" style="transition-delay:1.30s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">03</span></div>
-          <div><h4><span class="i18n" data-es="Integraciones" data-en="Integrations">Integrations</span></h4><p><span class="i18n" data-es="monday.com conectado a tus herramientas." data-en="monday.com connected to your tools.">monday.com connected to your tools.</span></p></div></div><div class="step reveal" style="transition-delay:1.86s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">04</span></div>
-          <div><h4><span class="i18n" data-es="Reportes y KPIs" data-en="Reporting &amp;amp; KPIs">Reporting &amp; KPIs</span></h4><p><span class="i18n" data-es="Dashboards en tiempo real que importan." data-en="Real-time dashboards that matter.">Real-time dashboards that matter.</span></p></div></div><div class="step reveal" style="transition-delay:2.42s"><div class="step-num"><span class="step-num-ring"></span><span class="step-num-txt">05</span></div>
-          <div><h4><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></h4><p><span class="i18n" data-es="Adopci&amp;oacute;n r&amp;aacute;pida, productividad real." data-en="Fast adoption, real productivity.">Fast adoption, real productivity.</span></p></div></div></div>
   </div>
+  <div class="hscroll-outer" id="hscrollOuter">
+    <div class="hscroll-sticky">
+      <div class="tc-wrap" id="hscrollViewport" style="height:100%;">
+        <div class="hscroll-track" id="hscrollTrack"><div class="hcard"><span class="hnum">01</span><h4><span class="i18n" data-es="An&amp;aacute;lisis de Flujo" data-en="Workflow Analysis">Workflow Analysis</span></h4><p><span class="i18n" data-es="Mapeamos cuellos de botella en un plan claro." data-en="Map bottlenecks into a clear blueprint.">Map bottlenecks into a clear blueprint.</span></p></div><div class="hcard"><span class="hnum">02</span><h4><span class="i18n" data-es="Automatizaci&amp;oacute;n a Medida" data-en="Custom Automation">Custom Automation</span></h4><p><span class="i18n" data-es="Tableros y automatizaciones hechos para ti." data-en="Boards and automations built for you.">Boards and automations built for you.</span></p></div><div class="hcard"><span class="hnum">03</span><h4><span class="i18n" data-es="Integraciones" data-en="Integrations">Integrations</span></h4><p><span class="i18n" data-es="monday.com conectado a tus herramientas." data-en="monday.com connected to your tools.">monday.com connected to your tools.</span></p></div><div class="hcard"><span class="hnum">04</span><h4><span class="i18n" data-es="Reportes y KPIs" data-en="Reporting &amp;amp; KPIs">Reporting &amp; KPIs</span></h4><p><span class="i18n" data-es="Dashboards en tiempo real que importan." data-en="Real-time dashboards that matter.">Real-time dashboards that matter.</span></p></div><div class="hcard"><span class="hnum">05</span><h4><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></h4><p><span class="i18n" data-es="Adopci&amp;oacute;n r&amp;aacute;pida, productividad real." data-en="Fast adoption, real productivity.">Fast adoption, real productivity.</span></p></div></div>
+      </div>
+      <div class="hscroll-progress"><div class="hscroll-progress-fill" id="hscrollFill"></div></div>
+    </div>
+  </div>
+  <div class="tc-wrap"><p class="hscroll-hint"><span class="i18n" data-es="&amp;uarr; sigue desplaz&amp;aacute;ndote &amp;darr;" data-en="&amp;uarr; keep scrolling &amp;darr;">&uarr; keep scrolling &darr;</span></p></div>
 </section>
 <section id="advantage">
   <div class="tc-wrap">
@@ -541,6 +564,15 @@
           <h4><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></h4><p><span class="i18n" data-es="Ciclos m&amp;aacute;s cortos, m&amp;aacute;s cierres." data-en="Shorter cycles, more closed deals.">Shorter cycles, more closed deals.</span></p>
         </a></div>
   </div>
+</section>
+<section style="padding-top:56px; padding-bottom:56px;">
+  <div class="tc-wrap">
+    <div class="section-head reveal" style="margin-bottom:26px;">
+      <span class="eyebrow"><span class="i18n" data-es="integraciones" data-en="integrations">integrations</span></span>
+      <h2><span class="i18n" data-es="Conectado a las herramientas que tu equipo ya usa" data-en="Connected to the tools your team already uses">Connected to the tools your team already uses</span></h2>
+    </div>
+  </div>
+  <div class="tool-marquee"><div class="tool-track"><span class="tool-chip"><span class="dot" style="background:#4A154B"></span>Slack</span><span class="tool-chip"><span class="dot" style="background:#6264A7"></span>Microsoft Teams</span><span class="tool-chip"><span class="dot" style="background:#EA4335"></span>Gmail / Outlook</span><span class="tool-chip"><span class="dot" style="background:#0F9D58"></span>Google Drive / Calendar</span><span class="tool-chip"><span class="dot" style="background:#2CA01C"></span>QuickBooks</span><span class="tool-chip"><span class="dot" style="background:#25D366"></span>WhatsApp</span><span class="tool-chip"><span class="dot" style="background:#2D8CFF"></span>Zoom</span><span class="tool-chip"><span class="dot" style="background:#FF4A00"></span>Zapier</span><span class="tool-chip"><span class="dot" style="background:#6D00CC"></span>Make</span><span class="tool-chip"><span class="dot" style="background:#4A154B"></span>Slack</span><span class="tool-chip"><span class="dot" style="background:#6264A7"></span>Microsoft Teams</span><span class="tool-chip"><span class="dot" style="background:#EA4335"></span>Gmail / Outlook</span><span class="tool-chip"><span class="dot" style="background:#0F9D58"></span>Google Drive / Calendar</span><span class="tool-chip"><span class="dot" style="background:#2CA01C"></span>QuickBooks</span><span class="tool-chip"><span class="dot" style="background:#25D366"></span>WhatsApp</span><span class="tool-chip"><span class="dot" style="background:#2D8CFF"></span>Zoom</span><span class="tool-chip"><span class="dot" style="background:#FF4A00"></span>Zapier</span><span class="tool-chip"><span class="dot" style="background:#6D00CC"></span>Make</span></div></div>
 </section>
 <div id="quotes" class="marquee-wrap"><div class="marquee-track"><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La innovaci&amp;oacute;n distingue a un l&amp;iacute;der de un seguidor." data-en="Innovation distinguishes a leader from a follower.">Innovation distinguishes a leader from a follower.</span><span>Steve Jobs</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La mejor manera de predecir el futuro es crearlo." data-en="The best way to predict the future is to create it.">The best way to predict the future is to create it.</span><span>Peter Drucker</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="Toda empresa es, hoy, una empresa de software." data-en="Every company is a software company.">Every company is a software company.</span><span>Satya Nadella</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La transformaci&amp;oacute;n digital comienza con el cliente." data-en="Digital transformation begins with the customer.">Digital transformation begins with the customer.</span><span>Marc Benioff</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La innovaci&amp;oacute;n distingue a un l&amp;iacute;der de un seguidor." data-en="Innovation distinguishes a leader from a follower.">Innovation distinguishes a leader from a follower.</span><span>Steve Jobs</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La mejor manera de predecir el futuro es crearlo." data-en="The best way to predict the future is to create it.">The best way to predict the future is to create it.</span><span>Peter Drucker</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="Toda empresa es, hoy, una empresa de software." data-en="Every company is a software company.">Every company is a software company.</span><span>Satya Nadella</span></div><div class="quote-chip"><b>&ldquo;</b><span class="i18n" data-es="La transformaci&amp;oacute;n digital comienza con el cliente." data-en="Digital transformation begins with the customer.">Digital transformation begins with the customer.</span><span>Marc Benioff</span></div></div></div><section id="partner">
   <div class="tc-wrap final-cta reveal">
@@ -608,6 +640,51 @@
       document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
     }
   });
+
+  // Magnetic primary buttons (site-wide) -- skipped entirely under reduced-motion.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion) {
+    const magnetPad = 24; // extra px around each button that still pulls it
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('.btn-primary').forEach((btn) => {
+        const r = btn.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const withinX = e.clientX > r.left - magnetPad && e.clientX < r.right + magnetPad;
+        const withinY = e.clientY > r.top - magnetPad && e.clientY < r.bottom + magnetPad;
+        if (withinX && withinY) {
+          const dx = (e.clientX - cx) / (r.width / 2 + magnetPad);
+          const dy = (e.clientY - cy) / (r.height / 2 + magnetPad);
+          btn.style.setProperty('--mx', (dx * 8) + 'px');
+          btn.style.setProperty('--my', (dy * 6) + 'px');
+        } else {
+          btn.style.setProperty('--mx', '0px');
+          btn.style.setProperty('--my', '0px');
+        }
+      });
+    });
+  }
+
+  // Horizontal-scroll process section (homepage only -- no-ops elsewhere)
+  (function () {
+    const outer = document.getElementById('hscrollOuter');
+    const track = document.getElementById('hscrollTrack');
+    const viewport = document.getElementById('hscrollViewport');
+    const fill = document.getElementById('hscrollFill');
+    if (!outer || !track || !viewport) return;
+    function update() {
+      const r = outer.getBoundingClientRect();
+      const stickyH = 320;
+      const total = r.height - stickyH;
+      const scrolled = -r.top;
+      const progress = total > 0 ? Math.max(0, Math.min(1, scrolled / total)) : 0;
+      const maxShift = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      if (!reduceMotion) track.style.transform = `translateX(-${progress * maxShift}px)`;
+      if (fill) fill.style.width = (progress * 100) + '%';
+    }
+    document.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
 </script>
 
 </body>
