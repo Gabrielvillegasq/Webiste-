@@ -1,0 +1,23 @@
+<!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
+Title: CRM de Ventas y Pipeline con monday.com | Trust Code
+Description: CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.
+(Squarespace already renders its own <title>/<meta description> from those fields --
+do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
+
+<title>CRM de Ventas y Pipeline con monday.com | Trust Code</title>
+<meta name="description" content="CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.">
+<link rel="canonical" href="https://www.trustcodemx.com/es/monday-sales-crm/">
+<link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/monday-sales-crm/">
+<link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/monday-sales-crm/">
+<link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/monday-sales-crm/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CRM de Ventas y Pipeline con monday.com | Trust Code">
+<meta property="og:description" content="CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.">
+<meta property="og:url" content="https://www.trustcodemx.com/es/monday-sales-crm/">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Trust Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CRM de Ventas y Pipeline con monday.com | Trust Code">
+<meta name="twitter:description" content="CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.trustcodemx.com/es/"}, {"@type": "ListItem", "position": 2, "name": "Ventas y CRM", "item": "https://www.trustcodemx.com/es/monday-sales-crm/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Convierte tu Pipeline en un Motor de Ingresos", "name": "Convierte tu Pipeline en un Motor de Ingresos", "description": "CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.", "areaServed": "MX", "inLanguage": "es-MX", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>

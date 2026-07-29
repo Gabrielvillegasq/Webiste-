@@ -1,0 +1,83 @@
+<section class="subhero" style="position:relative;">
+  <div class="ambient-blob" style="width:260px; height:260px; top:-70px; right:6%; background:rgba(97,97,255,0.14); animation-delay:-3s;"></div>
+  <div class="tc-wrap hero-split" style="position:relative;">
+    <div>
+      <span class="crumb hero-in" style="animation-delay:.05s"><a href="/"><span class="i18n" data-es="Soluciones" data-en="Solutions">Solutions</span></a> / <span class="accent"><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></span></span>
+      <h1 class="hero-in" style="animation-delay:.15s"><span class="i18n" data-es="Maximiza el ROI de tu Tecnolog&amp;iacute;a" data-en="Maximize Your Technology ROI">Maximize Your Technology ROI</span></h1>
+      <p class="lead hero-in" style="animation-delay:.25s"><span class="i18n" data-es="El software potente no sirve sin adopci&amp;oacute;n. Capacitamos a tu equipo para usarlo de verdad." data-en="Powerful software is useless without adoption. We train your team to actually use it.">Powerful software is useless without adoption. We train your team to actually use it.</span></p>
+      <a class="btn-primary hero-in" style="animation-delay:.35s" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Cont&amp;aacute;ctanos" data-en="Contact Us">Contact Us</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="diagram-card hero-in " id="tr-card" style="animation-delay:.2s">
+      <div class="diagram-head">
+        <span>TRAINING_ENGINE // trustcodemx</span>
+        <span style="color:var(--emerald)">&#9679; live</span>
+      </div>
+      <div class="ring-box" id="tr" style="position:relative; height:180px; --circ:364.4px; --offset:21.9px;">
+        <svg width="150" height="150" viewBox="0 0 150 150">
+          <circle cx="75" cy="75" r="58" fill="none" stroke="var(--line)" stroke-width="10"/>
+          <circle class="ring-fill" cx="75" cy="75" r="58" fill="none" stroke="var(--purple-bright)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 75 75)"/>
+        </svg>
+        <div class="ring-overlay">
+          <div class="ring-num count-num" data-target="94" data-suffix="%">0%</div>
+          <div class="ring-caption"><span class="i18n" data-es="Dominio del Equipo" data-en="Team Proficiency">Team Proficiency</span></div>
+        </div>
+      </div>
+      <script>document.getElementById('tr').classList.add('visible'); animateCounters(document.getElementById('tr'));</script>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap row-2">
+    <div class="col-block reveal">
+      <h3><span class="i18n" data-es="El Reto" data-en="The Challenge">The Challenge</span></h3>
+      <div class="item-list"><div class="it challenge icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Poco Compromiso" data-en="Low Engagement">Low Engagement</span></b><p><span class="i18n" data-es="Empleados regresan a correo y hojas de c&amp;aacute;lculo." data-en="Employees reverting to email and spreadsheets.">Employees reverting to email and spreadsheets.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.08s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Uso Inconsistente" data-en="Inconsistent Usage">Inconsistent Usage</span></b><p><span class="i18n" data-es="Distintos equipos, distintos silos." data-en="Different teams, different silos.">Different teams, different silos.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.16s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Funciones Desperdiciadas" data-en="Wasted Features">Wasted Features</span></b><p><span class="i18n" data-es="Solo se usa el 10% de la plataforma." data-en="Only 10% of the platform gets used.">Only 10% of the platform gets used.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.24s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Resistencia del Equipo" data-en="Team Resistance">Team Resistance</span></b><p><span class="i18n" data-es="La nueva tecnolog&amp;iacute;a se siente como carga." data-en="New tech feels like a burden.">New tech feels like a burden.</span></p></div></div></div>
+    </div>
+    <div class="col-block reveal">
+      <h3><span class="i18n" data-es="Nuestra Soluci&amp;oacute;n" data-en="Our Solution">Our Solution</span></h3>
+      <div class="item-list"><div class="it solution icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Curr&amp;iacute;culo por Rol" data-en="Role-Based Curriculum">Role-Based Curriculum</span></b><p><span class="i18n" data-es="Capacitaci&amp;oacute;n espec&amp;iacute;fica para cada rol." data-en="Training specific to each role.">Training specific to each role.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.08s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Talleres Pr&amp;aacute;cticos" data-en="Hands-On Workshops">Hands-On Workshops</span></b><p><span class="i18n" data-es="Con tus proyectos y datos reales." data-en="Using your real projects and data.">Using your real projects and data.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.16s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Formaci&amp;oacute;n de Formadores" data-en="Train-the-Trainer">Train-the-Trainer</span></b><p><span class="i18n" data-es="Expertos internos, formados por nosotros." data-en="Internal champions, built in-house.">Internal champions, built in-house.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.24s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Soporte Continuo" data-en="Ongoing Support">Ongoing Support</span></b><p><span class="i18n" data-es="Gu&amp;iacute;as, videos y sesiones de preguntas." data-en="Cheat sheets, videos, live Q&amp;amp;A.">Cheat sheets, videos, live Q&amp;A.</span></p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);">
+  <div class="tc-wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="i18n" data-es="lo que obtienes" data-en="what you get">what you get</span></span>
+      <h2><span class="i18n" data-es="Programas a la medida de tu equipo" data-en="Custom-tailored empowerment programs">Custom-tailored empowerment programs</span></h2>
+    </div>
+    <div class="getgrid reveal"><div class="getcard icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div><b><span class="i18n" data-es="Un Equipo Capaz" data-en="A Proficient Team">A Proficient Team</span></b><p><span class="i18n" data-es="Usuarios seguros y eficientes." data-en="Confident, efficient platform users.">Confident, efficient platform users.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.07s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M3 17l6-6 4 4 7-8"/><path d="M15 6h5v5"/></svg></div>
+      <div><b><span class="i18n" data-es="Ganancias Inmediatas" data-en="Immediate Gains">Immediate Gains</span></b><p><span class="i18n" data-es="Un aumento real en resultados, r&amp;aacute;pido." data-en="A real boost in output, fast.">A real boost in output, fast.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.14s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+      <div><b><span class="i18n" data-es="Cultura de Eficiencia" data-en="Culture of Efficiency">Culture of Efficiency</span></b><p><span class="i18n" data-es="Un equipo que busca mejores flujos." data-en="A team that seeks smarter workflows.">A team that seeks smarter workflows.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.21s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="ROI Garantizado" data-en="Guaranteed ROI">Guaranteed ROI</span></b><p><span class="i18n" data-es="Tu inversi&amp;oacute;n por fin rinde frutos." data-en="Your investment finally pays off.">Your investment finally pays off.</span></p></div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap final-cta reveal">
+    <span class="eyebrow" style="justify-content:center"><span class="i18n" data-es="listos cuando t&amp;uacute; lo est&amp;eacute;s" data-en="ready when you are">ready when you are</span></span>
+    <h2><span class="i18n" data-es="&amp;iquest;Listo para cerrar la brecha de adopci&amp;oacute;n?" data-en="Ready to close the adoption gap?">Ready to close the adoption gap?</span></h2>
+    <p><span class="i18n" data-es="Construyamos capacitaci&amp;oacute;n para tu flujo de trabajo real." data-en="Let&#x27;s build training around your workflows, not a generic deck.">Let's build training around your workflows, not a generic deck.</span></p>
+    <a class="btn-primary" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Cont&amp;aacute;ctanos" data-en="Contact Us">Contact Us</span></a>
+  </div>
+</section>

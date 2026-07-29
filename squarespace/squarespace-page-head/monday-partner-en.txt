@@ -1,0 +1,23 @@
+<!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
+Title: Certified monday.com Partner in Mexico | Trust Code
+Description: Trust Code is an officially certified monday.com implementation partner — verified expertise, ongoing training, and direct access to monday.com's own resources.
+(Squarespace already renders its own <title>/<meta description> from those fields --
+do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
+
+<title>Certified monday.com Partner in Mexico | Trust Code</title>
+<meta name="description" content="Trust Code is an officially certified monday.com implementation partner — verified expertise, ongoing training, and direct access to monday.com&#x27;s own resources.">
+<link rel="canonical" href="https://www.trustcodemx.com/monday-partner/">
+<link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/monday-partner/">
+<link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/monday-partner/">
+<link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/monday-partner/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Certified monday.com Partner in Mexico | Trust Code">
+<meta property="og:description" content="Trust Code is an officially certified monday.com implementation partner — verified expertise, ongoing training, and direct access to monday.com&#x27;s own resources.">
+<meta property="og:url" content="https://www.trustcodemx.com/monday-partner/">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Trust Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Certified monday.com Partner in Mexico | Trust Code">
+<meta name="twitter:description" content="Trust Code is an officially certified monday.com implementation partner — verified expertise, ongoing training, and direct access to monday.com&#x27;s own resources.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustcodemx.com/"}, {"@type": "ListItem", "position": 2, "name": "Certified Partner", "item": "https://www.trustcodemx.com/monday-partner/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "A Certified Partner, Not Just a Freelancer", "name": "A Certified Partner, Not Just a Freelancer", "description": "Trust Code is an officially certified monday.com implementation partner — verified expertise, ongoing training, and direct access to monday.com's own resources.", "areaServed": "MX", "inLanguage": "en", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>

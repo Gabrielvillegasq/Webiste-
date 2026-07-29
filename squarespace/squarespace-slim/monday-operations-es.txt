@@ -1,0 +1,78 @@
+<section class="subhero" style="position:relative;">
+  <div class="ambient-blob" style="width:260px; height:260px; top:-70px; right:6%; background:rgba(97,97,255,0.14); animation-delay:-3s;"></div>
+  <div class="tc-wrap hero-split" style="position:relative;">
+    <div>
+      <span class="crumb hero-in" style="animation-delay:.05s"><a href="/es/"><span class="i18n" data-es="Soluciones" data-en="Solutions">Soluciones</span></a> / <span class="accent"><span class="i18n" data-es="Operaciones" data-en="Operations">Operaciones</span></span></span>
+      <h1 class="hero-in" style="animation-delay:.15s"><span class="i18n" data-es="Escala Sin Escalar el Caos" data-en="Scale Without Scaling the Chaos">Escala Sin Escalar el Caos</span></h1>
+      <p class="lead hero-in" style="animation-delay:.25s"><span class="i18n" data-es="Escalar un proceso roto solo agranda las grietas. Redise&amp;ntilde;amos c&amp;oacute;mo trabaja tu empresa." data-en="Scaling a broken process only magnifies the cracks. We rewire how your company works.">Escalar un proceso roto solo agranda las grietas. Redise&ntilde;amos c&oacute;mo trabaja tu empresa.</span></p>
+      <a class="btn-primary hero-in" style="animation-delay:.35s" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Mapea Mis Procesos" data-en="Map My Processes">Mapea Mis Procesos</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="diagram-card hero-in " id="op-card" style="animation-delay:.2s">
+      <div class="diagram-head">
+        <span>OPS_ENGINE // trustcodemx</span>
+        <span style="color:var(--emerald)">&#9679; live</span>
+      </div>
+      <div class="gear-wrap" id="op">
+        <svg class="gear" width="110" height="110" viewBox="-40 -40 80 80" style="left:38%; top:14%; animation-duration:14s;"><polygon points="34.0,0.0 25.7,8.3 27.5,20.0 15.9,21.8 10.5,32.3 0.0,27.0 -10.5,32.3 -15.9,21.8 -27.5,20.0 -25.7,8.3 -34.0,0.0 -25.7,-8.3 -27.5,-20.0 -15.9,-21.8 -10.5,-32.3 -0.0,-27.0 10.5,-32.3 15.9,-21.8 27.5,-20.0 25.7,-8.3" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.5"/><circle cx="0" cy="0" r="11" fill="var(--bg)" stroke="var(--line)" stroke-width="1.5"/></svg>
+        <svg class="gear rev" width="76" height="76" viewBox="-26 -26 52 52" style="left:58%; top:42%; animation-duration:9s;"><polygon points="22.0,0.0 15.7,6.5 15.6,15.6 6.5,15.7 0.0,22.0 -6.5,15.7 -15.6,15.6 -15.7,6.5 -22.0,0.0 -15.7,-6.5 -15.6,-15.6 -6.5,-15.7 -0.0,-22.0 6.5,-15.7 15.6,-15.6 15.7,-6.5" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.5"/><circle cx="0" cy="0" r="7" fill="var(--bg)" stroke="var(--line)" stroke-width="1.5"/></svg>
+        <span class="uptime-tag">&#9679; <span class="count-num" data-target="99.9" data-suffix="%">0%</span> <span class="i18n" data-es="Disponibilidad" data-en="Uptime">Uptime</span></span>
+      </div>
+      <script>animateCounters(document.getElementById('op'));</script>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap row-2">
+    <div class="col-block reveal">
+      <h3><span class="i18n" data-es="El Reto" data-en="The Challenge">El Reto</span></h3>
+      <div class="item-list"><div class="it challenge icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="M&amp;aacute;s Lento al Escalar" data-en="Slower at Scale">M&aacute;s Lento al Escalar</span></b><p><span class="i18n" data-es="M&amp;aacute;s gente, pero la ejecuci&amp;oacute;n se frena." data-en="More hires, yet execution slows down.">M&aacute;s gente, pero la ejecuci&oacute;n se frena.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.08s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Flujos Enterrados" data-en="Buried Workflows">Flujos Enterrados</span></b><p><span class="i18n" data-es="Trabajo perdido en chats y hojas de c&amp;aacute;lculo." data-en="Work lost in chat apps and sheets.">Trabajo perdido en chats y hojas de c&aacute;lculo.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.16s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Apagar Incendios" data-en="Constant Firefighting">Apagar Incendios</span></b><p><span class="i18n" data-es="L&amp;iacute;deres gestionando crisis, no estrategia." data-en="Leaders managing crises, not strategy.">L&iacute;deres gestionando crisis, no estrategia.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.24s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="No Es de Herramientas" data-en="Not a Tool Problem">No Es de Herramientas</span></b><p><span class="i18n" data-es="Necesitas un redise&amp;ntilde;o, no otra app." data-en="You need an overhaul, not another app.">Necesitas un redise&ntilde;o, no otra app.</span></p></div></div></div>
+    </div>
+    <div class="col-block reveal">
+      <h3><span class="i18n" data-es="Nuestra Soluci&amp;oacute;n" data-en="Our Solution">Nuestra Soluci&oacute;n</span></h3>
+      <div class="item-list"><div class="it solution icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Ejecuci&amp;oacute;n Sin Fricci&amp;oacute;n" data-en="Frictionless Execution">Ejecuci&oacute;n Sin Fricci&oacute;n</span></b><p><span class="i18n" data-es="Procesos clave migrados a monday.com." data-en="Core processes migrated into monday.com.">Procesos clave migrados a monday.com.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.08s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Responsabilidad Autom&amp;aacute;tica" data-en="Automated Accountability">Responsabilidad Autom&aacute;tica</span></b><p><span class="i18n" data-es="Plazos y aprobaciones se activan solos." data-en="Deadlines and approvals trigger themselves.">Plazos y aprobaciones se activan solos.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.16s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Visibilidad Ejecutiva" data-en="Executive Visibility">Visibilidad Ejecutiva</span></b><p><span class="i18n" data-es="Pulso en tiempo real de capacidad y salud." data-en="Real-time pulse on capacity and health.">Pulso en tiempo real de capacidad y salud.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.24s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Detecci&amp;oacute;n Temprana" data-en="Early Risk Detection">Detecci&oacute;n Temprana</span></b><p><span class="i18n" data-es="Detecta riesgos antes de que frenen todo." data-en="Spot risks before they&#x27;re roadblocks.">Detecta riesgos antes de que frenen todo.</span></p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);">
+  <div class="tc-wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="i18n" data-es="lo que obtienes" data-en="what you get">lo que obtienes</span></span>
+      <h2><span class="i18n" data-es="Tus operaciones, redise&amp;ntilde;adas" data-en="Your operations, rewired">Tus operaciones, redise&ntilde;adas</span></h2>
+    </div>
+    <div class="getgrid reveal"><div class="getcard icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M10 14a5 5 0 0 1 0-7l2-2a5 5 0 0 1 7 7l-1 1"/><path d="M14 10a5 5 0 0 1 0 7l-2 2a5 5 0 0 1-7-7l1-1"/></svg></div>
+      <div><b><span class="i18n" data-es="Ejecuci&amp;oacute;n Sin Fricci&amp;oacute;n" data-en="Frictionless Execution">Ejecuci&oacute;n Sin Fricci&oacute;n</span></b><p><span class="i18n" data-es="Se acab&amp;oacute; adivinar qui&amp;eacute;n hace qu&amp;eacute;." data-en="No more guessing who owns what.">Se acab&oacute; adivinar qui&eacute;n hace qu&eacute;.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.07s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Responsabilidad Autom&amp;aacute;tica" data-en="Automated Accountability">Responsabilidad Autom&aacute;tica</span></b><p><span class="i18n" data-es="Actualizaciones que se activan solas." data-en="Status updates trigger by themselves.">Actualizaciones que se activan solas.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.14s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/><path d="M2 20h20"/></svg></div>
+      <div><b><span class="i18n" data-es="Salud en Tiempo Real" data-en="Real-Time Health">Salud en Tiempo Real</span></b><p><span class="i18n" data-es="Capacidad visible de un vistazo." data-en="Capacity visible at a glance.">Capacidad visible de un vistazo.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.21s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M3 17l6-6 4 4 7-8"/><path d="M15 6h5v5"/></svg></div>
+      <div><b><span class="i18n" data-es="Un Catalizador" data-en="A Growth Catalyst">Un Catalizador</span></b><p><span class="i18n" data-es="Operaciones que crecen contigo." data-en="Operations that scale with you.">Operaciones que crecen contigo.</span></p></div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap final-cta reveal">
+    <span class="eyebrow" style="justify-content:center"><span class="i18n" data-es="listos cuando t&amp;uacute; lo est&amp;eacute;s" data-en="ready when you are">listos cuando t&uacute; lo est&eacute;s</span></span>
+    <h2><span class="i18n" data-es="&amp;iquest;Listo para que operaciones sea tu motor?" data-en="Ready to make ops your catalyst?">&iquest;Listo para que operaciones sea tu motor?</span></h2>
+    <p><span class="i18n" data-es="Mapeemos lo que realmente est&amp;aacute; roto y reconstruy&amp;aacute;moslo." data-en="Let&#x27;s map what&#x27;s actually broken and rebuild it.">Mapeemos lo que realmente est&aacute; roto y reconstruy&aacute;moslo.</span></p>
+    <a class="btn-primary" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Mapea Mis Procesos" data-en="Map My Processes">Mapea Mis Procesos</span></a>
+  </div>
+</section>

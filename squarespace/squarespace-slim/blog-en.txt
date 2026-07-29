@@ -1,0 +1,78 @@
+<section class="subhero" style="position:relative;">
+  <div class="ambient-blob" style="width:260px; height:260px; top:-70px; right:6%; background:rgba(97,97,255,0.14); animation-delay:-3s;"></div>
+  <div class="tc-wrap" style="position:relative;">
+    <span class="crumb hero-in" style="animation-delay:.05s"><span class="i18n" data-es="Recursos" data-en="Resources">Resources</span> / <span class="accent"><span class="i18n" data-es="Blog" data-en="Blog">Blog</span></span></span>
+    <h1 class="hero-in" style="animation-delay:.15s"><span class="i18n" data-es="Ideas, Gu&amp;iacute;as y Casos de &amp;Eacute;xito" data-en="Insights, Guides &amp;amp; Case Studies">Insights, Guides &amp; Case Studies</span></h1>
+    <p class="lead hero-in" style="animation-delay:.25s"><span class="i18n" data-es="Conocimiento pr&amp;aacute;ctico de monday.com basado en trabajo real con clientes." data-en="Practical monday.com knowledge from real client work.">Practical monday.com knowledge from real client work.</span></p>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap">
+    <div class="grid-3">
+      <a class="blog-card icon-pop reveal" href="https://wkf.ms/49age3d" style="transition-delay:0.00s; text-decoration:none;">
+      <div class="blog-thumb" style="background:linear-gradient(135deg, var(--purple) 0%, #8A8AFF 100%);"></div>
+      <div class="blog-body">
+        <span class="blog-tag"><span class="i18n" data-es="Estrategia" data-en="Strategy">Strategy</span></span>
+        <h4><span class="i18n" data-es="5 Señales de que tu Equipo Necesita un Work OS" data-en="5 Signs Your Team Needs a Work OS">5 Signs Your Team Needs a Work OS</span></h4>
+        <p><span class="i18n" data-es="Cómo saber cuándo las hojas de cálculo ya no alcanzan para tu equipo." data-en="How to tell when spreadsheets have stopped being enough for your team.">How to tell when spreadsheets have stopped being enough for your team.</span></p>
+        <span class="blog-meta">Jun 12, 2026 &middot; <span class="i18n" data-es="4 min de lectura" data-en="4 min read">4 min read</span></span>
+      </div>
+    </a>
+<a class="blog-card icon-pop reveal" href="https://wkf.ms/49age3d" style="transition-delay:0.06s; text-decoration:none;">
+      <div class="blog-thumb" style="background:linear-gradient(135deg, var(--emerald) 0%, #4FD69C 100%);"></div>
+      <div class="blog-body">
+        <span class="blog-tag"><span class="i18n" data-es="Caso de Éxito" data-en="Case Study">Case Study</span></span>
+        <h4><span class="i18n" data-es="Cómo Redujimos el Tiempo de Reportes en 80%" data-en="How We Cut Reporting Time by 80%">How We Cut Reporting Time by 80%</span></h4>
+        <p><span class="i18n" data-es="Un caso real: de hojas de cálculo manuales a dashboards en vivo." data-en="A real client walkthrough: from manual spreadsheets to live dashboards.">A real client walkthrough: from manual spreadsheets to live dashboards.</span></p>
+        <span class="blog-meta">Jun 2, 2026 &middot; <span class="i18n" data-es="6 min de lectura" data-en="6 min read">6 min read</span></span>
+      </div>
+    </a>
+<a class="blog-card icon-pop reveal" href="https://wkf.ms/49age3d" style="transition-delay:0.12s; text-decoration:none;">
+      <div class="blog-thumb" style="background:linear-gradient(135deg, var(--purple) 0%, #8A8AFF 100%);"></div>
+      <div class="blog-body">
+        <span class="blog-tag"><span class="i18n" data-es="Comparativa" data-en="Comparison">Comparison</span></span>
+        <h4><span class="i18n" data-es="monday.com vs. Asana: ¿Cuál te Conviene?" data-en="monday.com vs. Asana: Which Fits You">monday.com vs. Asana: Which Fits You</span></h4>
+        <p><span class="i18n" data-es="Una comparación práctica y directa para equipos en crecimiento." data-en="A practical, no-nonsense comparison for growing teams.">A practical, no-nonsense comparison for growing teams.</span></p>
+        <span class="blog-meta">May 20, 2026 &middot; <span class="i18n" data-es="5 min de lectura" data-en="5 min read">5 min read</span></span>
+      </div>
+    </a>
+<a class="blog-card icon-pop reveal" href="https://wkf.ms/49age3d" style="transition-delay:0.18s; text-decoration:none;">
+      <div class="blog-thumb" style="background:linear-gradient(135deg, var(--emerald) 0%, #4FD69C 100%);"></div>
+      <div class="blog-body">
+        <span class="blog-tag"><span class="i18n" data-es="Automatización" data-en="Automation">Automation</span></span>
+        <h4><span class="i18n" data-es="Automatiza tu Pipeline de Ventas en 3 Pasos" data-en="Automate Your Sales Pipeline in 3 Steps">Automate Your Sales Pipeline in 3 Steps</span></h4>
+        <p><span class="i18n" data-es="Ruteo de leads sin fricción, sin tocar una sola hoja de cálculo." data-en="Zero-friction lead routing, without touching a single spreadsheet.">Zero-friction lead routing, without touching a single spreadsheet.</span></p>
+        <span class="blog-meta">May 8, 2026 &middot; <span class="i18n" data-es="3 min de lectura" data-en="3 min read">3 min read</span></span>
+      </div>
+    </a>
+<a class="blog-card icon-pop reveal" href="https://wkf.ms/49age3d" style="transition-delay:0.24s; text-decoration:none;">
+      <div class="blog-thumb" style="background:linear-gradient(135deg, var(--purple) 0%, #8A8AFF 100%);"></div>
+      <div class="blog-body">
+        <span class="blog-tag"><span class="i18n" data-es="Capacitación" data-en="Training">Training</span></span>
+        <h4><span class="i18n" data-es="El Verdadero ROI de una Buena Capacitación" data-en="The Real ROI of Proper Onboarding">The Real ROI of Proper Onboarding</span></h4>
+        <p><span class="i18n" data-es="Por qué las primeras dos semanas deciden si tu herramienta sobrevive." data-en="Why the first two weeks decide whether your tool sticks or dies.">Why the first two weeks decide whether your tool sticks or dies.</span></p>
+        <span class="blog-meta">Apr 28, 2026 &middot; <span class="i18n" data-es="4 min de lectura" data-en="4 min read">4 min read</span></span>
+      </div>
+    </a>
+<a class="blog-card icon-pop reveal" href="https://wkf.ms/49age3d" style="transition-delay:0.30s; text-decoration:none;">
+      <div class="blog-thumb" style="background:linear-gradient(135deg, var(--emerald) 0%, #4FD69C 100%);"></div>
+      <div class="blog-body">
+        <span class="blog-tag"><span class="i18n" data-es="Noticias" data-en="News">News</span></span>
+        <h4><span class="i18n" data-es="TrustCode Ya Está Certificado en monday CRM" data-en="TrustCode Is Now Certified in monday CRM">TrustCode Is Now Certified in monday CRM</span></h4>
+        <p><span class="i18n" data-es="Una certificación más, una razón más para confiar en el proceso." data-en="One more certification, one more reason to trust the process.">One more certification, one more reason to trust the process.</span></p>
+        <span class="blog-meta">Apr 15, 2026 &middot; <span class="i18n" data-es="2 min de lectura" data-en="2 min read">2 min read</span></span>
+      </div>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap final-cta reveal">
+    <span class="eyebrow" style="justify-content:center"><span class="i18n" data-es="mant&amp;eacute;nte al d&amp;iacute;a" data-en="stay updated">stay updated</span></span>
+    <h2><span class="i18n" data-es="Nuevos art&amp;iacute;culos directo a tu correo" data-en="New posts, straight to your inbox">New posts, straight to your inbox</span></h2>
+    <p><span class="i18n" data-es="Sin spam. Solo tips de monday.com que realmente ayudan." data-en="No spam. Just monday.com tips that actually help.">No spam. Just monday.com tips that actually help.</span></p>
+    <a class="btn-primary" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Suscr&amp;iacute;bete" data-en="Subscribe">Subscribe</span></a>
+  </div>
+</section>

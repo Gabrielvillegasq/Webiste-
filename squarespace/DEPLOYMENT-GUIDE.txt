@@ -1,0 +1,258 @@
+TRUST CODE MX -- SQUARESPACE DEPLOYMENT GUIDE
+================================================
+Everything below refers to files in this same folder. Read this whole
+thing once before touching Squarespace -- the four code locations are
+easy to mix up.
+
+WHAT'S IN THIS FOLDER
+----------------------
+build_v4.py                  the generator script (only touch this if you
+                              want to change copy/logic and regenerate)
+preview/                     18 full standalone HTML files, one per page
+                              per language -- open these directly in a
+                              browser to proof-read before you deploy
+                              anything. NOT what you paste into Squarespace.
+squarespace-sitewide/
+  head-injection.txt         paste ONCE, site-wide
+  footer-injection.txt       paste ONCE, site-wide
+squarespace-slim/            18 files, ONE per page per language --
+  <page>-en.txt / <page>-es.txt   each pastes into that ONE page's own
+                              Code Block
+squarespace-page-head/       18 files, ONE per page per language -- each
+  <page>-en.txt / <page>-es.txt   pastes into that ONE page's own "Page
+                              Header Code Injection" field
+sitemap.xml, robots.txt      reference only -- see the note near the
+                              bottom, Squarespace generates its own
+
+
+THE FOUR SQUARESPACE LOCATIONS (don't mix these up)
+-----------------------------------------------------
+1. Settings -> Advanced -> Code Injection -> HEADER   (site-wide, once)
+2. Settings -> Advanced -> Code Injection -> FOOTER    (site-wide, once)
+3. Each page's own Code Block, added in the page content area (per page)
+4. Each page's own Page Settings -> Advanced -> "Page Header Code
+   Injection"                                          (per page, requires
+                                                         Business plan or
+                                                         higher)
+
+
+STEP 1 -- Site-wide code (do this once)
+-----------------------------------------
+a) Settings -> Advanced -> Code Injection -> HEADER field:
+   paste the entire contents of squarespace-sitewide/head-injection.txt
+
+b) Settings -> Advanced -> Code Injection -> FOOTER field:
+   paste the entire contents of squarespace-sitewide/footer-injection.txt
+
+c) Design -> Custom CSS (or Custom CSS panel), add:
+     header:not(#tc-header) { display: none !important; }
+     footer:not(#tc-footer) { display: none !important; }
+   This hides Squarespace's own template header/footer so only ours shows.
+   (If your whole page looks broken after this, it's almost always because
+   the header/footer injection from step (a)/(b) didn't save -- re-check
+   those two fields before touching this CSS again.)
+
+
+STEP 2 -- Create the pages
+----------------------------
+Create these EXACT page slugs (Squarespace: Pages panel -> add page ->
+set the URL slug in page settings). English pages at the top level:
+
+  /                       (homepage)
+  /work-management
+  /team-training
+  /marketing-crm-solutions
+  /monday-operations
+  /monday-sales-crm
+  /monday-partner
+  /about-us
+  /blog
+
+Then create a Folder in the Pages panel named "es" (this makes its
+children live at /es/...), and inside it create the same 8 subpages plus
+a home page, so you end up with:
+
+  /es/
+  /es/work-management
+  /es/team-training
+  /es/marketing-crm-solutions
+  /es/monday-operations
+  /es/monday-sales-crm
+  /es/monday-partner
+  /es/about-us
+  /es/blog
+
+Set every one of these 18 pages to "don't show in navigation" in
+Squarespace's own menu settings -- our injected header (Step 1) is the
+real navigation; you don't want both showing up.
+
+
+STEP 3 -- Fill in each page (repeat for all 18)
+--------------------------------------------------
+For page X in language L:
+  1. Add a Code Block to the page's main content area, paste the ENTIRE
+     contents of  squarespace-slim/X-L.txt  into it.
+  2. Open that page's Settings -> SEO tab:
+       - Title: copy from the table below
+       - Description: copy from the table below
+  3. Open that page's Settings -> Advanced -> "Page Header Code
+     Injection" (only visible on Business plan and up) and paste the
+     entire contents of  squarespace-page-head/X-L.txt
+     (this file also repeats the Title/Description as a comment at the
+     top, purely as a reminder -- don't paste that comment anywhere,
+     just the code below it, which the file already only contains once).
+
+If your plan doesn't have per-page Header Code Injection, canonical /
+hreflang / JSON-LD simply won't go out for that page -- the site still
+works, you just lose some of the SEO benefit on that one page. Everything
+else in this guide still applies regardless of plan.
+
+
+TITLE / DESCRIPTION REFERENCE (paste into Squarespace's native SEO fields)
+----------------------------------------------------------------------------
+Home (EN):
+  Title:  Trust Code | monday.com Consulting & Custom Workflow Automation in Mexico
+  Desc:   Certified monday.com partner in Mexico. We design custom workflows, automations, dashboards, and CRM systems that turn operational chaos into measurable growth. Book a free strategy session.
+Home (ES):
+  Title:  Trust Code | Consultoría y Automatización monday.com en México
+  Desc:   Socio certificado de monday.com en México. Diseñamos flujos de trabajo, automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.
+
+Work Management (EN):
+  Title:  monday.com Work Management Consulting | Trust Code
+  Desc:   Custom monday.com work management systems built by a certified partner in Mexico. Real-time dashboards, one source of truth, and full visibility across every team.
+Work Management (ES):
+  Title:  Gestión del Trabajo con monday.com | Consultoría Trust Code
+  Desc:   Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.
+
+Training (EN):
+  Title:  monday.com Training & Team Adoption Programs | Trust Code
+  Desc:   Hands-on monday.com training and workshops that drive real adoption. Role-based curriculum, train-the-trainer programs, and ongoing support from a certified partner in Mexico.
+Training (ES):
+  Title:  Capacitación en monday.com para Equipos | Trust Code
+  Desc:   Talleres y capacitación práctica en monday.com que garantizan adopción real. Programas por rol, formación de formadores y soporte continuo, con un socio certificado en México.
+
+Marketing & CRM (EN):
+  Title:  monday.com Marketing & CRM Solutions | Trust Code
+  Desc:   Full-funnel monday.com marketing systems with measurable ROI. Campaign hubs, lead routing automation, and integrated reporting built by a certified partner in Mexico.
+Marketing & CRM (ES):
+  Title:  Marketing y CRM con monday.com | Trust Code
+  Desc:   Sistemas de marketing en monday.com con visibilidad total del embudo y ROI medible. Automatización de leads, reportes integrados y más, con un socio certificado en México.
+
+Operations (EN):
+  Title:  monday.com Operations & Process Automation | Trust Code
+  Desc:   Scale your operations without scaling the chaos. Custom monday.com process automation, accountability tracking, and real-time health dashboards from a certified Mexican partner.
+Operations (ES):
+  Title:  Operaciones y Automatización de Procesos con monday.com | Trust Code
+  Desc:   Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.
+
+Sales & CRM (EN):
+  Title:  monday.com Sales CRM & Pipeline Management | Trust Code
+  Desc:   Custom monday.com CRM builds for faster sales cycles. Automated lead routing, live forecasting, and a pipeline engineered for velocity -- by a certified partner in Mexico.
+Sales & CRM (ES):
+  Title:  CRM de Ventas y Pipeline con monday.com | Trust Code
+  Desc:   CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.
+
+Certified Partner (EN):
+  Title:  Certified monday.com Partner in Mexico | Trust Code
+  Desc:   Trust Code is an officially certified monday.com implementation partner -- verified expertise, ongoing training, and direct access to monday.com's own resources.
+Certified Partner (ES):
+  Title:  Socio Certificado de monday.com en México | Trust Code
+  Desc:   Trust Code es socio certificado de monday.com -- experiencia verificada, capacitación continua y acceso directo a los recursos oficiales de la plataforma.
+
+About Us (EN):
+  Title:  About Trust Code | monday.com Consulting Partner in Mexico
+  Desc:   Trust Code is a certified monday.com partner in Mexico on a mission to end operational friction -- consultants first, technologists second.
+About Us (ES):
+  Title:  Nosotros | Trust Code, Socio de Consultoría monday.com en México
+  Desc:   Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa -- consultores primero, tecnólogos después.
+
+Blog (EN):
+  Title:  Blog | monday.com Insights & Case Studies | Trust Code
+  Desc:   Practical monday.com tips, automation guides, and real client case studies from the Trust Code team in Mexico.
+Blog (ES):
+  Title:  Blog | Ideas y Casos de Éxito sobre monday.com | Trust Code
+  Desc:   Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code en México.
+
+
+STEP 4 -- Swapping in your real logo + monday.com partner badge
+--------------------------------------------------------------------
+Right now every page shows a clean text "trustcode mx" wordmark and a
+text+icon "monday.com Certified Partner" pill instead of your real
+images (they came through the chat as pictures I could see, but not as
+files I could actually open and embed -- a limitation of this session,
+not something you did wrong).
+
+Easiest fix, no design tool needed:
+  1. In Squarespace, upload your logo file and the official monday.com
+     partner badge image anywhere (e.g. drop each into an Image Block on
+     any page, or Settings -> Assets if your plan has a media library).
+  2. Click each uploaded image and copy its file URL -- it will look like
+     https://images.squarespace-cdn.com/content/v1/.../logo.png
+  3. Open build_v4.py, near the top, and fill in:
+       LOGO_IMG_URL = "https://images.squarespace-cdn.com/.../your-logo.png"
+       MONDAY_BADGE_IMG_URL = "https://images.squarespace-cdn.com/.../badge.png"
+  4. Re-run:  python3 build_v4.py
+  5. Re-paste the (now updated) squarespace-slim/*.txt and
+     squarespace-sitewide/footer-injection.txt files into their spots.
+If you'd rather send me the files directly (attach through the file/
+upload button, not pasted inline as a picture), I can do steps 3-5 for
+you in one pass.
+
+
+ABOUT sitemap.xml AND robots.txt
+------------------------------------
+Squarespace automatically generates and serves its own /sitemap.xml and
+/robots.txt for your domain -- most plans don't let you upload a file to
+override those exact paths. The sitemap.xml and robots.txt in this
+folder are provided as a REFERENCE (the full, correct list of all 18
+URLs with their hreflang pairings) -- useful for manually submitting URLs
+to Google Search Console, or if the site is ever migrated off
+Squarespace. Squarespace's own auto-generated sitemap will pick up these
+pages automatically once they're published and out of "don't show in
+navigation" limbo is not required for indexing (that setting only
+affects the visible menu, not crawlability).
+
+
+WHAT'S GENUINELY NEW / FIXED vs. the previous build
+-------------------------------------------------------
+- Every page now has canonical + hreflang (en/es/x-default) + OpenGraph +
+  JSON-LD structured data. Previously ONLY the homepage had any of this --
+  none of the 7 subpages or the blog did.
+- All 7 subpages + the blog now have a REAL, separately-indexable Spanish
+  page at /es/... with fluent, distinct copy -- not just the old
+  same-URL JS toggle (which search engines don't treat as real Spanish
+  content). Only the homepage had a real Spanish version before.
+- Fixed: subpage navigation used to link to English URLs even on Spanish
+  pages (e.g. the Spanish "Certified Partner" nav link pointed at
+  /monday-partner instead of /es/monday-partner). Every internal link is
+  now language-aware.
+- Fixed: the client-side EN/ES toggle button used to always assume the
+  page started in English, so on a Spanish page the button could get out
+  of sync. It now reads the page's own language correctly.
+- Fixed: an invalid `height="auto"` SVG attribute on every animated
+  diagram was throwing a console error on every single page load.
+- Removed ~47KB of embedded base64 logo/badge images that were bloating
+  every page; replaced with lightweight placeholders (see Step 4).
+- Kept the client-side EN/ES toggle button, per your call, even though
+  the real per-language pages now make it a "nice to have" rather than
+  the only way to read the site in Spanish.
+
+
+STILL OPEN (carried over from the original handoff, unchanged)
+-------------------------------------------------------------------
+- /blog is a static design reference with placeholder posts, not a real
+  Squarespace Blog Collection. Set one up natively for actual publishing,
+  then this page's design can be adapted to skin it.
+- You mentioned wanting your personal monday.com referral/affiliate link
+  as a secondary CTA -- still needed from you before it can be added.
+- Double-check "Set as Homepage" is correctly pointed at your new "/"
+  page and not an old default Squarespace homepage.
+- One inherent limitation of the code-injection approach: the <html
+  lang="..."> attribute is set by JavaScript after the page loads
+  (matching the page's real language), not by Squarespace itself at the
+  server level. This is a minor, known limitation of building bilingual
+  pages this way on a platform you don't control the server templating
+  of -- if your Squarespace plan ever supports native multi-language
+  sites, that would be a more robust long-term fix. It does not stop
+  search engines from indexing the correct language via hreflang, which
+  is the part that actually matters most for SEO.

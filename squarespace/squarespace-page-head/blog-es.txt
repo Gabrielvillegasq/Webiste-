@@ -1,0 +1,22 @@
+<!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
+Title: Blog | Ideas y Casos de Éxito sobre monday.com | Trust Code
+Description: Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code en México.
+(Squarespace already renders its own <title>/<meta description> from those fields --
+do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
+
+<title>Blog | Ideas y Casos de Éxito sobre monday.com | Trust Code</title>
+<meta name="description" content="Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code en México.">
+<link rel="canonical" href="https://www.trustcodemx.com/es/blog/">
+<link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/blog/">
+<link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/blog/">
+<link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog | Ideas y Casos de Éxito sobre monday.com | Trust Code">
+<meta property="og:description" content="Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code en México.">
+<meta property="og:url" content="https://www.trustcodemx.com/es/blog/">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Trust Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Ideas y Casos de Éxito sobre monday.com | Trust Code">
+<meta name="twitter:description" content="Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code en México.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.trustcodemx.com/es/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.trustcodemx.com/es/blog/"}]}</script>

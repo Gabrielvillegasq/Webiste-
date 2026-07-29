@@ -1,0 +1,81 @@
+<section class="subhero" style="position:relative;">
+  <div class="ambient-blob" style="width:260px; height:260px; top:-70px; right:6%; background:rgba(97,97,255,0.14); animation-delay:-3s;"></div>
+  <div class="tc-wrap hero-split" style="position:relative;">
+    <div>
+      <span class="crumb hero-in" style="animation-delay:.05s"><a href="/"><span class="i18n" data-es="Soluciones" data-en="Solutions">Solutions</span></a> / <span class="accent"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></span></span>
+      <h1 class="hero-in" style="animation-delay:.15s"><span class="i18n" data-es="Convierte tu Pipeline en un Motor de Ingresos" data-en="Turn Your Pipeline Into a Revenue Engine">Turn Your Pipeline Into a Revenue Engine</span></h1>
+      <p class="lead hero-in" style="animation-delay:.25s"><span class="i18n" data-es="El crecimiento se detiene sin la infraestructura correcta. Dise&amp;ntilde;amos un proceso de ventas sin fricci&amp;oacute;n." data-en="Growth stalls when sales infrastructure can&#x27;t keep up. We design a seamless sales journey.">Growth stalls when sales infrastructure can't keep up. We design a seamless sales journey.</span></p>
+      <a class="btn-primary hero-in" style="animation-delay:.35s" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Acelera Mi Pipeline" data-en="Accelerate My Pipeline">Accelerate My Pipeline</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="diagram-card hero-in " id="sc-card" style="animation-delay:.2s">
+      <div class="diagram-head">
+        <span>SALES_ENGINE // trustcodemx</span>
+        <span style="color:var(--emerald)">&#9679; live</span>
+      </div>
+      <div class="chart-wrap roi-target" id="sc" style="padding:4px 6px;">
+        <div class="chart-num-row">
+          <span class="chart-num count-num" data-target="284500" data-prefix="$">$0</span>
+          <span style="color:var(--emerald); font-size:13px;">&#9650; +18%</span>
+        </div>
+        <div class="chart-bars-row"><div class="roi-bar b1" style="height:38%; transition-delay:0.00s;"></div><div class="roi-bar b2" style="height:55%; transition-delay:0.08s;"></div><div class="roi-bar b3" style="height:46%; transition-delay:0.16s;"></div><div class="roi-bar b1" style="height:72%; transition-delay:0.24s;"></div><div class="roi-bar b2" style="height:64%; transition-delay:0.32s;"></div><div class="roi-bar b3" style="height:95%; transition-delay:0.40s;"></div></div>
+        <div class="ring-caption" style="margin-top:10px;"><span class="i18n" data-es="Valor del Pipeline (MXN)" data-en="Pipeline Value (MXN)">Pipeline Value (MXN)</span></div>
+      </div>
+      <script>document.getElementById('sc').classList.add('visible'); animateCounters(document.getElementById('sc'));</script>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap row-2">
+    <div class="col-block reveal">
+      <h3><span class="i18n" data-es="El Reto" data-en="The Challenge">The Challenge</span></h3>
+      <div class="item-list"><div class="it challenge icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Vendedores en lo Administrativo" data-en="Reps Buried in Admin">Reps Buried in Admin</span></b><p><span class="i18n" data-es="M&amp;aacute;s tiempo en hojas de c&amp;aacute;lculo que vendiendo." data-en="More spreadsheet time than selling time.">More spreadsheet time than selling time.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.08s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Leads que se Pierden" data-en="Leads Slipping Away">Leads Slipping Away</span></b><p><span class="i18n" data-es="Leads valiosos perdidos por falta de seguimiento." data-en="High-value leads lost to forgotten follow-ups.">High-value leads lost to forgotten follow-ups.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.16s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Pron&amp;oacute;sticos a Ojo" data-en="Gut-Feel Forecasting">Gut-Feel Forecasting</span></b><p><span class="i18n" data-es="Pron&amp;oacute;sticos basados en reportes viejos." data-en="Forecasts based on outdated reports.">Forecasts based on outdated reports.</span></p></div></div>
+<div class="it challenge icon-pop reveal" style="transition-delay:0.24s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+      <div><b><span class="i18n" data-es="Cero Visibilidad" data-en="Zero Visibility">Zero Visibility</span></b><p><span class="i18n" data-es="Sin visibilidad de por qu&amp;eacute; se frenan tratos." data-en="No insight into stalled deals.">No insight into stalled deals.</span></p></div></div></div>
+    </div>
+    <div class="col-block reveal">
+      <h3><span class="i18n" data-es="Nuestra Soluci&amp;oacute;n" data-en="Our Solution">Our Solution</span></h3>
+      <div class="item-list"><div class="it solution icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Captura Sin Fricci&amp;oacute;n" data-en="Zero-Friction Capture">Zero-Friction Capture</span></b><p><span class="i18n" data-es="Leads asignados al instante al vendedor correcto." data-en="Leads routed to the right rep instantly.">Leads routed to the right rep instantly.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.08s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Seguimiento Autom&amp;aacute;tico" data-en="Automated Follow-ups">Automated Follow-ups</span></b><p><span class="i18n" data-es="Alertas inteligentes, ning&amp;uacute;n prospecto se enfr&amp;iacute;a." data-en="Smart triggers, no prospect goes cold.">Smart triggers, no prospect goes cold.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.16s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Pron&amp;oacute;sticos Claros" data-en="Clear Forecasting">Clear Forecasting</span></b><p><span class="i18n" data-es="Tasas de cierre y valor de pipeline en vivo." data-en="Win rates and pipeline value, live.">Win rates and pipeline value, live.</span></p></div></div>
+<div class="it solution icon-pop reveal" style="transition-delay:0.24s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Un Solo Ecosistema" data-en="One Tool Ecosystem">One Tool Ecosystem</span></b><p><span class="i18n" data-es="Correo y calendario, todo en un solo lugar." data-en="Email and calendar, all in one place.">Email and calendar, all in one place.</span></p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);">
+  <div class="tc-wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="i18n" data-es="lo que obtienes" data-en="what you get">what you get</span></span>
+      <h2><span class="i18n" data-es="Un CRM dise&amp;ntilde;ado para vender m&amp;aacute;s r&amp;aacute;pido" data-en="A CRM engineered for high-velocity sales">A CRM engineered for high-velocity sales</span></h2>
+    </div>
+    <div class="getgrid reveal"><div class="getcard icon-pop reveal" style="transition-delay:0.00s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M3 17l6-6 4 4 7-8"/><path d="M15 6h5v5"/></svg></div>
+      <div><b><span class="i18n" data-es="Velocidad de Respuesta" data-en="Speed to Lead">Speed to Lead</span></b><p><span class="i18n" data-es="Leads nuevos asignados al instante." data-en="New leads assigned instantly.">New leads assigned instantly.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.07s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div>
+      <div><b><span class="i18n" data-es="Cero Prospectos Fr&amp;iacute;os" data-en="No Cold Prospects">No Cold Prospects</span></b><p><span class="i18n" data-es="Recordatorios autom&amp;aacute;ticos mantienen el inter&amp;eacute;s." data-en="Automated reminders keep it warm.">Automated reminders keep it warm.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.14s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/><path d="M2 20h20"/></svg></div>
+      <div><b><span class="i18n" data-es="Pron&amp;oacute;sticos en Vivo" data-en="Live Forecasting">Live Forecasting</span></b><p><span class="i18n" data-es="Decisiones basadas en datos reales." data-en="Decisions based on real data.">Decisions based on real data.</span></p></div></div>
+<div class="getcard icon-pop reveal" style="transition-delay:0.21s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M2 13h20"/></svg></div>
+      <div><b><span class="i18n" data-es="Menos Administraci&amp;oacute;n" data-en="Less Admin">Less Admin</span></b><p><span class="i18n" data-es="Un sistema que tu equipo s&amp;iacute; quiere usar." data-en="A system reps actually want to use.">A system reps actually want to use.</span></p></div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap final-cta reveal">
+    <span class="eyebrow" style="justify-content:center"><span class="i18n" data-es="listos cuando t&amp;uacute; lo est&amp;eacute;s" data-en="ready when you are">ready when you are</span></span>
+    <h2><span class="i18n" data-es="&amp;iquest;Listo para detener la fuga de ingresos?" data-en="Ready to stop the revenue leaks?">Ready to stop the revenue leaks?</span></h2>
+    <p><span class="i18n" data-es="Dise&amp;ntilde;emos un pipeline hecho para vender r&amp;aacute;pido." data-en="Let&#x27;s engineer a pipeline built for velocity.">Let's engineer a pipeline built for velocity.</span></p>
+    <a class="btn-primary" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Acelera Mi Pipeline" data-en="Accelerate My Pipeline">Accelerate My Pipeline</span></a>
+  </div>
+</section>

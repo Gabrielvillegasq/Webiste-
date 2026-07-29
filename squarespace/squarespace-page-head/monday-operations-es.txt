@@ -1,0 +1,23 @@
+<!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
+Title: Operaciones y Automatización de Procesos con monday.com | Trust Code
+Description: Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.
+(Squarespace already renders its own <title>/<meta description> from those fields --
+do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
+
+<title>Operaciones y Automatización de Procesos con monday.com | Trust Code</title>
+<meta name="description" content="Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.">
+<link rel="canonical" href="https://www.trustcodemx.com/es/monday-operations/">
+<link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/monday-operations/">
+<link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/monday-operations/">
+<link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/monday-operations/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Operaciones y Automatización de Procesos con monday.com | Trust Code">
+<meta property="og:description" content="Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.">
+<meta property="og:url" content="https://www.trustcodemx.com/es/monday-operations/">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Trust Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Operaciones y Automatización de Procesos con monday.com | Trust Code">
+<meta name="twitter:description" content="Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.trustcodemx.com/es/"}, {"@type": "ListItem", "position": 2, "name": "Operaciones", "item": "https://www.trustcodemx.com/es/monday-operations/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Escala Sin Escalar el Caos", "name": "Escala Sin Escalar el Caos", "description": "Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.", "areaServed": "MX", "inLanguage": "es-MX", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>

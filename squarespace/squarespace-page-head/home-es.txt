@@ -1,0 +1,22 @@
+<!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
+Title: Trust Code | Consultoría y Automatización monday.com en México
+Description: Socio certificado de monday.com en México. Diseñamos flujos de trabajo, automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.
+(Squarespace already renders its own <title>/<meta description> from those fields --
+do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
+
+<title>Trust Code | Consultoría y Automatización monday.com en México</title>
+<meta name="description" content="Socio certificado de monday.com en México. Diseñamos flujos de trabajo, automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.">
+<link rel="canonical" href="https://www.trustcodemx.com/es/">
+<link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/">
+<link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trust Code | Consultoría y Automatización monday.com en México">
+<meta property="og:description" content="Socio certificado de monday.com en México. Diseñamos flujos de trabajo, automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.">
+<meta property="og:url" content="https://www.trustcodemx.com/es/">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Trust Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trust Code | Consultoría y Automatización monday.com en México">
+<meta name="twitter:description" content="Socio certificado de monday.com en México. Diseñamos flujos de trabajo, automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com/es/", "description": "Socio certificado de monday.com en México. Diseñamos flujos de trabajo, automatizaciones y sistemas CRM a la medida.", "areaServed": "MX", "inLanguage": "es-MX", "sameAs": []}</script>
