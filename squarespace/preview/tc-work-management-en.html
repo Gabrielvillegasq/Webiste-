@@ -67,6 +67,35 @@
   }
   .nav-cta:hover { background: var(--purple); color: #fff !important; }
 
+  .nav-burger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 32px; height: 32px; background: transparent; border: none; cursor: pointer; padding: 0; flex-shrink: 0;
+  }
+  .nav-burger span {
+    display: block; width: 100%; height: 2px; background: var(--ink); border-radius: 2px;
+    transition: transform 0.25s var(--ease-interactive), opacity 0.2s ease;
+  }
+  .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: var(--surface);
+    border-top: 1px solid transparent; transition: max-height 0.35s var(--ease-interactive), border-color 0.2s ease;
+  }
+  .mobile-menu.open { max-height: 600px; border-top-color: var(--line); }
+  .mobile-menu a {
+    display: block; padding: 14px 32px; font-size: 15px; font-weight: 500; color: var(--ink) !important;
+    border-bottom: 1px solid var(--line); transition: background 0.15s ease;
+  }
+  .mobile-menu a:active, .mobile-menu a:hover { background: var(--surface-2); }
+  .mobile-menu-divider { height: 8px; background: var(--surface-2); }
+  .mobile-cta {
+    display: block; margin: 16px 32px 22px; text-align: center; background: var(--purple);
+    color: #fff !important; padding: 14px; border-radius: 3px; font-weight: 700; font-size: 14.5px;
+    border-bottom: none !important;
+  }
+
   .hero { position: relative; padding: 90px 0 100px; border-bottom: 1px solid var(--line); }
   .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -414,6 +443,8 @@
     .hero .tc-wrap, .hero-split { grid-template-columns: 1fr; }
     .diagram-card { order: -1; }
     .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .nav-cta { display: none; }
     .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
     .service-card { flex-basis: 45%; }
     .stat-row { grid-template-columns: 1fr 1fr; }
@@ -543,8 +574,26 @@
     <div class="nav-right">
       <button class="lang-toggle" onclick="toggleLang()">ES</button>
       <a class="nav-cta" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Sesi&amp;oacute;n Estrat&amp;eacute;gica Gratuita" data-en="Free Strategy Session">Free Strategy Session</span></a>
+      <button class="nav-burger" id="navBurger" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/work-management/"><span class="i18n" data-es="Gesti&amp;oacute;n del Trabajo" data-en="Work Management">Work Management</span></a>
+<a href="/team-training/"><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></a>
+<a href="/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing &amp; CRM</span></a>
+<a href="/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operations</span></a>
+<a href="/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></a>
+<a href="/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Web Design &amp; Development</span></a>
+<a href="/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Social Media Management</span></a>
+<div class="mobile-menu-divider"></div>
+<a href="/monday-partner/"><span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Certified Partner</span></a>
+<a href="/blog/"><span class="i18n" data-es="Blog" data-en="Blog">Blog</span></a>
+<a href="/#advantage"><span class="i18n" data-es="Por Qu&amp;eacute; Nosotros" data-en="Why Us">Why Us</span></a>
+<a href="/about-us/"><span class="i18n" data-es="Nosotros" data-en="About">About</span></a>
+    <a class="mobile-cta" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Sesi&amp;oacute;n Estrat&amp;eacute;gica Gratuita" data-en="Free Strategy Session">Free Strategy Session</span></a>
+  </div>
 </header>
 
 <section class="subhero" style="position:relative;">
@@ -698,6 +747,31 @@
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.has-dropdown')) {
       document.querySelectorAll('.has-dropdown.open').forEach(d => d.classList.remove('open'));
+    }
+  });
+
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const burger = document.getElementById('navBurger');
+    if (!menu || !burger) return;
+    const opening = !menu.classList.contains('open');
+    menu.classList.toggle('open', opening);
+    burger.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  }
+  const mobileMenuEl = document.getElementById('mobileMenu');
+  if (mobileMenuEl) {
+    mobileMenuEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenuEl.classList.remove('open');
+      const burger = document.getElementById('navBurger');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+    }));
+  }
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    const burger = document.getElementById('navBurger');
+    if (menu && menu.classList.contains('open') && !e.target.closest('.mobile-menu') && !e.target.closest('.nav-burger')) {
+      menu.classList.remove('open');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
     }
   });
 

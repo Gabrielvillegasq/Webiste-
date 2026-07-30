@@ -135,6 +135,35 @@ STYLE = """
   }
   .nav-cta:hover { background: var(--purple); color: #fff !important; }
 
+  .nav-burger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 32px; height: 32px; background: transparent; border: none; cursor: pointer; padding: 0; flex-shrink: 0;
+  }
+  .nav-burger span {
+    display: block; width: 100%; height: 2px; background: var(--ink); border-radius: 2px;
+    transition: transform 0.25s var(--ease-interactive), opacity 0.2s ease;
+  }
+  .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: var(--surface);
+    border-top: 1px solid transparent; transition: max-height 0.35s var(--ease-interactive), border-color 0.2s ease;
+  }
+  .mobile-menu.open { max-height: 600px; border-top-color: var(--line); }
+  .mobile-menu a {
+    display: block; padding: 14px 32px; font-size: 15px; font-weight: 500; color: var(--ink) !important;
+    border-bottom: 1px solid var(--line); transition: background 0.15s ease;
+  }
+  .mobile-menu a:active, .mobile-menu a:hover { background: var(--surface-2); }
+  .mobile-menu-divider { height: 8px; background: var(--surface-2); }
+  .mobile-cta {
+    display: block; margin: 16px 32px 22px; text-align: center; background: var(--purple);
+    color: #fff !important; padding: 14px; border-radius: 3px; font-weight: 700; font-size: 14.5px;
+    border-bottom: none !important;
+  }
+
   .hero { position: relative; padding: 90px 0 100px; border-bottom: 1px solid var(--line); }
   .hero::before {
     content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -482,6 +511,8 @@ STYLE = """
     .hero .tc-wrap, .hero-split { grid-template-columns: 1fr; }
     .diagram-card { order: -1; }
     .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .nav-cta { display: none; }
     .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
     .service-card { flex-basis: 45%; }
     .stat-row { grid-template-columns: 1fr 1fr; }
@@ -648,6 +679,31 @@ LANG_SCRIPT = """
     }
   });
 
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const burger = document.getElementById('navBurger');
+    if (!menu || !burger) return;
+    const opening = !menu.classList.contains('open');
+    menu.classList.toggle('open', opening);
+    burger.setAttribute('aria-expanded', opening ? 'true' : 'false');
+  }
+  const mobileMenuEl = document.getElementById('mobileMenu');
+  if (mobileMenuEl) {
+    mobileMenuEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenuEl.classList.remove('open');
+      const burger = document.getElementById('navBurger');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+    }));
+  }
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    const burger = document.getElementById('navBurger');
+    if (menu && menu.classList.contains('open') && !e.target.closest('.mobile-menu') && !e.target.closest('.nav-burger')) {
+      menu.classList.remove('open');
+      if (burger) burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
   // Magnetic primary buttons (site-wide) -- skipped entirely under reduced-motion.
   // rAF-throttled and rects cached on scroll/resize only, so it doesn't force a
   // synchronous layout read on every raw mousemove event (that was causing
@@ -798,6 +854,20 @@ def header():
     home_href = f"{p}/" if p else "/"
     next_lang_label = "EN" if is_es() else "ES"
     lang_button = f'<button class="lang-toggle" onclick="toggleLang()">{next_lang_label}</button>'
+    mobile_links = "\n".join([
+        f'<a href="{p}/work-management/">{T("Work Management","Gesti&oacute;n del Trabajo")}</a>',
+        f'<a href="{p}/team-training/">{T("Training","Capacitaci&oacute;n")}</a>',
+        f'<a href="{p}/marketing-crm-solutions/">{T("Marketing &amp; CRM","Marketing y CRM")}</a>',
+        f'<a href="{p}/monday-operations/">{T("Operations","Operaciones")}</a>',
+        f'<a href="{p}/monday-sales-crm/">{T("Sales &amp; CRM","Ventas y CRM")}</a>',
+        f'<a href="{p}/web-design-development/">{T("Web Design &amp; Development","Dise&ntilde;o y Desarrollo Web")}</a>',
+        f'<a href="{p}/social-media-management/">{T("Social Media Management","Gesti&oacute;n de Redes Sociales")}</a>',
+        '<div class="mobile-menu-divider"></div>',
+        f'<a href="{p}/monday-partner/">{T("Certified Partner","Socio Certificado")}</a>',
+        f'<a href="{p}/blog/">{T("Blog","Blog")}</a>',
+        f'<a href="{p}/#advantage">{T("Why Us","Por Qu&eacute; Nosotros")}</a>',
+        f'<a href="{p}/about-us/">{T("About","Nosotros")}</a>',
+    ])
     return f"""<header id="tc-header">
   <nav class="tc-wrap">
     <a href="{home_href}">{brand_lockup()}</a>
@@ -814,8 +884,15 @@ def header():
     <div class="nav-right">
       {lang_button}
       <a class="nav-cta" href="https://wkf.ms/49age3d">{T('Free Strategy Session','Sesi&oacute;n Estrat&eacute;gica Gratuita')}</a>
+      <button class="nav-burger" id="navBurger" onclick="toggleMobileMenu()" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    {mobile_links}
+    <a class="mobile-cta" href="https://wkf.ms/49age3d">{T('Free Strategy Session','Sesi&oacute;n Estrat&eacute;gica Gratuita')}</a>
+  </div>
 </header>
 """
 
