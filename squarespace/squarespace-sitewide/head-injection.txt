@@ -506,6 +506,57 @@
 </style>
 
 
+<style>
+  /* --- list view --- */
+  .blog-item { border-bottom: 1px solid var(--line); padding: 44px 0; }
+  article.blog-item:first-of-type { padding-top: 0; }
+  .blog-image-wrapper .image-wrapper { border-radius: 8px; overflow: hidden; }
+  .blog-meta-section {
+    font-family: var(--font-mono) !important; font-size: 11px !important; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted) !important;
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  }
+  .blog-meta-delimiter { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); display: inline-block; }
+  .blog-title {
+    font-family: var(--font-display) !important; font-weight: 800 !important;
+    font-size: clamp(22px, 3vw, 32px) !important; margin-bottom: 14px !important;
+  }
+  .blog-title a { color: var(--ink) !important; transition: color 0.2s ease; }
+  .blog-title a:hover { color: var(--purple-bright) !important; }
+  .blog-excerpt p, .blog-excerpt-wrapper p {
+    font-family: var(--font-display) !important; font-size: 15.5px !important;
+    color: var(--muted) !important; line-height: 1.6 !important;
+  }
+  .blog-more-link {
+    font-family: var(--font-mono) !important; font-size: 12px !important; font-weight: 600 !important;
+    letter-spacing: 0.05em; text-transform: uppercase; color: var(--purple-bright) !important;
+    border-bottom: 1px solid var(--purple-bright); padding-bottom: 2px; transition: opacity 0.2s ease;
+  }
+  .blog-more-link:hover { opacity: 0.7; }
+
+  /* --- single post view --- */
+  .entry-title.entry-title--large {
+    font-family: var(--font-display) !important; font-weight: 800 !important;
+    font-size: clamp(28px, 4vw, 42px) !important; margin-bottom: 8px !important;
+  }
+  .blog-item-meta-wrapper, .blog-item-author-date-wrapper {
+    font-family: var(--font-mono) !important; font-size: 12px !important; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--muted) !important;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .blog-meta-item--date, .blog-meta-item--author { color: var(--muted) !important; }
+  .blog-author-name, .author-name { color: var(--purple-bright) !important; transition: opacity 0.2s ease; }
+  .blog-author-name:hover, .author-name:hover { opacity: 0.75; }
+  .blog-item-content-wrapper, .blog-item-content-wrapper .sqs-html-content {
+    font-family: var(--font-display) !important; color: var(--ink) !important;
+  }
+  .blog-item-content-wrapper .sqs-html-content p {
+    font-size: 16.5px !important; line-height: 1.75 !important; margin-bottom: 20px !important;
+  }
+  .blog-item-author-profile-wrapper { border-top: 1px solid var(--line); margin-top: 32px; padding-top: 20px; }
+</style>
+
+
 <script>
   function animateCounters(root) {
     root.querySelectorAll('.count-num[data-target]').forEach(el => {

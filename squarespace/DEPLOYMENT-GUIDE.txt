@@ -206,68 +206,72 @@ else in this guide still applies regardless of plan.
 
 TITLE / DESCRIPTION REFERENCE (paste into Squarespace's native SEO fields)
 ----------------------------------------------------------------------------
+NOTE: as of round 5, all "in Mexico" / "en México" language has been
+removed from every title/description/JSON-LD below, per your direction --
+the business is positioned as worldwide, not geographically limited.
+
 Home (EN):
-  Title:  Trust Code | monday.com Consulting & Custom Workflow Automation in Mexico
-  Desc:   Certified monday.com partner in Mexico. We design custom workflows, automations, dashboards, and CRM systems that turn operational chaos into measurable growth. Book a free strategy session.
+  Title:  Trust Code | monday.com Consulting & Custom Workflow Automation
+  Desc:   Certified monday.com partner. We design custom workflows, automations, dashboards, and CRM systems that turn operational chaos into measurable growth. Book a free strategy session.
 Home (ES):
-  Title:  Trust Code | Consultoría y Automatización monday.com en México
-  Desc:   Socio certificado de monday.com en México. Diseñamos flujos de trabajo, automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.
+  Title:  Trust Code | Consultoría y Automatización monday.com
+  Desc:   Socio certificado de monday.com. Diseñamos flujos de trabajo, automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.
 
 Work Management (EN):
   Title:  monday.com Work Management Consulting | Trust Code
-  Desc:   Custom monday.com work management systems built by a certified partner in Mexico. Real-time dashboards, one source of truth, and full visibility across every team.
+  Desc:   Custom monday.com work management systems built by a certified partner. Real-time dashboards, one source of truth, and full visibility across every team.
 Work Management (ES):
   Title:  Gestión del Trabajo con monday.com | Consultoría Trust Code
-  Desc:   Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.
+  Desc:   Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado. Dashboards en tiempo real y visibilidad total para tu equipo.
 
 Training (EN):
   Title:  monday.com Training & Team Adoption Programs | Trust Code
-  Desc:   Hands-on monday.com training and workshops that drive real adoption. Role-based curriculum, train-the-trainer programs, and ongoing support from a certified partner in Mexico.
+  Desc:   Hands-on monday.com training and workshops that drive real adoption. Role-based curriculum, train-the-trainer programs, and ongoing support from a certified partner.
 Training (ES):
   Title:  Capacitación en monday.com para Equipos | Trust Code
-  Desc:   Talleres y capacitación práctica en monday.com que garantizan adopción real. Programas por rol, formación de formadores y soporte continuo, con un socio certificado en México.
+  Desc:   Talleres y capacitación práctica en monday.com que garantizan adopción real. Programas por rol, formación de formadores y soporte continuo, con un socio certificado.
 
 Marketing & CRM (EN):
   Title:  monday.com Marketing & CRM Solutions | Trust Code
-  Desc:   Full-funnel monday.com marketing systems with measurable ROI. Campaign hubs, lead routing automation, and integrated reporting built by a certified partner in Mexico.
+  Desc:   Full-funnel monday.com marketing systems with measurable ROI. Campaign hubs, lead routing automation, and integrated reporting built by a certified partner.
 Marketing & CRM (ES):
   Title:  Marketing y CRM con monday.com | Trust Code
-  Desc:   Sistemas de marketing en monday.com con visibilidad total del embudo y ROI medible. Automatización de leads, reportes integrados y más, con un socio certificado en México.
+  Desc:   Sistemas de marketing en monday.com con visibilidad total del embudo y ROI medible. Automatización de leads, reportes integrados y más, con un socio certificado.
 
 Operations (EN):
   Title:  monday.com Operations & Process Automation | Trust Code
-  Desc:   Scale your operations without scaling the chaos. Custom monday.com process automation, accountability tracking, and real-time health dashboards from a certified Mexican partner.
+  Desc:   Scale your operations without scaling the chaos. Custom monday.com process automation, accountability tracking, and real-time health dashboards from a certified partner.
 Operations (ES):
   Title:  Operaciones y Automatización de Procesos con monday.com | Trust Code
-  Desc:   Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.
+  Desc:   Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado.
 
 Sales & CRM (EN):
   Title:  monday.com Sales CRM & Pipeline Management | Trust Code
-  Desc:   Custom monday.com CRM builds for faster sales cycles. Automated lead routing, live forecasting, and a pipeline engineered for velocity -- by a certified partner in Mexico.
+  Desc:   Custom monday.com CRM builds for faster sales cycles. Automated lead routing, live forecasting, and a pipeline engineered for velocity -- by a certified partner.
 Sales & CRM (ES):
   Title:  CRM de Ventas y Pipeline con monday.com | Trust Code
-  Desc:   CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.
+  Desc:   CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado.
 
 Certified Partner (EN):
-  Title:  Certified monday.com Partner in Mexico | Trust Code
+  Title:  Certified monday.com Partner | Trust Code
   Desc:   Trust Code is an officially certified monday.com implementation partner -- verified expertise, ongoing training, and direct access to monday.com's own resources.
 Certified Partner (ES):
-  Title:  Socio Certificado de monday.com en México | Trust Code
+  Title:  Socio Certificado de monday.com | Trust Code
   Desc:   Trust Code es socio certificado de monday.com -- experiencia verificada, capacitación continua y acceso directo a los recursos oficiales de la plataforma.
 
 About Us (EN):
-  Title:  About Trust Code | monday.com Consulting Partner in Mexico
-  Desc:   Trust Code is a certified monday.com partner in Mexico on a mission to end operational friction -- consultants first, technologists second.
+  Title:  About Trust Code | monday.com Consulting Partner
+  Desc:   Trust Code is a certified monday.com partner on a mission to end operational friction -- consultants first, technologists second.
 About Us (ES):
-  Title:  Nosotros | Trust Code, Socio de Consultoría monday.com en México
-  Desc:   Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa -- consultores primero, tecnólogos después.
+  Title:  Nosotros | Trust Code, Socio de Consultoría monday.com
+  Desc:   Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa -- consultores primero, tecnólogos después.
 
 Web Design & Development (EN):
   Title:  Web Design & Development Services | Trust Code
-  Desc:   Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.
+  Desc:   Custom, fast-loading websites built by a certified monday.com partner — designed to work as the front door to the systems we already build for you.
 Web Design & Development (ES):
   Title:  Diseño y Desarrollo Web | Trust Code
-  Desc:   Sitios web rápidos y a la medida, construidos por un socio certificado de monday.com en México — diseñados como la puerta de entrada a los sistemas que ya construimos para ti.
+  Desc:   Sitios web rápidos y a la medida, construidos por un socio certificado de monday.com — diseñados como la puerta de entrada a los sistemas que ya construimos para ti.
 
 Social Media Management (EN):
   Title:  Social Media Management Services | Trust Code
@@ -278,10 +282,10 @@ Social Media Management (ES):
 
 Blog (EN):
   Title:  Blog | monday.com Insights & Case Studies | Trust Code
-  Desc:   Practical monday.com tips, automation guides, and real client case studies from the Trust Code team in Mexico.
+  Desc:   Practical monday.com tips, automation guides, and real client case studies from the Trust Code team.
 Blog (ES):
   Title:  Blog | Ideas y Casos de Éxito sobre monday.com | Trust Code
-  Desc:   Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code en México.
+  Desc:   Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code.
 
 
 STEP 4 -- Swapping in your real logo + monday.com partner badge
@@ -348,15 +352,54 @@ WHAT'S GENUINELY NEW / FIXED vs. the previous build
   the only way to read the site in Spanish.
 
 
-STILL OPEN (carried over from the original handoff, unchanged)
--------------------------------------------------------------------
-- /blog is a static design reference with placeholder posts, not a real
-  Squarespace Blog Collection. Set one up natively for actual publishing,
-  then this page's design can be adapted to skin it.
+UPDATE (round 5) -- mobile menu, real logo/badge images, blog styling, dot bug, Mexico wording removed
+----------------------------------------------------------------------------
+- Mobile navigation: previously, on any screen ≤900px, the nav links
+  simply disappeared with nothing replacing them -- there was no way to
+  reach any page but the one you were already on. Added a hamburger
+  button (animates into an X when open) that opens a full link panel with
+  every page (all 7 solutions, Certified Partner, Blog, Why Us, About) plus
+  the "Free Strategy Session" CTA. Tapping a link or tapping outside the
+  panel closes it. This touches the site-wide header, so re-paste
+  squarespace-sitewide/head-injection.txt AND footer-injection.txt.
+- Wired in your real images from the Squarespace asset library (previously
+  placeholders): the Trust Code wordmark logo, the monday.com Certified
+  Partner badge, and the monday.com Certified Partner wordmark (used in
+  the footer). Step 4 below is now DONE -- kept for reference in case you
+  ever need to swap an image again.
+- Fixed a real bug on the Certified Partner (and About Us) diagram: three
+  small static yellow dots were sitting just outside three of the node
+  circles, never animating, right next to the genuinely moving light
+  pulses -- which read as a rendering glitch. These were leftover "board
+  detail" decoration from an earlier pass and have been removed.
+- Removed every instance of "in Mexico" / "en México" from titles,
+  meta descriptions, and JSON-LD structured data site-wide, per your
+  direction that the business serves clients worldwide, not just Mexico.
+  See the updated TITLE / DESCRIPTION REFERENCE table above.
+- Styled your native Squarespace Blog Collection (the "blog-side-by-side"
+  template) to match the rest of the site -- Manrope/IBM Plex Mono fonts,
+  brand colors, hover states -- on both the post-list view and the
+  single-post view. This CSS lives in squarespace-sitewide/head-injection.txt
+  (re-paste it if you haven't already for this round) and applies
+  automatically; you don't need to touch the Blog Collection's own
+  per-collection code injection field for this. If a future template
+  change in Squarespace's blog editor changes its class names, send me
+  fresh Inspect-element HTML and I'll update the selectors.
+This round touches the site-wide header/footer injection files (mobile
+menu + blog CSS + logo images) -- re-paste both squarespace-sitewide/*.txt
+files. The Certified Partner page's body content also changed (dot fix),
+so re-paste squarespace-slim/monday-partner-en.txt and -es.txt too.
+
+
+STILL OPEN
+-------------
 - You mentioned wanting your personal monday.com referral/affiliate link
   as a secondary CTA -- still needed from you before it can be added.
 - Double-check "Set as Homepage" is correctly pointed at your new "/"
   page and not an old default Squarespace homepage.
+- A 4th image you sent, a plain monday.com logo (logo_black.png, no
+  partner text), hasn't been placed anywhere yet -- let me know where
+  you'd like it used, if at all.
 - One inherent limitation of the code-injection approach: the <html
   lang="..."> attribute is set by JavaScript after the page loads
   (matching the page's real language), not by Squarespace itself at the
