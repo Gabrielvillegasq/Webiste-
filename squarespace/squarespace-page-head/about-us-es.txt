@@ -1,23 +1,23 @@
 <!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
-Title: Nosotros | Trust Code, Socio de Consultoría monday.com en México
-Description: Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.
+Title: Nosotros | Trust Code, Socio de Consultoría monday.com
+Description: Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.
 (Squarespace already renders its own <title>/<meta description> from those fields --
 do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
 
-<title>Nosotros | Trust Code, Socio de Consultoría monday.com en México</title>
-<meta name="description" content="Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.">
+<title>Nosotros | Trust Code, Socio de Consultoría monday.com</title>
+<meta name="description" content="Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.">
 <link rel="canonical" href="https://www.trustcodemx.com/es/about-us/">
 <link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/about-us/">
 <link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/about-us/">
 <link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/about-us/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Nosotros | Trust Code, Socio de Consultoría monday.com en México">
-<meta property="og:description" content="Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.">
+<meta property="og:title" content="Nosotros | Trust Code, Socio de Consultoría monday.com">
+<meta property="og:description" content="Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.">
 <meta property="og:url" content="https://www.trustcodemx.com/es/about-us/">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="Trust Code">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nosotros | Trust Code, Socio de Consultoría monday.com en México">
-<meta name="twitter:description" content="Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.">
+<meta name="twitter:title" content="Nosotros | Trust Code, Socio de Consultoría monday.com">
+<meta name="twitter:description" content="Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.trustcodemx.com/es/"}, {"@type": "ListItem", "position": 2, "name": "Nosotros", "item": "https://www.trustcodemx.com/es/about-us/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Existimos para Acabar con la Fricción Operativa", "name": "Existimos para Acabar con la Fricción Operativa", "description": "Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.", "areaServed": "MX", "inLanguage": "es-MX", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Existimos para Acabar con la Fricción Operativa", "name": "Existimos para Acabar con la Fricción Operativa", "description": "Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.", "inLanguage": "es-MX", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>

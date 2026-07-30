@@ -766,7 +766,6 @@ def service_jsonld(name_en, name_es, desc_en, desc_es):
         "serviceType": htmlmod.unescape(name_es if _is_es else name_en),
         "name": htmlmod.unescape(name_es if _is_es else name_en),
         "description": htmlmod.unescape(desc_es if _is_es else desc_en),
-        "areaServed": "MX",
         "inLanguage": "es-MX" if _is_es else "en",
         "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": BASE_URL},
     }
@@ -868,11 +867,8 @@ def workflow_diagram(labels, id_prefix="h", tag_text="WORKFLOW_ENGINE // trustco
         <path id="{p}6" class="path-line" d="M200,170 C260,170 260,110 320,110"/>
         <circle class="node-circle" cx="50" cy="110" r="20"/>
         <circle class="node-circle" cx="200" cy="50" r="14"/>
-        <circle cx="211" cy="41" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle" cx="200" cy="110" r="14"/>
-        <circle cx="211" cy="101" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle" cx="200" cy="170" r="14"/>
-        <circle cx="211" cy="161" r="3.5" fill="var(--status-working)"/>
         <circle class="node-circle lit" cx="320" cy="110" r="20"/>
         <text class="node-label" x="50" y="145" text-anchor="middle">{left}</text>
         <text class="node-label" x="200" y="30" text-anchor="middle">{top}</text>
@@ -1392,22 +1388,21 @@ def home_jsonld():
             "@type": "ProfessionalService",
             "name": "Trust Code",
             "url": page_urls("")[1 if _is_es else 0],
-            "description": ("Socio certificado de monday.com en México. Diseñamos flujos de trabajo, "
+            "description": ("Socio certificado de monday.com. Diseñamos flujos de trabajo, "
                              "automatizaciones y sistemas CRM a la medida.") if _is_es else
                             ("Certified monday.com consulting partner building custom workflows, "
                              "automations, and CRM systems."),
-            "areaServed": "MX",
             "inLanguage": "es-MX" if _is_es else "en",
             "sameAs": [],
         }
     ]
 
-HOME_TITLE_EN = "Trust Code | monday.com Consulting & Custom Workflow Automation in Mexico"
-HOME_DESC_EN = ("Certified monday.com partner in Mexico. We design custom workflows, automations, "
+HOME_TITLE_EN = "Trust Code | monday.com Consulting & Custom Workflow Automation"
+HOME_DESC_EN = ("Certified monday.com partner. We design custom workflows, automations, "
                 "dashboards, and CRM systems that turn operational chaos into measurable growth. "
                 "Book a free strategy session.")
-HOME_TITLE_ES = "Trust Code | Consultoría y Automatización monday.com en México"
-HOME_DESC_ES = ("Socio certificado de monday.com en México. Diseñamos flujos de trabajo, "
+HOME_TITLE_ES = "Trust Code | Consultoría y Automatización monday.com"
+HOME_DESC_ES = ("Socio certificado de monday.com. Diseñamos flujos de trabajo, "
                 "automatizaciones, dashboards y sistemas CRM a la medida que convierten el caos "
                 "operativo en crecimiento medible. Agenda tu sesión estratégica gratuita.")
 
@@ -1500,8 +1495,8 @@ build_subpage(
     slug="work-management",
     title_en="monday.com Work Management Consulting | Trust Code",
     title_es="Gestión del Trabajo con monday.com | Consultoría Trust Code",
-    desc_en="Custom monday.com work management systems built by a certified partner in Mexico. Real-time dashboards, one source of truth, and full visibility across every team.",
-    desc_es="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.",
+    desc_en="Custom monday.com work management systems built by a certified partner. Real-time dashboards, one source of truth, and full visibility across every team.",
+    desc_es="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado. Dashboards en tiempo real y visibilidad total para tu equipo.",
     crumb_en="Work Management", crumb_es="Gesti&oacute;n del Trabajo",
     h1_en="One Command Center for Your Whole Business", h1_es="Un Centro de Mando para Todo tu Negocio",
     lead_en="Siloed data leads to reactive decisions and burnout. We build your single source of truth on monday.com.",
@@ -1537,8 +1532,8 @@ build_subpage(
     slug="team-training",
     title_en="monday.com Training & Team Adoption Programs | Trust Code",
     title_es="Capacitación en monday.com para Equipos | Trust Code",
-    desc_en="Hands-on monday.com training and workshops that drive real adoption. Role-based curriculum, train-the-trainer programs, and ongoing support from a certified partner in Mexico.",
-    desc_es="Talleres y capacitación práctica en monday.com que garantizan adopción real. Programas por rol, formación de formadores y soporte continuo, con un socio certificado en México.",
+    desc_en="Hands-on monday.com training and workshops that drive real adoption. Role-based curriculum, train-the-trainer programs, and ongoing support from a certified partner.",
+    desc_es="Talleres y capacitación práctica en monday.com que garantizan adopción real. Programas por rol, formación de formadores y soporte continuo, con un socio certificado.",
     crumb_en="Training", crumb_es="Capacitaci&oacute;n",
     h1_en="Maximize Your Technology ROI", h1_es="Maximiza el ROI de tu Tecnolog&iacute;a",
     lead_en="Powerful software is useless without adoption. We train your team to actually use it.",
@@ -1579,8 +1574,8 @@ build_subpage(
     slug="marketing-crm-solutions",
     title_en="monday.com Marketing & CRM Solutions | Trust Code",
     title_es="Marketing y CRM con monday.com | Trust Code",
-    desc_en="Full-funnel monday.com marketing systems with measurable ROI. Campaign hubs, lead routing automation, and integrated reporting built by a certified partner in Mexico.",
-    desc_es="Sistemas de marketing en monday.com con visibilidad total del embudo y ROI medible. Automatización de leads, reportes integrados y más, con un socio certificado en México.",
+    desc_en="Full-funnel monday.com marketing systems with measurable ROI. Campaign hubs, lead routing automation, and integrated reporting built by a certified partner.",
+    desc_es="Sistemas de marketing en monday.com con visibilidad total del embudo y ROI medible. Automatización de leads, reportes integrados y más, con un socio certificado.",
     crumb_en="Marketing &amp; CRM", crumb_es="Marketing y CRM",
     h1_en="From Ad Spend to Predictable Revenue", h1_es="De Inversi&oacute;n Publicitaria a Ingresos Predecibles",
     lead_en="Stop guessing at marketing ROI. We build transparent, full-funnel systems on monday.com.",
@@ -1618,8 +1613,8 @@ build_subpage(
     slug="monday-operations",
     title_en="monday.com Operations & Process Automation | Trust Code",
     title_es="Operaciones y Automatización de Procesos con monday.com | Trust Code",
-    desc_en="Scale your operations without scaling the chaos. Custom monday.com process automation, accountability tracking, and real-time health dashboards from a certified Mexican partner.",
-    desc_es="Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado en México.",
+    desc_en="Scale your operations without scaling the chaos. Custom monday.com process automation, accountability tracking, and real-time health dashboards from a certified partner.",
+    desc_es="Escala tu operación sin escalar el caos. Automatización de procesos, responsabilidad y visibilidad en tiempo real en monday.com, con un socio certificado.",
     crumb_en="Operations", crumb_es="Operaciones",
     h1_en="Scale Without Scaling the Chaos", h1_es="Escala Sin Escalar el Caos",
     lead_en="Scaling a broken process only magnifies the cracks. We rewire how your company works.",
@@ -1655,8 +1650,8 @@ build_subpage(
     slug="monday-sales-crm",
     title_en="monday.com Sales CRM & Pipeline Management | Trust Code",
     title_es="CRM de Ventas y Pipeline con monday.com | Trust Code",
-    desc_en="Custom monday.com CRM builds for faster sales cycles. Automated lead routing, live forecasting, and a pipeline engineered for velocity — by a certified partner in Mexico.",
-    desc_es="CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado en México.",
+    desc_en="Custom monday.com CRM builds for faster sales cycles. Automated lead routing, live forecasting, and a pipeline engineered for velocity — by a certified partner.",
+    desc_es="CRM a la medida en monday.com para vender más rápido. Ruteo automático de leads, pronósticos en vivo y un pipeline diseñado para la velocidad, con un socio certificado.",
     crumb_en="Sales &amp; CRM", crumb_es="Ventas y CRM",
     h1_en="Turn Your Pipeline Into a Revenue Engine", h1_es="Convierte tu Pipeline en un Motor de Ingresos",
     lead_en="Growth stalls when sales infrastructure can't keep up. We design a seamless sales journey.",
@@ -1690,8 +1685,8 @@ build_subpage(
 # ---------------- 6. Certified Partner ----------------
 build_subpage(
     slug="monday-partner",
-    title_en="Certified monday.com Partner in Mexico | Trust Code",
-    title_es="Socio Certificado de monday.com en México | Trust Code",
+    title_en="Certified monday.com Partner | Trust Code",
+    title_es="Socio Certificado de monday.com | Trust Code",
     desc_en="Trust Code is an officially certified monday.com implementation partner — verified expertise, ongoing training, and direct access to monday.com's own resources.",
     desc_es="Trust Code es socio certificado de monday.com — experiencia verificada, capacitación continua y acceso directo a los recursos oficiales de la plataforma.",
     crumb_en="Certified Partner", crumb_es="Socio Certificado",
@@ -1730,10 +1725,10 @@ build_subpage(
 # ---------------- 7. About Us ----------------
 build_subpage(
     slug="about-us",
-    title_en="About Trust Code | monday.com Consulting Partner in Mexico",
-    title_es="Nosotros | Trust Code, Socio de Consultoría monday.com en México",
-    desc_en="Trust Code is a certified monday.com partner in Mexico on a mission to end operational friction — consultants first, technologists second.",
-    desc_es="Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.",
+    title_en="About Trust Code | monday.com Consulting Partner",
+    title_es="Nosotros | Trust Code, Socio de Consultoría monday.com",
+    desc_en="Trust Code is a certified monday.com partner on a mission to end operational friction — consultants first, technologists second.",
+    desc_es="Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.",
     crumb_en="About Us", crumb_es="Nosotros",
     crumb_root_en="Company", crumb_root_es="Compa&ntilde;&iacute;a",
     h1_en="We Exist to End Operational Friction", h1_es="Existimos para Acabar con la Fricci&oacute;n Operativa",
@@ -1772,8 +1767,8 @@ build_subpage(
     slug="web-design-development",
     title_en="Web Design & Development Services | Trust Code",
     title_es="Diseño y Desarrollo Web | Trust Code",
-    desc_en="Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.",
-    desc_es="Sitios web rápidos y a la medida, construidos por un socio certificado de monday.com en México — diseñados como la puerta de entrada a los sistemas que ya construimos para ti.",
+    desc_en="Custom, fast-loading websites built by a certified monday.com partner — designed to work as the front door to the systems we already build for you.",
+    desc_es="Sitios web rápidos y a la medida, construidos por un socio certificado de monday.com — diseñados como la puerta de entrada a los sistemas que ya construimos para ti.",
     crumb_en="Web Design &amp; Development", crumb_es="Dise&ntilde;o y Desarrollo Web",
     h1_en="A Website That Works as Hard as Your Operation", h1_es="Un Sitio Web que Trabaja Tan Duro Como tu Operaci&oacute;n",
     lead_en="Your website shouldn't be disconnected from the systems running your business. We design and build sites that plug directly into the workflows we set up on monday.com.",
@@ -1912,8 +1907,8 @@ build_both_langs(
     "blog",
     title_en="Blog | monday.com Insights & Case Studies | Trust Code",
     title_es="Blog | Ideas y Casos de Éxito sobre monday.com | Trust Code",
-    desc_en="Practical monday.com tips, automation guides, and real client case studies from the Trust Code team in Mexico.",
-    desc_es="Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code en México.",
+    desc_en="Practical monday.com tips, automation guides, and real client case studies from the Trust Code team.",
+    desc_es="Consejos prácticos de monday.com, guías de automatización y casos de éxito reales del equipo de Trust Code.",
     build_body_fn=blog_body,
     json_ld_fn=blog_jsonld,
 )

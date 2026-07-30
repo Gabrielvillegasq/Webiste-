@@ -1,23 +1,23 @@
 <!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
 Title: Gestión del Trabajo con monday.com | Consultoría Trust Code
-Description: Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.
+Description: Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado. Dashboards en tiempo real y visibilidad total para tu equipo.
 (Squarespace already renders its own <title>/<meta description> from those fields --
 do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
 
 <title>Gestión del Trabajo con monday.com | Consultoría Trust Code</title>
-<meta name="description" content="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.">
+<meta name="description" content="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado. Dashboards en tiempo real y visibilidad total para tu equipo.">
 <link rel="canonical" href="https://www.trustcodemx.com/es/work-management/">
 <link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/work-management/">
 <link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/work-management/">
 <link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/work-management/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gestión del Trabajo con monday.com | Consultoría Trust Code">
-<meta property="og:description" content="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.">
+<meta property="og:description" content="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado. Dashboards en tiempo real y visibilidad total para tu equipo.">
 <meta property="og:url" content="https://www.trustcodemx.com/es/work-management/">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="Trust Code">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gestión del Trabajo con monday.com | Consultoría Trust Code">
-<meta name="twitter:description" content="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.">
+<meta name="twitter:description" content="Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado. Dashboards en tiempo real y visibilidad total para tu equipo.">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.trustcodemx.com/es/"}, {"@type": "ListItem", "position": 2, "name": "Gestión del Trabajo", "item": "https://www.trustcodemx.com/es/work-management/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Un Centro de Mando para Todo tu Negocio", "name": "Un Centro de Mando para Todo tu Negocio", "description": "Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado en México. Dashboards en tiempo real y visibilidad total para tu equipo.", "areaServed": "MX", "inLanguage": "es-MX", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Un Centro de Mando para Todo tu Negocio", "name": "Un Centro de Mando para Todo tu Negocio", "description": "Sistemas de gestión del trabajo a la medida en monday.com, diseñados por un socio certificado. Dashboards en tiempo real y visibilidad total para tu equipo.", "inLanguage": "es-MX", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>
