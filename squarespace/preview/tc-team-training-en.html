@@ -246,28 +246,53 @@
     filter: drop-shadow(0 0 4px rgba(0,202,114,0.9)); animation: funnelFall 3.6s linear infinite; }
   @keyframes funnelFall { 0% { top: 6%; opacity: 0; transform: translateX(-50%) scale(1); } 8% { opacity: 1; } 92% { opacity: 1; } 100% { top: 92%; opacity: 0; transform: translateX(-50%) scale(0.4); } }
 
-  /* scattered task-cards settling into an ordered board column --
-     "scale without scaling the chaos", not a literal gear metaphor */
-  .board-wrap { position: relative; height: 214px; }
-  .board-card {
-    position: absolute; left: 12%; width: 76%; height: 26px; border-radius: 6px;
-    background: var(--surface-2); border: 1px solid var(--line); border-left: 3px solid var(--line);
-    display: flex; align-items: center; padding: 0 10px; box-sizing: border-box;
-    transition: transform 0.75s var(--ease-emphasis), opacity 0.4s ease;
+  /* --- chaos -> order: home hero --- */
+  .chaos-stage { position: relative; height: 250px; }
+  .chaos-caption {
+    font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.5);
+    letter-spacing: .05em; margin-bottom: 14px; transition: color .4s ease;
   }
-  .board-card .chip-line { height: 6px; border-radius: 3px; background: var(--line); }
-  .board-card:nth-child(1) { top: 6px;   transform: translate(-52px,-20px) rotate(-18deg); }
-  .board-card:nth-child(2) { top: 42px;  transform: translate(46px,16px) rotate(15deg); }
-  .board-card:nth-child(3) { top: 78px;  transform: translate(-34px,26px) rotate(-12deg); }
-  .board-card:nth-child(4) { top: 114px; transform: translate(42px,-22px) rotate(13deg); }
-  .board-card:nth-child(5) { top: 150px; transform: translate(-44px,10px) rotate(-10deg); }
-  .board-wrap.visible .board-card { transform: translate(0,0) rotate(0deg); }
-  .board-wrap.visible .board-card:nth-child(1) { transition-delay: .05s; }
-  .board-wrap.visible .board-card:nth-child(2) { transition-delay: .16s; }
-  .board-wrap.visible .board-card:nth-child(3) { transition-delay: .27s; }
-  .board-wrap.visible .board-card:nth-child(4) { transition-delay: .38s; }
-  .board-wrap.visible .board-card:nth-child(5) { transition-delay: .49s; }
-  .uptime-tag { position: absolute; bottom: 6px; left: 12%; font-family: var(--font-mono); font-size: 11px; color: var(--status-done); letter-spacing: .04em; }
+  .chaos-stage.organized .chaos-caption { color: var(--purple-bright); }
+  .chaos-card {
+    position: absolute; left: var(--l); top: var(--t); width: 42%; height: 32px; border-radius: 6px;
+    background: var(--cc); opacity: .85; transform: rotate(var(--r));
+    animation: chaosJitter 2.4s ease-in-out infinite;
+    transition: top 1s var(--ease-emphasis), left 1s var(--ease-emphasis), width 1s var(--ease-emphasis),
+                height 1s var(--ease-emphasis), background .6s ease, transform 1s var(--ease-emphasis);
+  }
+  @keyframes chaosJitter {
+    0%, 100% { transform: rotate(var(--r)) scale(1); }
+    50% { transform: rotate(calc(var(--r) * 1.3)) scale(1.04); }
+  }
+  .chaos-check {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%) scale(0);
+    width: 18px; height: 18px; border-radius: 50%; background: #14171D; color: var(--status-done);
+    font-size: 11px; display: flex; align-items: center; justify-content: center;
+    transition: transform .4s var(--ease-emphasis);
+  }
+  .chaos-stage.organized .chaos-card {
+    animation: none; left: 0; top: var(--ot); width: 100%; height: 36px;
+    background: #1B1F27; border-left: 3px solid var(--cc); transform: none;
+  }
+  .chaos-stage.organized .chaos-card.landed .chaos-check { transform: translateY(-50%) scale(1); }
+
+  /* --- results counter: work management hero --- */
+  .results-line { stroke-dasharray: 500; stroke-dashoffset: 500; transition: stroke-dashoffset 1.8s var(--ease-entrance); }
+  .results-wrap.visible .results-line { stroke-dashoffset: 0; }
+
+  /* --- scaling grid: operations hero --- */
+  .scaling-label {
+    font-family: var(--font-mono); font-size: 11px; color: var(--status-done);
+    letter-spacing: .04em; margin-bottom: 14px; text-align: right;
+  }
+  .scaling-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; height: 180px; }
+  .grid-cell {
+    background: var(--surface-2); border-radius: 5px; opacity: 0; transform: scale(0.5);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity .5s var(--ease-emphasis), transform .5s var(--ease-emphasis);
+  }
+  .grid-cell.on { opacity: 1; transform: scale(1); }
+  .grid-cell .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--status-done); }
 
   .chart-wrap { padding: 4px 6px; }
   .chart-num-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
@@ -275,10 +300,34 @@
   .chart-bars-row { display: flex; align-items: flex-end; gap: 10px; height: 100px; }
   .chart-bars-row .roi-bar { flex: 1; border-radius: 4px 4px 0 0; }
 
+  /* --- website builder: empty browser frame assembling itself --- */
+  .wsite-wrap { display: flex; flex-direction: column; gap: 10px; padding: 6px 2px 2px; }
+  .wsite-bar { display: flex; gap: 6px; }
+  .wsite-bar span { width: 9px; height: 9px; border-radius: 50%; }
+  .wsite-bar span:nth-child(1) { background: var(--status-stuck); }
+  .wsite-bar span:nth-child(2) { background: var(--status-working); }
+  .wsite-bar span:nth-child(3) { background: var(--status-done); }
+  .wsite-block {
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.5s var(--ease-entrance), transform 0.5s var(--ease-entrance);
+  }
+  .wsite-hero { height: 68px; }
+  .wsite-row { display: flex; gap: 10px; }
+  .wsite-col { flex: 1; height: 54px; }
+  .wsite-footer { height: 20px; }
+  .wsite-wrap.visible .wsite-block { opacity: 1; transform: translateY(0); }
+  .wsite-wrap.visible .wsite-hero { transition-delay: .1s; }
+  .wsite-wrap.visible .wsite-col:nth-child(1) { transition-delay: .32s; }
+  .wsite-wrap.visible .wsite-col:nth-child(2) { transition-delay: .44s; }
+  .wsite-wrap.visible .wsite-footer { transition-delay: .58s; }
+
   .count-num { font-variant-numeric: tabular-nums; }
 
-  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-  .service-card { background: var(--bg); padding: 24px 18px; min-height: 165px; display: flex; flex-direction: column; gap: 10px; transition: background 0.28s ease; }
+  /* flex, not grid: the service count doesn't divide evenly, and flex-wrap
+     avoids leaving an empty trailing cell the way a fixed grid column count would */
+  .grid-5 { display: flex; flex-wrap: wrap; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .service-card { flex: 1 1 240px; background: var(--bg); padding: 24px 18px; min-height: 165px; display: flex; flex-direction: column; gap: 10px; transition: background 0.28s ease; }
   .service-card:hover { background: var(--surface); }
   .service-card .ic { color: var(--sc-accent, var(--purple-bright)); }
   .service-card h4 { font-size: 14.5px; font-weight: 600; }
@@ -365,11 +414,13 @@
     .hero .tc-wrap, .hero-split { grid-template-columns: 1fr; }
     .diagram-card { order: -1; }
     .nav-links { display: none; }
-    .grid-4, .grid-5, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
+    .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
+    .service-card { flex-basis: 45%; }
     .stat-row { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
-    .grid-4, .grid-5, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr; }
+    .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr; }
+    .service-card { flex-basis: 100%; }
     .tc-wrap { padding: 0 20px; }
     .stat-row { grid-template-columns: 1fr; }
   }
@@ -477,7 +528,9 @@
 <a href="/team-training/"><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></a>
 <a href="/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing &amp; CRM</span></a>
 <a href="/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operations</span></a>
-<a href="/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></a></div></div>
+<a href="/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></a>
+<a href="/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Web Design &amp; Development</span></a>
+<a href="/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Social Media Management</span></a></div></div>
       </div>
       <a href="/monday-partner/"><span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Certified Partner</span></a>
       <a href="/blog/"><span class="i18n" data-es="Blog" data-en="Blog">Blog</span></a>
@@ -602,6 +655,8 @@
         <a href="/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing &amp; CRM</span></a>
         <a href="/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operations</span></a>
         <a href="/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></a>
+        <a href="/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Web Design &amp; Development</span></a>
+        <a href="/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Social Media Management</span></a>
       </div>
       <div class="footer-col">
         <h5><span class="i18n" data-es="Compa&amp;ntilde;&amp;iacute;a" data-en="Company">Company</span></h5>

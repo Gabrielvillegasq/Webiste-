@@ -114,6 +114,34 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.trustcodemx.com/web-design-development/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/web-design-development/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/web-design-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/web-design-development/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.trustcodemx.com/es/web-design-development/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/web-design-development/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/web-design-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/web-design-development/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.trustcodemx.com/social-media-management/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/social-media-management/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/social-media-management/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/social-media-management/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.trustcodemx.com/es/social-media-management/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/social-media-management/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/social-media-management/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/social-media-management/"/>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.trustcodemx.com/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/blog/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/blog/"/>

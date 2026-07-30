@@ -1,0 +1,23 @@
+<!-- Also set these natively in Squarespace's own Page Settings -> SEO fields:
+Title: Web Design & Development Services | Trust Code
+Description: Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.
+(Squarespace already renders its own <title>/<meta description> from those fields --
+do NOT also paste the <title>/<meta description> lines below, only everything else.) -->
+
+<title>Web Design &amp; Development Services | Trust Code</title>
+<meta name="description" content="Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.">
+<link rel="canonical" href="https://www.trustcodemx.com/web-design-development/">
+<link rel="alternate" hreflang="en" href="https://www.trustcodemx.com/web-design-development/">
+<link rel="alternate" hreflang="es" href="https://www.trustcodemx.com/es/web-design-development/">
+<link rel="alternate" hreflang="x-default" href="https://www.trustcodemx.com/web-design-development/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Web Design &amp; Development Services | Trust Code">
+<meta property="og:description" content="Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.">
+<meta property="og:url" content="https://www.trustcodemx.com/web-design-development/">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Trust Code">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Web Design &amp; Development Services | Trust Code">
+<meta name="twitter:description" content="Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.trustcodemx.com/"}, {"@type": "ListItem", "position": 2, "name": "Web Design & Development", "item": "https://www.trustcodemx.com/web-design-development/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "A Website That Works as Hard as Your Operation", "name": "A Website That Works as Hard as Your Operation", "description": "Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.", "areaServed": "MX", "inLanguage": "en", "provider": {"@type": "ProfessionalService", "name": "Trust Code", "url": "https://www.trustcodemx.com"}}</script>

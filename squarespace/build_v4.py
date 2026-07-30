@@ -43,6 +43,10 @@ ICONS = {
     "trending":    icon('<path d="M3 17l6-6 4 4 7-8"/><path d="M15 6h5v5"/>'),
     "alert":       icon('<circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/>'),
     "check":       icon('<circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/>'),
+    "browser":     icon('<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><circle cx="5.5" cy="6" r=".6" fill="currentColor" stroke="none"/>'),
+    "share":       icon('<circle cx="6" cy="12" r="2.6"/><circle cx="17" cy="6" r="2.6"/><circle cx="17" cy="18" r="2.6"/><path d="M8.3 10.8l6.4-3.2M8.3 13.2l6.4 3.2"/>'),
+    "image":       icon('<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/>'),
+    "calendar":    icon('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'),
 }
 
 ANIMATED_BARS = '<svg viewBox="0 0 24 24" fill="none" class="ic"><rect class="roi-bar b1" x="3" y="12" width="4.5" height="8" rx="1" fill="currentColor"/><rect class="roi-bar b2" x="9.75" y="7" width="4.5" height="13" rx="1" fill="currentColor"/><rect class="roi-bar b3" x="16.5" y="2" width="4.5" height="18" rx="1" fill="currentColor"/></svg>'
@@ -312,28 +316,53 @@ STYLE = """
     filter: drop-shadow(0 0 4px rgba(0,202,114,0.9)); animation: funnelFall 3.6s linear infinite; }
   @keyframes funnelFall { 0% { top: 6%; opacity: 0; transform: translateX(-50%) scale(1); } 8% { opacity: 1; } 92% { opacity: 1; } 100% { top: 92%; opacity: 0; transform: translateX(-50%) scale(0.4); } }
 
-  /* scattered task-cards settling into an ordered board column --
-     "scale without scaling the chaos", not a literal gear metaphor */
-  .board-wrap { position: relative; height: 214px; }
-  .board-card {
-    position: absolute; left: 12%; width: 76%; height: 26px; border-radius: 6px;
-    background: var(--surface-2); border: 1px solid var(--line); border-left: 3px solid var(--line);
-    display: flex; align-items: center; padding: 0 10px; box-sizing: border-box;
-    transition: transform 0.75s var(--ease-emphasis), opacity 0.4s ease;
+  /* --- chaos -> order: home hero --- */
+  .chaos-stage { position: relative; height: 250px; }
+  .chaos-caption {
+    font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.5);
+    letter-spacing: .05em; margin-bottom: 14px; transition: color .4s ease;
   }
-  .board-card .chip-line { height: 6px; border-radius: 3px; background: var(--line); }
-  .board-card:nth-child(1) { top: 6px;   transform: translate(-52px,-20px) rotate(-18deg); }
-  .board-card:nth-child(2) { top: 42px;  transform: translate(46px,16px) rotate(15deg); }
-  .board-card:nth-child(3) { top: 78px;  transform: translate(-34px,26px) rotate(-12deg); }
-  .board-card:nth-child(4) { top: 114px; transform: translate(42px,-22px) rotate(13deg); }
-  .board-card:nth-child(5) { top: 150px; transform: translate(-44px,10px) rotate(-10deg); }
-  .board-wrap.visible .board-card { transform: translate(0,0) rotate(0deg); }
-  .board-wrap.visible .board-card:nth-child(1) { transition-delay: .05s; }
-  .board-wrap.visible .board-card:nth-child(2) { transition-delay: .16s; }
-  .board-wrap.visible .board-card:nth-child(3) { transition-delay: .27s; }
-  .board-wrap.visible .board-card:nth-child(4) { transition-delay: .38s; }
-  .board-wrap.visible .board-card:nth-child(5) { transition-delay: .49s; }
-  .uptime-tag { position: absolute; bottom: 6px; left: 12%; font-family: var(--font-mono); font-size: 11px; color: var(--status-done); letter-spacing: .04em; }
+  .chaos-stage.organized .chaos-caption { color: var(--purple-bright); }
+  .chaos-card {
+    position: absolute; left: var(--l); top: var(--t); width: 42%; height: 32px; border-radius: 6px;
+    background: var(--cc); opacity: .85; transform: rotate(var(--r));
+    animation: chaosJitter 2.4s ease-in-out infinite;
+    transition: top 1s var(--ease-emphasis), left 1s var(--ease-emphasis), width 1s var(--ease-emphasis),
+                height 1s var(--ease-emphasis), background .6s ease, transform 1s var(--ease-emphasis);
+  }
+  @keyframes chaosJitter {
+    0%, 100% { transform: rotate(var(--r)) scale(1); }
+    50% { transform: rotate(calc(var(--r) * 1.3)) scale(1.04); }
+  }
+  .chaos-check {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%) scale(0);
+    width: 18px; height: 18px; border-radius: 50%; background: #14171D; color: var(--status-done);
+    font-size: 11px; display: flex; align-items: center; justify-content: center;
+    transition: transform .4s var(--ease-emphasis);
+  }
+  .chaos-stage.organized .chaos-card {
+    animation: none; left: 0; top: var(--ot); width: 100%; height: 36px;
+    background: #1B1F27; border-left: 3px solid var(--cc); transform: none;
+  }
+  .chaos-stage.organized .chaos-card.landed .chaos-check { transform: translateY(-50%) scale(1); }
+
+  /* --- results counter: work management hero --- */
+  .results-line { stroke-dasharray: 500; stroke-dashoffset: 500; transition: stroke-dashoffset 1.8s var(--ease-entrance); }
+  .results-wrap.visible .results-line { stroke-dashoffset: 0; }
+
+  /* --- scaling grid: operations hero --- */
+  .scaling-label {
+    font-family: var(--font-mono); font-size: 11px; color: var(--status-done);
+    letter-spacing: .04em; margin-bottom: 14px; text-align: right;
+  }
+  .scaling-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; height: 180px; }
+  .grid-cell {
+    background: var(--surface-2); border-radius: 5px; opacity: 0; transform: scale(0.5);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity .5s var(--ease-emphasis), transform .5s var(--ease-emphasis);
+  }
+  .grid-cell.on { opacity: 1; transform: scale(1); }
+  .grid-cell .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--status-done); }
 
   .chart-wrap { padding: 4px 6px; }
   .chart-num-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
@@ -341,10 +370,34 @@ STYLE = """
   .chart-bars-row { display: flex; align-items: flex-end; gap: 10px; height: 100px; }
   .chart-bars-row .roi-bar { flex: 1; border-radius: 4px 4px 0 0; }
 
+  /* --- website builder: empty browser frame assembling itself --- */
+  .wsite-wrap { display: flex; flex-direction: column; gap: 10px; padding: 6px 2px 2px; }
+  .wsite-bar { display: flex; gap: 6px; }
+  .wsite-bar span { width: 9px; height: 9px; border-radius: 50%; }
+  .wsite-bar span:nth-child(1) { background: var(--status-stuck); }
+  .wsite-bar span:nth-child(2) { background: var(--status-working); }
+  .wsite-bar span:nth-child(3) { background: var(--status-done); }
+  .wsite-block {
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.5s var(--ease-entrance), transform 0.5s var(--ease-entrance);
+  }
+  .wsite-hero { height: 68px; }
+  .wsite-row { display: flex; gap: 10px; }
+  .wsite-col { flex: 1; height: 54px; }
+  .wsite-footer { height: 20px; }
+  .wsite-wrap.visible .wsite-block { opacity: 1; transform: translateY(0); }
+  .wsite-wrap.visible .wsite-hero { transition-delay: .1s; }
+  .wsite-wrap.visible .wsite-col:nth-child(1) { transition-delay: .32s; }
+  .wsite-wrap.visible .wsite-col:nth-child(2) { transition-delay: .44s; }
+  .wsite-wrap.visible .wsite-footer { transition-delay: .58s; }
+
   .count-num { font-variant-numeric: tabular-nums; }
 
-  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-  .service-card { background: var(--bg); padding: 24px 18px; min-height: 165px; display: flex; flex-direction: column; gap: 10px; transition: background 0.28s ease; }
+  /* flex, not grid: the service count doesn't divide evenly, and flex-wrap
+     avoids leaving an empty trailing cell the way a fixed grid column count would */
+  .grid-5 { display: flex; flex-wrap: wrap; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .service-card { flex: 1 1 240px; background: var(--bg); padding: 24px 18px; min-height: 165px; display: flex; flex-direction: column; gap: 10px; transition: background 0.28s ease; }
   .service-card:hover { background: var(--surface); }
   .service-card .ic { color: var(--sc-accent, var(--purple-bright)); }
   .service-card h4 { font-size: 14.5px; font-weight: 600; }
@@ -431,11 +484,13 @@ STYLE = """
     .hero .tc-wrap, .hero-split { grid-template-columns: 1fr; }
     .diagram-card { order: -1; }
     .nav-links { display: none; }
-    .grid-4, .grid-5, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
+    .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
+    .service-card { flex-basis: 45%; }
     .stat-row { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
-    .grid-4, .grid-5, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr; }
+    .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr; }
+    .service-card { flex-basis: 100%; }
     .tc-wrap { padding: 0 20px; }
     .stat-row { grid-template-columns: 1fr; }
   }
@@ -732,6 +787,8 @@ def header():
         f'<a href="{p}/marketing-crm-solutions/">{T("Marketing &amp; CRM","Marketing y CRM")}</a>',
         f'<a href="{p}/monday-operations/">{T("Operations","Operaciones")}</a>',
         f'<a href="{p}/monday-sales-crm/">{T("Sales &amp; CRM","Ventas y CRM")}</a>',
+        f'<a href="{p}/web-design-development/">{T("Web Design &amp; Development","Dise&ntilde;o y Desarrollo Web")}</a>',
+        f'<a href="{p}/social-media-management/">{T("Social Media Management","Gesti&oacute;n de Redes Sociales")}</a>',
     ])
     home_href = f"{p}/" if p else "/"
     next_lang_label = "EN" if is_es() else "ES"
@@ -770,6 +827,8 @@ def footer():
         <a href="{p}/marketing-crm-solutions/">{T('Marketing &amp; CRM','Marketing y CRM')}</a>
         <a href="{p}/monday-operations/">{T('Operations','Operaciones')}</a>
         <a href="{p}/monday-sales-crm/">{T('Sales &amp; CRM','Ventas y CRM')}</a>
+        <a href="{p}/web-design-development/">{T('Web Design &amp; Development','Dise&ntilde;o y Desarrollo Web')}</a>
+        <a href="{p}/social-media-management/">{T('Social Media Management','Gesti&oacute;n de Redes Sociales')}</a>
       </div>
       <div class="footer-col">
         <h5>{T('Company','Compa&ntilde;&iacute;a')}</h5>
@@ -894,26 +953,6 @@ def marketing_funnel(id_prefix, tag_text, stages):
       {_self_trigger_script(id_prefix)}"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
-def operations_board(id_prefix, tag_text, uptime_en, uptime_es):
-    # Replaces the old rotating-gears metaphor (flagged as generic/clichéd) with
-    # scattered task-cards settling into an ordered column -- directly
-    # illustrating "scale without scaling the chaos" instead of literal machinery.
-    # Card colors are a believable snapshot of a real ops board mid-flight, using
-    # monday.com's actual status colors.
-    card_colors = ["var(--status-stuck)", "var(--status-working)", "var(--status-working)",
-                   "var(--status-stuck)", "var(--status-done)"]
-    widths = [55, 72, 44, 80, 60]
-    cards = "".join(
-        f'<div class="board-card" style="border-left-color:{c};"><span class="chip-line" style="width:{w}%;"></span></div>'
-        for c, w in zip(card_colors, widths)
-    )
-    inner = f"""<div class="board-wrap" id="{id_prefix}">
-        {cards}
-        <span class="uptime-tag">&#9679; <span class="count-num" data-target="99.9" data-suffix="%">0%</span> {T(uptime_en, uptime_es)}</span>
-      </div>
-      {_self_trigger_script(id_prefix)}"""
-    return _card_shell(inner, tag_text, f"{id_prefix}-card")
-
 def sales_chart(id_prefix, tag_text, target_value, label_en, label_es):
     bars_h = [38, 55, 46, 72, 64, 95]
     # Deal stages mature left-to-right: earlier bars = Stuck (red), mid = Working
@@ -937,6 +976,133 @@ def sales_chart(id_prefix, tag_text, target_value, label_en, label_es):
         <div class="ring-caption" style="margin-top:10px;">{T(label_en, label_es)}</div>
       </div>
       {_self_trigger_script(id_prefix)}"""
+    return _card_shell(inner, tag_text, f"{id_prefix}-card")
+
+def website_builder(id_prefix, tag_text):
+    # An empty browser frame assembling itself block by block -- a literal,
+    # legible metaphor for "we build your site" rather than a repurposed
+    # illustration. The three chrome dots double as monday.com status colors.
+    inner = f"""<div class="wsite-wrap" id="{id_prefix}">
+        <div class="wsite-bar"><span></span><span></span><span></span></div>
+        <div class="wsite-block wsite-hero"></div>
+        <div class="wsite-row">
+          <div class="wsite-block wsite-col"></div>
+          <div class="wsite-block wsite-col"></div>
+        </div>
+        <div class="wsite-block wsite-footer"></div>
+      </div>
+      {_self_trigger_script(id_prefix)}"""
+    return _card_shell(inner, tag_text, f"{id_prefix}-card")
+
+def chaos_to_order(id_prefix, tag_text, caption_chaos_en="CHAOS", caption_chaos_es="CAOS",
+                    caption_organized_en="ORGANIZED", caption_organized_es="ORGANIZADO"):
+    # 5 cards start scattered + jittering, then periodically snap into an ordered,
+    # checked-off stack -- runs on its own loop (not scroll/reveal-triggered),
+    # since it's meant to read as ambient "before/after" motion in the hero.
+    p = id_prefix
+    cap_chaos = caption_chaos_es if is_es() else caption_chaos_en
+    cap_organized = caption_organized_es if is_es() else caption_organized_en
+    colors = ["var(--status-stuck)", "var(--status-working)", "var(--status-done)",
+              "var(--purple-bright)", "var(--status-working)"]
+    # left%, top-px, rotate-deg, jitter-delay-s -- rough scattered layout within the stage.
+    # Top values start below the caption row (~26px) so settled rows never underlap it.
+    chaos_pos = [(6, 26, -12, 0.0), (52, 34, 10, 0.3), (16, 112, -8, 0.6), (58, 120, 12, 0.9), (30, 170, -6, 1.2)]
+    org_top = [26, 68, 110, 152, 194]
+    cards = ""
+    for i, (c, (l, t, r, jd)) in enumerate(zip(colors, chaos_pos)):
+        cards += (f'<div class="chaos-card" style="--cc:{c}; --l:{l}%; --t:{t}px; --r:{r}deg; '
+                   f'--ot:{org_top[i]}px; animation-delay:{jd}s;"><span class="chaos-check">&#10003;</span></div>')
+    return f"""<div class="diagram-card hero-in" style="animation-delay:.2s;">
+      <div class="diagram-head">
+        <span>{tag_text}</span>
+        <span style="color:var(--status-done)">&#9679; live</span>
+      </div>
+      <div class="chaos-stage" id="{p}">
+        <div class="chaos-caption" id="{p}-cap">{cap_chaos}</div>
+        {cards}
+      </div>
+      <script>
+        (function(){{
+          var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var stage = document.getElementById('{p}');
+          var cap = document.getElementById('{p}-cap');
+          var cards = Array.from(stage.querySelectorAll('.chaos-card'));
+          if (reduceMotion) return;
+          function organize(){{
+            stage.classList.add('organized');
+            cap.textContent = '{cap_organized}';
+            cards.forEach(function(c, i){{ setTimeout(function(){{ c.classList.add('landed'); }}, i * 180); }});
+          }}
+          function scatter(){{
+            stage.classList.remove('organized');
+            cap.textContent = '{cap_chaos}';
+            cards.forEach(function(c){{ c.classList.remove('landed'); }});
+          }}
+          (function loopCycle(){{
+            setTimeout(function(){{
+              organize();
+              setTimeout(function(){{ scatter(); setTimeout(loopCycle, 2600); }}, 3600);
+            }}, 2400);
+          }})();
+        }})();
+      </script>
+    </div>"""
+
+def results_counter(id_prefix, tag_text, target_value, label_en, label_es, suffix=""):
+    # A count-up headline number with a self-drawing line graph beneath it --
+    # a "results dashboard" moment rather than a repeated flow diagram.
+    p = id_prefix
+    inner = f"""<div class="results-wrap" id="{p}">
+        <div class="chart-num-row" style="margin-bottom:2px;">
+          <span class="chart-num count-num" data-target="{target_value}" data-suffix="{suffix}">0</span>
+        </div>
+        <div class="ring-caption" style="text-align:left; margin-top:0;">{T(label_en, label_es)}</div>
+        <svg viewBox="0 0 300 70" width="100%" height="70" style="margin-top:10px; display:block;">
+          <polyline points="0,55 40,50 80,52 120,38 160,40 200,22 240,18 300,6" fill="none" stroke="var(--line)" stroke-width="1"/>
+          <polyline class="results-line" points="0,55 40,50 80,52 120,38 160,40 200,22 240,18 300,6" fill="none" stroke="var(--purple-bright)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="300" cy="6" r="4" fill="var(--status-done)"/>
+        </svg>
+      </div>
+      {_self_trigger_script(id_prefix)}"""
+    return _card_shell(inner, tag_text, f"{id_prefix}-card")
+
+def scaling_grid(id_prefix, tag_text, label_suffix_en="processes", label_suffix_es="procesos"):
+    # A 4x4 grid of cells lighting up in non-sequential order (not a left-to-right
+    # scan) while a live count climbs 4/8/12/16 -- a literal illustration of
+    # "scale without scaling the chaos": growth that stays perfectly ordered.
+    p = id_prefix
+    suffix = label_suffix_es if is_es() else label_suffix_en
+    cells = "".join(f'<div class="grid-cell" id="{p}-c{i}"><span class="dot"></span></div>' for i in range(16))
+    inner = f"""<div class="scaling-wrap" id="{p}">
+        <div class="scaling-label" id="{p}-lbl">4 {suffix}</div>
+        <div class="scaling-grid">{cells}</div>
+      </div>
+      <script>
+        (function(){{
+          var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var order = [5,6,9,10,1,2,13,14,0,3,12,15,4,7,8,11];
+          var lbl = document.getElementById('{p}-lbl');
+          var cells = order.map(function(i){{ return document.getElementById('{p}-c' + i); }});
+          if (reduceMotion) {{
+            cells.forEach(function(c){{ c.classList.add('on'); }});
+            lbl.textContent = '16 {suffix}';
+            return;
+          }}
+          function run(){{
+            cells.forEach(function(c){{ c.classList.remove('on'); }});
+            lbl.textContent = '4 {suffix}';
+            cells.forEach(function(c, i){{
+              setTimeout(function(){{
+                c.classList.add('on');
+                var n = i + 1;
+                if (n === 4 || n === 8 || n === 12 || n === 16) lbl.textContent = n + ' {suffix}';
+              }}, i * 220);
+            }});
+            setTimeout(run, cells.length * 220 + 2600);
+          }}
+          run();
+        }})();
+      </script>"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
 print("diagram builders ready")
@@ -1024,7 +1190,7 @@ def home_hero():
         <a class="btn-ghost" href="#process">{T('See the process &darr;','Ver el proceso &darr;')}</a>
       </div>
     </div>
-    {workflow_diagram(("INTAKE","BOARDS","AUTOMATE","REPORT","DELIVERED" if not is_es() else "ENTREGADO"), id_prefix="h")}
+    {chaos_to_order("h", "WORKFLOW_ENGINE // trustcodemx")}
   </div>
 </section>
 """
@@ -1166,6 +1332,8 @@ SERVICES = [
     ("megaphone", "purple-bright", "/marketing-crm-solutions/", "Marketing", "Marketing", "Predictable leads, measurable ROI.", "Leads predecibles, ROI medible."),
     ("sliders", "emerald", "/monday-operations/", "Operations", "Operaciones", "Scale without scaling the chaos.", "Escala sin escalar el caos."),
     ("trending", "purple-bright", "/monday-sales-crm/", "Sales &amp; CRM", "Ventas y CRM", "Shorter cycles, more closed deals.", "Ciclos m&aacute;s cortos, m&aacute;s cierres."),
+    ("browser", "emerald", "/web-design-development/", "Web Design &amp; Development", "Dise&ntilde;o y Desarrollo Web", "A site as sharp as your operation.", "Un sitio a la altura de tu operaci&oacute;n."),
+    ("share", "purple-bright", "/social-media-management/", "Social Media", "Redes Sociales", "A content engine, not just posts.", "Un motor de contenido, no solo posts."),
 ]
 
 def home_services():
@@ -1180,7 +1348,7 @@ def home_services():
   <div class="tc-wrap">
     <div class="section-head reveal">
       <span class="eyebrow">{T('our services','nuestros servicios')}</span>
-      <h2>{T('Five ways we put monday.com to work','Cinco formas de aprovechar monday.com')}</h2>
+      <h2>{T('Seven ways we help your business run and grow','Siete formas en que ayudamos a tu negocio a operar y crecer')}</h2>
     </div>
     <div class="grid-5">{cards}</div>
   </div>
@@ -1280,7 +1448,7 @@ def subpage_body(crumb_en, crumb_es, h1_en, h1_es, lead_en, lead_es,
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
-    {diagram_html}
+    {diagram_html()}
   </div>
 </section>
 
@@ -1361,7 +1529,7 @@ build_subpage(
     final_h2_en="Ready for one command center?", final_h2_es="&iquest;Listo para un centro de mando?",
     final_lead_en="Let's build the dashboards your leadership actually needs.", final_lead_es="Construyamos los dashboards que tu liderazgo necesita.",
     final_cta_en="Request a Demo", final_cta_es="Solicita una Demo",
-    diagram_html=workflow_diagram(("INTAKE","BOARDS","AUTOMATE","REPORT","DELIVERED"), id_prefix="wm", tag_text="WORK_MANAGEMENT // trustcodemx"),
+    diagram_html=lambda: results_counter("wm", "WORK_MANAGEMENT // trustcodemx", 247, "Hours Saved This Month", "Horas Ahorradas Este Mes"),
 )
 
 # ---------------- 2. Training ----------------
@@ -1398,7 +1566,7 @@ build_subpage(
     final_h2_en="Ready to close the adoption gap?", final_h2_es="&iquest;Listo para cerrar la brecha de adopci&oacute;n?",
     final_lead_en="Let's build training around your workflows, not a generic deck.", final_lead_es="Construyamos capacitaci&oacute;n para tu flujo de trabajo real.",
     final_cta_en="Contact Us", final_cta_es="Cont&aacute;ctanos",
-    diagram_html=training_checklist("tr", "TRAINING_ENGINE // trustcodemx", 94, [
+    diagram_html=lambda: training_checklist("tr", "TRAINING_ENGINE // trustcodemx", 94, [
         ("Role-Based Curriculum", "Curr&iacute;culo por Rol"),
         ("Hands-On Workshops", "Talleres Pr&aacute;cticos"),
         ("Train-the-Trainer", "Formaci&oacute;n de Formadores"),
@@ -1440,7 +1608,7 @@ build_subpage(
     final_h2_en="Ready for predictable revenue?", final_h2_es="&iquest;Listo para ingresos predecibles?",
     final_lead_en="Let's build a growth engine that reports on itself.", final_lead_es="Construyamos un motor de crecimiento que se reporta solo.",
     final_cta_en="Book an Appointment", final_cta_es="Agenda una Cita",
-    diagram_html=marketing_funnel("mk", "GROWTH_ENGINE // trustcodemx", [
+    diagram_html=lambda: marketing_funnel("mk", "GROWTH_ENGINE // trustcodemx", [
         ("Visitors","Visitantes",2400),("Leads","Leads",640),("MQLs","MQLs",180),("Customers","Clientes",42),
     ]),
 )
@@ -1479,7 +1647,7 @@ build_subpage(
     final_h2_en="Ready to make ops your catalyst?", final_h2_es="&iquest;Listo para que operaciones sea tu motor?",
     final_lead_en="Let's map what's actually broken and rebuild it.", final_lead_es="Mapeemos lo que realmente est&aacute; roto y reconstruy&aacute;moslo.",
     final_cta_en="Map My Processes", final_cta_es="Mapea Mis Procesos",
-    diagram_html=operations_board("op", "OPS_ENGINE // trustcodemx", "Uptime", "Disponibilidad"),
+    diagram_html=lambda: scaling_grid("op", "OPS_ENGINE // trustcodemx"),
 )
 
 # ---------------- 5. Sales & CRM ----------------
@@ -1516,7 +1684,7 @@ build_subpage(
     final_h2_en="Ready to stop the revenue leaks?", final_h2_es="&iquest;Listo para detener la fuga de ingresos?",
     final_lead_en="Let's engineer a pipeline built for velocity.", final_lead_es="Dise&ntilde;emos un pipeline hecho para vender r&aacute;pido.",
     final_cta_en="Accelerate My Pipeline", final_cta_es="Acelera Mi Pipeline",
-    diagram_html=sales_chart("sc", "SALES_ENGINE // trustcodemx", 284500, "Pipeline Value (MXN)", "Valor del Pipeline (MXN)"),
+    diagram_html=lambda: sales_chart("sc", "SALES_ENGINE // trustcodemx", 284500, "Pipeline Value (MXN)", "Valor del Pipeline (MXN)"),
 )
 
 # ---------------- 6. Certified Partner ----------------
@@ -1556,7 +1724,7 @@ build_subpage(
     final_h2_en="Ready to work with a certified partner?", final_h2_es="&iquest;Listo para trabajar con un socio certificado?",
     final_lead_en="Schedule a free strategy session and see the difference certification makes.", final_lead_es="Agenda una sesi&oacute;n estrat&eacute;gica gratuita y comprueba la diferencia.",
     final_cta_en="Schedule a Strategy Session", final_cta_es="Agenda una Sesi&oacute;n Estrat&eacute;gica",
-    diagram_html=workflow_diagram(("CERTIFIED","TRAINED","VERIFIED","SUPPORTED","TRUSTED"), id_prefix="cp", tag_text="PARTNER_STATUS // trustcodemx"),
+    diagram_html=lambda: workflow_diagram(("CERTIFIED","TRAINED","VERIFIED","SUPPORTED","TRUSTED"), id_prefix="cp", tag_text="PARTNER_STATUS // trustcodemx"),
 )
 
 # ---------------- 7. About Us ----------------
@@ -1596,10 +1764,86 @@ build_subpage(
     final_h2_en="Ready to build something that actually works?", final_h2_es="&iquest;Listo para construir algo que realmente funcione?",
     final_lead_en="Let's talk about what's slowing your team down &mdash; and fix it.", final_lead_es="Hablemos de qu&eacute; est&aacute; frenando a tu equipo &mdash; y arregl&eacute;moslo.",
     final_cta_en="Schedule a Free Strategy Session", final_cta_es="Agenda una Sesi&oacute;n Estrat&eacute;gica Gratuita",
-    diagram_html=workflow_diagram(("PEOPLE","PROCESS","PLATFORM","CULTURE","GROWTH"), id_prefix="au", tag_text="OUR_APPROACH // trustcodemx"),
+    diagram_html=lambda: workflow_diagram(("PEOPLE","PROCESS","PLATFORM","CULTURE","GROWTH"), id_prefix="au", tag_text="OUR_APPROACH // trustcodemx"),
 )
 
-print("all 7 subpages written (en + es)")
+# ---------------- 8. Web Design & Development ----------------
+build_subpage(
+    slug="web-design-development",
+    title_en="Web Design & Development Services | Trust Code",
+    title_es="Diseño y Desarrollo Web | Trust Code",
+    desc_en="Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.",
+    desc_es="Sitios web rápidos y a la medida, construidos por un socio certificado de monday.com en México — diseñados como la puerta de entrada a los sistemas que ya construimos para ti.",
+    crumb_en="Web Design &amp; Development", crumb_es="Dise&ntilde;o y Desarrollo Web",
+    h1_en="A Website That Works as Hard as Your Operation", h1_es="Un Sitio Web que Trabaja Tan Duro Como tu Operaci&oacute;n",
+    lead_en="Your website shouldn't be disconnected from the systems running your business. We design and build sites that plug directly into the workflows we set up on monday.com.",
+    lead_es="Tu sitio web no deber&iacute;a estar desconectado de los sistemas que dirigen tu negocio. Dise&ntilde;amos y construimos sitios que se conectan directamente a los flujos que configuramos en monday.com.",
+    cta_en="Start My Website", cta_es="Inicia mi Sitio Web",
+    challenge=[
+        ("alert","Outdated or DIY Sites","Sitios Desactualizados o Caseros","A site that doesn't reflect the business you've become.","Un sitio que ya no refleja el negocio en que te has convertido."),
+        ("alert","Disconnected From Your Systems","Desconectado de tus Sistemas","Leads from the site never make it into your CRM.","Los leads del sitio nunca llegan a tu CRM."),
+        ("alert","Slow, Hard to Update","Lento y Dif&iacute;cil de Actualizar","Every small change means waiting on a developer.","Cada cambio peque&ntilde;o implica esperar a un desarrollador."),
+        ("alert","No Clear Path to Contact","Sin un Camino Claro a Contacto","Visitors can't tell what to do next.","Los visitantes no saben qu&eacute; hacer despu&eacute;s."),
+    ],
+    solution=[
+        ("check","Design Tied to Your Brand","Dise&ntilde;o Fiel a tu Marca","A site that actually looks like your business.","Un sitio que realmente se ve como tu negocio."),
+        ("check","Connected to monday.com","Conectado a monday.com","Forms and leads flow straight into your boards.","Formularios y leads fluyen directo a tus tableros."),
+        ("check","Built to Be Maintained","Construido para Mantenerse","Easy updates, without waiting on a developer.","Actualizaciones f&aacute;ciles, sin esperar a un desarrollador."),
+        ("check","A Clear Path to Action","Un Camino Claro a la Acci&oacute;n","Every page points toward a next step.","Cada p&aacute;gina apunta hacia un siguiente paso."),
+    ],
+    getgrid_title_en="A site built to convert, not just exist", getgrid_title_es="Un sitio hecho para convertir, no solo para existir",
+    getcards=[
+        ("browser","A Modern, Fast Site","Un Sitio Moderno y R&aacute;pido","Built for speed, not just looks.","Construido para velocidad, no solo apariencia."),
+        ("link","Full Integration","Integraci&oacute;n Total","Your site and your systems, working together.","Tu sitio y tus sistemas, trabajando juntos."),
+        ("repeat","Easy to Maintain","F&aacute;cil de Mantener","Update content without touching code.","Actualiza contenido sin tocar c&oacute;digo."),
+        ("trending","More Qualified Leads","M&aacute;s Leads Calificados","A site designed to turn visits into conversations.","Un sitio dise&ntilde;ado para convertir visitas en conversaciones."),
+    ],
+    final_h2_en="Ready for a site that pulls its weight?", final_h2_es="&iquest;Listo para un sitio que s&iacute; aporte?",
+    final_lead_en="Let's design something that actually supports how you sell and operate.", final_lead_es="Dise&ntilde;emos algo que realmente apoye c&oacute;mo vendes y operas.",
+    final_cta_en="Start My Website", final_cta_es="Inicia mi Sitio Web",
+    diagram_html=lambda: website_builder("wd", "SITE_BUILDER // trustcodemx"),
+)
+
+# ---------------- 9. Social Media Management ----------------
+build_subpage(
+    slug="social-media-management",
+    title_en="Social Media Management Services | Trust Code",
+    title_es="Gestión de Redes Sociales | Trust Code",
+    desc_en="Social media content planned, scheduled, and tracked the same way we run everything else — on monday.com, with a real content calendar and clear results.",
+    desc_es="Contenido de redes sociales planeado, programado y medido igual que todo lo demás — en monday.com, con un calendario de contenido real y resultados claros.",
+    crumb_en="Social Media Management", crumb_es="Gesti&oacute;n de Redes Sociales",
+    h1_en="A Content Engine, Not Just a Posting Calendar", h1_es="Un Motor de Contenido, No Solo un Calendario de Publicaciones",
+    lead_en="Random posting doesn't build a brand. We plan, produce, and publish content on a real system — the same one running the rest of your business.",
+    lead_es="Publicar al azar no construye una marca. Planeamos, producimos y publicamos contenido sobre un sistema real — el mismo que dirige el resto de tu negocio.",
+    cta_en="Plan My Content", cta_es="Planea mi Contenido",
+    challenge=[
+        ("alert","Inconsistent Posting","Publicaci&oacute;n Inconsistente","Weeks go by with no content, then a rush.","Pasan semanas sin contenido, luego una corrida."),
+        ("alert","No Real Strategy","Sin Estrategia Real","Posting without a plan behind it.","Publicar sin un plan detr&aacute;s."),
+        ("alert","Unclear Results","Resultados Poco Claros","No idea what's actually driving engagement.","Sin idea de qu&eacute; genera el compromiso real."),
+        ("alert","Disconnected From Sales","Desconectado de Ventas","Social lives apart from the rest of the business.","Las redes viven aparte del resto del negocio."),
+    ],
+    solution=[
+        ("check","Real Content Calendar","Calendario de Contenido Real","Planned weeks ahead, not day-of.","Planeado con semanas de anticipaci&oacute;n."),
+        ("check","Strategy Before Posting","Estrategia Antes de Publicar","Every post ties back to a goal.","Cada publicaci&oacute;n conecta con un objetivo."),
+        ("check","Clear Performance Tracking","Seguimiento Claro de Resultados","Real metrics, not just likes.","M&eacute;tricas reales, no solo likes."),
+        ("check","Tied to the Rest of the Business","Conectado al Resto del Negocio","Leads from social routed like any other.","Leads de redes sociales ruteados como cualquier otro."),
+    ],
+    getgrid_title_en="Content that shows up, on purpose", getgrid_title_es="Contenido que aparece, a prop&oacute;sito",
+    getcards=[
+        ("calendar","A Real Calendar","Un Calendario Real","Content planned, not improvised.","Contenido planeado, no improvisado."),
+        ("image","On-Brand Content","Contenido Fiel a tu Marca","Consistent look, consistent voice.","Imagen y voz consistentes."),
+        ("bars","Clear Reporting","Reportes Claros","Know what's actually working.","Sabe qu&eacute; est&aacute; funcionando de verdad."),
+        ("share","One Connected System","Un Sistema Conectado","Social tied into the rest of your operation.","Redes conectadas al resto de tu operaci&oacute;n."),
+    ],
+    final_h2_en="Ready for social media that works like the rest of your business?", final_h2_es="&iquest;Listo para redes sociales que funcionen como el resto de tu negocio?",
+    final_lead_en="Let's build a content system, not just a posting habit.", final_lead_es="Construyamos un sistema de contenido, no solo un h&aacute;bito de publicar.",
+    final_cta_en="Plan My Content", final_cta_es="Planea mi Contenido",
+    diagram_html=lambda: marketing_funnel("sm", "CONTENT_ENGINE // trustcodemx", [
+        ("Ideas","Ideas",86),("In Production","En Producci&oacute;n",34),("Scheduled","Programado",21),("Published","Publicado",18),
+    ]),
+)
+
+print("all 9 subpages written (en + es)")
 
 # ---------------------------------------------------------------
 # BLOG LISTING (static design reference -- see deployment guide re:

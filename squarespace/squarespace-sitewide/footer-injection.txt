@@ -8,7 +8,9 @@
 <a href="/team-training/"><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Training</span></a>
 <a href="/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing &amp; CRM</span></a>
 <a href="/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operations</span></a>
-<a href="/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></a></div></div>
+<a href="/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></a>
+<a href="/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Web Design &amp; Development</span></a>
+<a href="/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Social Media Management</span></a></div></div>
       </div>
       <a href="/monday-partner/"><span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Certified Partner</span></a>
       <a href="/blog/"><span class="i18n" data-es="Blog" data-en="Blog">Blog</span></a>
@@ -33,6 +35,8 @@
         <a href="/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing &amp; CRM</span></a>
         <a href="/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operations</span></a>
         <a href="/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Sales &amp; CRM</span></a>
+        <a href="/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Web Design &amp; Development</span></a>
+        <a href="/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Social Media Management</span></a>
       </div>
       <div class="footer-col">
         <h5><span class="i18n" data-es="Compa&amp;ntilde;&amp;iacute;a" data-en="Company">Company</span></h5>
@@ -56,7 +60,9 @@
 <a href="/es/team-training/"><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Capacitaci&oacute;n</span></a>
 <a href="/es/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing y CRM</span></a>
 <a href="/es/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operaciones</span></a>
-<a href="/es/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Ventas y CRM</span></a></div></div>
+<a href="/es/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Ventas y CRM</span></a>
+<a href="/es/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Dise&ntilde;o y Desarrollo Web</span></a>
+<a href="/es/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Gesti&oacute;n de Redes Sociales</span></a></div></div>
       </div>
       <a href="/es/monday-partner/"><span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Socio Certificado</span></a>
       <a href="/es/blog/"><span class="i18n" data-es="Blog" data-en="Blog">Blog</span></a>
@@ -81,6 +87,8 @@
         <a href="/es/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing y CRM</span></a>
         <a href="/es/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operaciones</span></a>
         <a href="/es/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Ventas y CRM</span></a>
+        <a href="/es/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Dise&ntilde;o y Desarrollo Web</span></a>
+        <a href="/es/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Gesti&oacute;n de Redes Sociales</span></a>
       </div>
       <div class="footer-col">
         <h5><span class="i18n" data-es="Compa&amp;ntilde;&amp;iacute;a" data-en="Company">Compa&ntilde;&iacute;a</span></h5>

@@ -17,20 +17,20 @@
       <div class="tchk-wrap" id="tr">
         <div class="tchk-row" style="transition-delay:0.00s;">
               <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
-              <span class="tchk-label"><span class="i18n" data-es="Curr&amp;iacute;culo por Rol" data-en="Role-Based Curriculum">Role-Based Curriculum</span></span>
+              <span class="tchk-label"><span class="i18n" data-es="Curr&amp;iacute;culo por Rol" data-en="Role-Based Curriculum">Curr&iacute;culo por Rol</span></span>
             </div><div class="tchk-row" style="transition-delay:0.22s;">
               <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
-              <span class="tchk-label"><span class="i18n" data-es="Talleres Pr&amp;aacute;cticos" data-en="Hands-On Workshops">Hands-On Workshops</span></span>
+              <span class="tchk-label"><span class="i18n" data-es="Talleres Pr&amp;aacute;cticos" data-en="Hands-On Workshops">Talleres Pr&aacute;cticos</span></span>
             </div><div class="tchk-row" style="transition-delay:0.44s;">
               <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
-              <span class="tchk-label"><span class="i18n" data-es="Formaci&amp;oacute;n de Formadores" data-en="Train-the-Trainer">Train-the-Trainer</span></span>
+              <span class="tchk-label"><span class="i18n" data-es="Formaci&amp;oacute;n de Formadores" data-en="Train-the-Trainer">Formaci&oacute;n de Formadores</span></span>
             </div><div class="tchk-row" style="transition-delay:0.66s;">
               <span class="tchk-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
-              <span class="tchk-label"><span class="i18n" data-es="Soporte Continuo" data-en="Ongoing Support">Ongoing Support</span></span>
+              <span class="tchk-label"><span class="i18n" data-es="Soporte Continuo" data-en="Ongoing Support">Soporte Continuo</span></span>
             </div>
         <div class="tchk-result" style="transition-delay:1.03s;">
           <span class="ring-num count-num" data-target="94" data-suffix="%">0%</span>
-          <span class="ring-caption" style="text-align:left; margin-top:0;"><span class="i18n" data-es="Dominio del Equipo" data-en="Team Proficiency">Team Proficiency</span></span>
+          <span class="ring-caption" style="text-align:left; margin-top:0;"><span class="i18n" data-es="Dominio del Equipo" data-en="Team Proficiency">Dominio del Equipo</span></span>
         </div>
       </div>
       <script>

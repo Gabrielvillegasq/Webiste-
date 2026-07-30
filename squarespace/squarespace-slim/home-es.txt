@@ -14,41 +14,40 @@
         <a class="btn-ghost" href="#process"><span class="i18n" data-es="Ver el proceso &amp;darr;" data-en="See the process &amp;darr;">Ver el proceso &darr;</span></a>
       </div>
     </div>
-    <div class="diagram-card hero-in" style="animation-delay:0.2s">
+    <div class="diagram-card hero-in" style="animation-delay:.2s;">
       <div class="diagram-head">
         <span>WORKFLOW_ENGINE // trustcodemx</span>
         <span style="color:var(--status-done)">&#9679; live</span>
       </div>
-      <svg viewBox="0 0 400 220" width="100%" style="height:auto; display:block;">
-        <line class="board-row" x1="24" y1="50" x2="376" y2="50"/>
-        <line class="board-row" x1="24" y1="110" x2="376" y2="110"/>
-        <line class="board-row" x1="24" y1="170" x2="376" y2="170"/>
-        <path id="h1" class="path-line" d="M50,110 C120,110 120,50 200,50"/>
-        <path id="h2" class="path-line" d="M50,110 C120,110 120,110 200,110"/>
-        <path id="h3" class="path-line" d="M50,110 C120,110 120,170 200,170"/>
-        <path id="h4" class="path-line" d="M200,50 C260,50 260,110 320,110"/>
-        <path id="h5" class="path-line" d="M200,110 C260,110 260,110 320,110"/>
-        <path id="h6" class="path-line" d="M200,170 C260,170 260,110 320,110"/>
-        <circle class="node-circle" cx="50" cy="110" r="20"/>
-        <circle class="node-circle" cx="200" cy="50" r="14"/>
-        <circle cx="211" cy="41" r="3.5" fill="var(--status-working)"/>
-        <circle class="node-circle" cx="200" cy="110" r="14"/>
-        <circle cx="211" cy="101" r="3.5" fill="var(--status-working)"/>
-        <circle class="node-circle" cx="200" cy="170" r="14"/>
-        <circle cx="211" cy="161" r="3.5" fill="var(--status-working)"/>
-        <circle class="node-circle lit" cx="320" cy="110" r="20"/>
-        <text class="node-label" x="50" y="145" text-anchor="middle">INTAKE</text>
-        <text class="node-label" x="200" y="30" text-anchor="middle">BOARDS</text>
-        <text class="node-label" x="200" y="132" text-anchor="middle">AUTOMATE</text>
-        <text class="node-label" x="200" y="192" text-anchor="middle">REPORT</text>
-        <text class="node-label active" x="320" y="145" text-anchor="middle">ENTREGADO</text>
-        <circle class="pulse-working" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#h1"/></animateMotion></circle>
-        <circle class="pulse-done" r="3.5"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.5s"><mpath href="#h4"/></animateMotion></circle>
-        <circle class="pulse-working" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.1s"><mpath href="#h2"/></animateMotion></circle>
-        <circle class="pulse-done" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" begin="1.7s"><mpath href="#h5"/></animateMotion></circle>
-        <circle class="pulse-working" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="0.9s"><mpath href="#h3"/></animateMotion></circle>
-        <circle class="pulse-done" r="3.5"><animateMotion dur="3.4s" repeatCount="indefinite" begin="1.5s"><mpath href="#h6"/></animateMotion></circle>
-      </svg>
+      <div class="chaos-stage" id="h">
+        <div class="chaos-caption" id="h-cap">CAOS</div>
+        <div class="chaos-card" style="--cc:var(--status-stuck); --l:6%; --t:26px; --r:-12deg; --ot:26px; animation-delay:0.0s;"><span class="chaos-check">&#10003;</span></div><div class="chaos-card" style="--cc:var(--status-working); --l:52%; --t:34px; --r:10deg; --ot:68px; animation-delay:0.3s;"><span class="chaos-check">&#10003;</span></div><div class="chaos-card" style="--cc:var(--status-done); --l:16%; --t:112px; --r:-8deg; --ot:110px; animation-delay:0.6s;"><span class="chaos-check">&#10003;</span></div><div class="chaos-card" style="--cc:var(--purple-bright); --l:58%; --t:120px; --r:12deg; --ot:152px; animation-delay:0.9s;"><span class="chaos-check">&#10003;</span></div><div class="chaos-card" style="--cc:var(--status-working); --l:30%; --t:170px; --r:-6deg; --ot:194px; animation-delay:1.2s;"><span class="chaos-check">&#10003;</span></div>
+      </div>
+      <script>
+        (function(){
+          var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var stage = document.getElementById('h');
+          var cap = document.getElementById('h-cap');
+          var cards = Array.from(stage.querySelectorAll('.chaos-card'));
+          if (reduceMotion) return;
+          function organize(){
+            stage.classList.add('organized');
+            cap.textContent = 'ORGANIZADO';
+            cards.forEach(function(c, i){ setTimeout(function(){ c.classList.add('landed'); }, i * 180); });
+          }
+          function scatter(){
+            stage.classList.remove('organized');
+            cap.textContent = 'CAOS';
+            cards.forEach(function(c){ c.classList.remove('landed'); });
+          }
+          (function loopCycle(){
+            setTimeout(function(){
+              organize();
+              setTimeout(function(){ scatter(); setTimeout(loopCycle, 2600); }, 3600);
+            }, 2400);
+          })();
+        })();
+      </script>
     </div>
   </div>
 </section>
@@ -130,7 +129,7 @@
   <div class="tc-wrap">
     <div class="section-head reveal">
       <span class="eyebrow"><span class="i18n" data-es="nuestros servicios" data-en="our services">nuestros servicios</span></span>
-      <h2><span class="i18n" data-es="Cinco formas de aprovechar monday.com" data-en="Five ways we put monday.com to work">Cinco formas de aprovechar monday.com</span></h2>
+      <h2><span class="i18n" data-es="Siete formas en que ayudamos a tu negocio a operar y crecer" data-en="Seven ways we help your business run and grow">Siete formas en que ayudamos a tu negocio a operar y crecer</span></h2>
     </div>
     <div class="grid-5"><a class="service-card icon-pop reveal" href="/es/work-management/" style="--sc-accent:var(--purple-bright); transition-delay:0.00s">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></div>
@@ -147,6 +146,12 @@
         </a><a class="service-card icon-pop reveal" href="/es/monday-sales-crm/" style="--sc-accent:var(--purple-bright); transition-delay:0.28s">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M3 17l6-6 4 4 7-8"/><path d="M15 6h5v5"/></svg></div>
           <h4><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Ventas y CRM</span></h4><p><span class="i18n" data-es="Ciclos m&amp;aacute;s cortos, m&amp;aacute;s cierres." data-en="Shorter cycles, more closed deals.">Ciclos m&aacute;s cortos, m&aacute;s cierres.</span></p>
+        </a><a class="service-card icon-pop reveal" href="/es/web-design-development/" style="--sc-accent:var(--emerald); transition-delay:0.35s">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20"/><circle cx="5.5" cy="6" r=".6" fill="currentColor" stroke="none"/></svg></div>
+          <h4><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Dise&ntilde;o y Desarrollo Web</span></h4><p><span class="i18n" data-es="Un sitio a la altura de tu operaci&amp;oacute;n." data-en="A site as sharp as your operation.">Un sitio a la altura de tu operaci&oacute;n.</span></p>
+        </a><a class="service-card icon-pop reveal" href="/es/social-media-management/" style="--sc-accent:var(--purple-bright); transition-delay:0.42s">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><circle cx="6" cy="12" r="2.6"/><circle cx="17" cy="6" r="2.6"/><circle cx="17" cy="18" r="2.6"/><path d="M8.3 10.8l6.4-3.2M8.3 13.2l6.4 3.2"/></svg></div>
+          <h4><span class="i18n" data-es="Redes Sociales" data-en="Social Media">Redes Sociales</span></h4><p><span class="i18n" data-es="Un motor de contenido, no solo posts." data-en="A content engine, not just posts.">Un motor de contenido, no solo posts.</span></p>
         </a></div>
   </div>
 </section>

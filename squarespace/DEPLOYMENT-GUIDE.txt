@@ -59,21 +59,58 @@ Re-paste ALL squarespace-slim/*.txt files and both site-wide injection
 files this time -- the shared style/motion tokens changed, so every page
 is affected even though most page content itself didn't change.
 
+UPDATE (round 4) -- digital agency expansion + 3 new signature animations
+----------------------------------------------------------------------------
+- Two new service pages added (per your direction to add these as
+  complementary services alongside the existing 5, not a full repositioning):
+  Web Design & Development and Social Media Management. Both wired into
+  the "Solutions" nav dropdown, the footer Services list, and the
+  homepage's "Our Services" grid (now 7 items, wraps 4+3). Copy is
+  placeholder-but-credible, same convention as the original 5 -- swap in
+  real specifics/pricing whenever you have them.
+- Per your final animation spec (from your separate prototype review):
+  the Home hero and Work Management hero moved OFF the shared workflow
+  diagram onto two new dedicated visuals (a "chaos -> organized" card
+  snap-in on Home, a count-up + self-drawing line graph on Work
+  Management), and Operations got the "scaling grid" (4x4 cells lighting
+  up in a non-sequential order while a live count climbs 4/8/12/16).
+  Certified Partner and About Us keep the original shared workflow diagram,
+  as specified.
+- Fixed a real, previously-shipped bug while wiring the new animations in:
+  every subpage's diagram (Work Management, Training, Marketing & CRM,
+  Operations, Sales & CRM, Social Media) was silently showing its
+  ENGLISH label/caption even on the Spanish page -- e.g. the Sales & CRM
+  Spanish page showed "Pipeline Value (MXN)" instead of "Valor del
+  Pipeline (MXN)". Root cause: those diagrams were built once at script
+  level instead of once per language. Fixed for all 9 subpages; verified
+  the Spanish pages now show correctly.
+- Also fixed (from your bug report): the Operations animation used to
+  finish playing before its card even faded into view, so it looked
+  static -- the "scaling grid" replacement is unaffected by that class of
+  bug since it's a continuous loop, but the underlying invisible-animation
+  issue was fixed regardless. Also fixed the magnetic-button script
+  recalculating layout on every raw mousemove (visible stutter), and made
+  the Google Fonts link non-render-blocking so a slow/blocked font request
+  can never stall the whole page's first paint (and every animation on it).
+This round touches every page's shared style/script (site-wide files) AND
+every subpage's body content -- re-paste everything in squarespace-slim/,
+squarespace-page-head/, and both squarespace-sitewide/ files.
+
 WHAT'S IN THIS FOLDER
 ----------------------
 build_v4.py                  the generator script (only touch this if you
                               want to change copy/logic and regenerate)
-preview/                     18 full standalone HTML files, one per page
+preview/                     22 full standalone HTML files, one per page
                               per language -- open these directly in a
                               browser to proof-read before you deploy
                               anything. NOT what you paste into Squarespace.
 squarespace-sitewide/
   head-injection.txt         paste ONCE, site-wide
   footer-injection.txt       paste ONCE, site-wide
-squarespace-slim/            18 files, ONE per page per language --
+squarespace-slim/            22 files, ONE per page per language --
   <page>-en.txt / <page>-es.txt   each pastes into that ONE page's own
                               Code Block
-squarespace-page-head/       18 files, ONE per page per language -- each
+squarespace-page-head/       22 files, ONE per page per language -- each
   <page>-en.txt / <page>-es.txt   pastes into that ONE page's own "Page
                               Header Code Injection" field
 sitemap.xml, robots.txt      reference only -- see the note near the
@@ -121,10 +158,12 @@ set the URL slug in page settings). English pages at the top level:
   /monday-sales-crm
   /monday-partner
   /about-us
+  /web-design-development
+  /social-media-management
   /blog
 
 Then create a Folder in the Pages panel named "es" (this makes its
-children live at /es/...), and inside it create the same 8 subpages plus
+children live at /es/...), and inside it create the same 10 subpages plus
 a home page, so you end up with:
 
   /es/
@@ -135,14 +174,16 @@ a home page, so you end up with:
   /es/monday-sales-crm
   /es/monday-partner
   /es/about-us
+  /es/web-design-development
+  /es/social-media-management
   /es/blog
 
-Set every one of these 18 pages to "don't show in navigation" in
+Set every one of these 22 pages to "don't show in navigation" in
 Squarespace's own menu settings -- our injected header (Step 1) is the
 real navigation; you don't want both showing up.
 
 
-STEP 3 -- Fill in each page (repeat for all 18)
+STEP 3 -- Fill in each page (repeat for all 22)
 --------------------------------------------------
 For page X in language L:
   1. Add a Code Block to the page's main content area, paste the ENTIRE
@@ -221,6 +262,20 @@ About Us (ES):
   Title:  Nosotros | Trust Code, Socio de Consultoría monday.com en México
   Desc:   Trust Code es socio certificado de monday.com en México, con la misión de acabar con la fricción operativa -- consultores primero, tecnólogos después.
 
+Web Design & Development (EN):
+  Title:  Web Design & Development Services | Trust Code
+  Desc:   Custom, fast-loading websites built by a certified monday.com partner in Mexico — designed to work as the front door to the systems we already build for you.
+Web Design & Development (ES):
+  Title:  Diseño y Desarrollo Web | Trust Code
+  Desc:   Sitios web rápidos y a la medida, construidos por un socio certificado de monday.com en México — diseñados como la puerta de entrada a los sistemas que ya construimos para ti.
+
+Social Media Management (EN):
+  Title:  Social Media Management Services | Trust Code
+  Desc:   Social media content planned, scheduled, and tracked the same way we run everything else — on monday.com, with a real content calendar and clear results.
+Social Media Management (ES):
+  Title:  Gestión de Redes Sociales | Trust Code
+  Desc:   Contenido de redes sociales planeado, programado y medido igual que todo lo demás — en monday.com, con un calendario de contenido real y resultados claros.
+
 Blog (EN):
   Title:  Blog | monday.com Insights & Case Studies | Trust Code
   Desc:   Practical monday.com tips, automation guides, and real client case studies from the Trust Code team in Mexico.
@@ -259,7 +314,7 @@ ABOUT sitemap.xml AND robots.txt
 Squarespace automatically generates and serves its own /sitemap.xml and
 /robots.txt for your domain -- most plans don't let you upload a file to
 override those exact paths. The sitemap.xml and robots.txt in this
-folder are provided as a REFERENCE (the full, correct list of all 18
+folder are provided as a REFERENCE (the full, correct list of all 22
 URLs with their hreflang pairings) -- useful for manually submitting URLs
 to Google Search Console, or if the site is ever migrated off
 Squarespace. Squarespace's own auto-generated sitemap will pick up these
