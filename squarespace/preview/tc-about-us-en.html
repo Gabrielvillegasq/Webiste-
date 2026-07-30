@@ -473,7 +473,10 @@
   .brand-logo-img { display: block; width: auto; }
   .footer-col .brand-logo-img { height: 30px; }
   .mb-badge-img { display: block; width: auto; }
-  .has-badge-img { gap: 8px; }
+  .eyebrow-logo.has-badge-img, .badge.has-badge-img {
+    background: transparent; border: none; padding: 0;
+  }
+  .footer-monday-wordmark { display: block; width: auto; }
 </style>
 
 
@@ -520,7 +523,7 @@
 <body>
 <header id="tc-header">
   <nav class="tc-wrap">
-    <a href="/"><span class="brand-lockup"><span class="bl-trust">trust</span><span class="bl-code">code</span><span class="bl-mx">mx</span></span></a>
+    <a href="/"><img class="brand-logo-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/ab150a06-6b43-4f83-9884-46128c4aeafe/TRAZO+TRUST+CODE.png?content-type=image%2Fpng" alt="Trust Code MX" height="26"></a>
     <div class="nav-links">
       <div class="has-dropdown" onclick="toggleDropdown(this)">
         <span class="dropdown-trigger"><span class="i18n" data-es="Soluciones" data-en="Solutions">Solutions</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -647,7 +650,10 @@
 <footer id="tc-footer">
   <div class="tc-wrap">
     <div class="footer-grid">
-      <div class="footer-col"><span class="brand-lockup"><span class="bl-trust">trust</span><span class="bl-code">code</span><span class="bl-mx">mx</span></span></div>
+      <div class="footer-col" style="display:flex; flex-direction:column; gap:14px;">
+        <img class="brand-logo-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/ab150a06-6b43-4f83-9884-46128c4aeafe/TRAZO+TRUST+CODE.png?content-type=image%2Fpng" alt="Trust Code MX" height="26">
+        <img class="footer-monday-wordmark" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/62db7255-405d-4544-920e-1a5c025a6e74/monday.com+certified+partner+%281%29.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="34">
+      </div>
       <div class="footer-col">
         <h5><span class="i18n" data-es="Servicios" data-en="Services">Services</span></h5>
         <a href="/work-management/"><span class="i18n" data-es="Gesti&amp;oacute;n del Trabajo" data-en="Work Management">Work Management</span></a>

@@ -473,7 +473,10 @@
   .brand-logo-img { display: block; width: auto; }
   .footer-col .brand-logo-img { height: 30px; }
   .mb-badge-img { display: block; width: auto; }
-  .has-badge-img { gap: 8px; }
+  .eyebrow-logo.has-badge-img, .badge.has-badge-img {
+    background: transparent; border: none; padding: 0;
+  }
+  .footer-monday-wordmark { display: block; width: auto; }
 </style>
 
 
@@ -519,7 +522,7 @@
 <body>
 <header id="tc-header">
   <nav class="tc-wrap">
-    <a href="/es/"><span class="brand-lockup"><span class="bl-trust">trust</span><span class="bl-code">code</span><span class="bl-mx">mx</span></span></a>
+    <a href="/es/"><img class="brand-logo-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/ab150a06-6b43-4f83-9884-46128c4aeafe/TRAZO+TRUST+CODE.png?content-type=image%2Fpng" alt="Trust Code MX" height="26"></a>
     <div class="nav-links">
       <div class="has-dropdown" onclick="toggleDropdown(this)">
         <span class="dropdown-trigger"><span class="i18n" data-es="Soluciones" data-en="Solutions">Soluciones</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -548,7 +551,7 @@
   <div class="ambient-blob" style="width:220px; height:220px; bottom:-60px; left:4%; background:rgba(0,202,114,0.12); animation-delay:-6s;"></div>
   <div class="tc-wrap">
     <div>
-      <span class="eyebrow-logo hero-in"><span class="mb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="mb-txt">monday.com &middot; <span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Socio Certificado</span></span></span>
+      <span class="eyebrow-logo hero-in has-badge-img"><img class="mb-badge-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="18"></span>
       <h1 class="hero-in" style="animation-delay:.15s"><span class="i18n" data-es="Libera el M&amp;aacute;ximo" data-en="Unlock Peak">Libera el M&aacute;ximo</span> <span class="purple"><span class="i18n" data-es="Rendimiento" data-en="Performance">Rendimiento</span></span></h1>
       <p class="lead hero-in" style="animation-delay:.25s"><span class="i18n" data-es="Convertimos la fricci&amp;oacute;n operativa en un motor de crecimiento a la medida &amp;mdash; en monday.com." data-en="We turn operational friction into a custom-built engine for growth &amp;mdash; on monday.com.">Convertimos la fricci&oacute;n operativa en un motor de crecimiento a la medida &mdash; en monday.com.</span></p>
       <div class="hero-in" style="display:flex; align-items:center; animation-delay:.35s">
@@ -715,14 +718,17 @@
     <h2><span class="i18n" data-es="&amp;iquest;Listo para revolucionar tus operaciones?" data-en="Ready to revolutionize your operations?">&iquest;Listo para revolucionar tus operaciones?</span></h2>
     <p><span class="i18n" data-es="Agenda tu consulta gratuita hoy." data-en="Schedule your free consultation today.">Agenda tu consulta gratuita hoy.</span></p>
     <a class="btn-primary" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Reclama mi Consulta Gratuita" data-en="Claim My Free Consultation">Reclama mi Consulta Gratuita</span></a>
-    <div><span class="badge"><span class="mb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="ic" ><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="mb-txt">monday.com &middot; <span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Socio Certificado</span></span></span></div>
+    <div><span class="badge has-badge-img"><img class="mb-badge-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="18"></span></div>
   </div>
 </section>
 
 <footer id="tc-footer">
   <div class="tc-wrap">
     <div class="footer-grid">
-      <div class="footer-col"><span class="brand-lockup"><span class="bl-trust">trust</span><span class="bl-code">code</span><span class="bl-mx">mx</span></span></div>
+      <div class="footer-col" style="display:flex; flex-direction:column; gap:14px;">
+        <img class="brand-logo-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/ab150a06-6b43-4f83-9884-46128c4aeafe/TRAZO+TRUST+CODE.png?content-type=image%2Fpng" alt="Trust Code MX" height="26">
+        <img class="footer-monday-wordmark" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/62db7255-405d-4544-920e-1a5c025a6e74/monday.com+certified+partner+%281%29.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="34">
+      </div>
       <div class="footer-col">
         <h5><span class="i18n" data-es="Servicios" data-en="Services">Servicios</span></h5>
         <a href="/es/work-management/"><span class="i18n" data-es="Gesti&amp;oacute;n del Trabajo" data-en="Work Management">Gesti&oacute;n del Trabajo</span></a>

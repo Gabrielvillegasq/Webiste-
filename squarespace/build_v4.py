@@ -3,13 +3,11 @@ import json
 import os
 
 # --- Real logo / badge images -----------------------------------------
-# Paste the hosted URLs here once uploaded to Squarespace's own Media Library
-# (Settings -> Assets, or just drop them into a page and copy the resulting
-# https://images.squarespace-cdn.com/... URL), then re-run this script --
-# every one of the 18 pages regenerates with the real images automatically.
-# Left as None, a clean text/icon placeholder is used instead.
-LOGO_IMG_URL = None            # the "trustcode mx" wordmark
-MONDAY_BADGE_IMG_URL = None    # the official monday.com Certified Partner badge
+# Hosted on Squarespace's own Media Library. Re-run this script any time
+# these change -- every page regenerates with the real images automatically.
+LOGO_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/ab150a06-6b43-4f83-9884-46128c4aeafe/TRAZO+TRUST+CODE.png?content-type=image%2Fpng"          # "trustcode mx" wordmark -- header/footer brand mark
+MONDAY_BADGE_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng"  # hexagon badge -- hero pill + final CTA badge (compact spots)
+MONDAY_WORDMARK_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/62db7255-405d-4544-920e-1a5c025a6e74/monday.com+certified+partner+%281%29.png?content-type=image%2Fpng"  # wordmark -- footer, alongside the Trust Code logo
 # ------------------------------------------------------------------------
 
 BASE_URL = "https://www.trustcodemx.com"
@@ -567,7 +565,10 @@ LIGHT_OVERRIDES = """
   .brand-logo-img { display: block; width: auto; }
   .footer-col .brand-logo-img { height: 30px; }
   .mb-badge-img { display: block; width: auto; }
-  .has-badge-img { gap: 8px; }
+  .eyebrow-logo.has-badge-img, .badge.has-badge-img {
+    background: transparent; border: none; padding: 0;
+  }
+  .footer-monday-wordmark { display: block; width: auto; }
 </style>
 """
 
@@ -705,9 +706,14 @@ def brand_lockup():
 def monday_badge(label_en, label_es, cls="eyebrow-logo"):
     if MONDAY_BADGE_IMG_URL:
         return (f'<span class="{cls} has-badge-img"><img class="mb-badge-img" src="{MONDAY_BADGE_IMG_URL}" '
-                f'alt="monday.com Certified Partner" height="18"><span class="mb-txt">{T(label_en, label_es)}</span></span>')
+                f'alt="monday.com Certified Partner" height="18"></span>')
     return (f'<span class="{cls}"><span class="mb-ic">{ICONS["shield"]}</span>'
             f'<span class="mb-txt">monday.com &middot; {T(label_en, label_es)}</span></span>')
+
+def monday_wordmark():
+    if MONDAY_WORDMARK_IMG_URL:
+        return f'<img class="footer-monday-wordmark" src="{MONDAY_WORDMARK_IMG_URL}" alt="monday.com Certified Partner" height="34">'
+    return ""
 
 # ---------------------------------------------------------------
 # SEO head block: canonical, hreflang, OpenGraph, Twitter, JSON-LD.
@@ -818,7 +824,10 @@ def footer():
     return f"""<footer id="tc-footer">
   <div class="tc-wrap">
     <div class="footer-grid">
-      <div class="footer-col">{brand_lockup()}</div>
+      <div class="footer-col" style="display:flex; flex-direction:column; gap:14px;">
+        {brand_lockup()}
+        {monday_wordmark()}
+      </div>
       <div class="footer-col">
         <h5>{T('Services','Servicios')}</h5>
         <a href="{p}/work-management/">{T('Work Management','Gesti&oacute;n del Trabajo')}</a>

@@ -468,7 +468,10 @@
   .brand-logo-img { display: block; width: auto; }
   .footer-col .brand-logo-img { height: 30px; }
   .mb-badge-img { display: block; width: auto; }
-  .has-badge-img { gap: 8px; }
+  .eyebrow-logo.has-badge-img, .badge.has-badge-img {
+    background: transparent; border: none; padding: 0;
+  }
+  .footer-monday-wordmark { display: block; width: auto; }
 </style>
 
 
