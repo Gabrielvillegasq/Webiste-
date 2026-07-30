@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"></noscript>
 
 <style>
   :root {
@@ -255,11 +256,11 @@
     transition: transform 0.75s var(--ease-emphasis), opacity 0.4s ease;
   }
   .board-card .chip-line { height: 6px; border-radius: 3px; background: var(--line); }
-  .board-card:nth-child(1) { top: 6px;   transform: translate(-36px,-12px) rotate(-13deg); }
-  .board-card:nth-child(2) { top: 42px;  transform: translate(32px,10px) rotate(10deg); }
-  .board-card:nth-child(3) { top: 78px;  transform: translate(-22px,20px) rotate(-8deg); }
-  .board-card:nth-child(4) { top: 114px; transform: translate(28px,-16px) rotate(9deg); }
-  .board-card:nth-child(5) { top: 150px; transform: translate(-30px,6px) rotate(-6deg); }
+  .board-card:nth-child(1) { top: 6px;   transform: translate(-52px,-20px) rotate(-18deg); }
+  .board-card:nth-child(2) { top: 42px;  transform: translate(46px,16px) rotate(15deg); }
+  .board-card:nth-child(3) { top: 78px;  transform: translate(-34px,26px) rotate(-12deg); }
+  .board-card:nth-child(4) { top: 114px; transform: translate(42px,-22px) rotate(13deg); }
+  .board-card:nth-child(5) { top: 150px; transform: translate(-44px,10px) rotate(-10deg); }
   .board-wrap.visible .board-card { transform: translate(0,0) rotate(0deg); }
   .board-wrap.visible .board-card:nth-child(1) { transition-delay: .05s; }
   .board-wrap.visible .board-card:nth-child(2) { transition-delay: .16s; }
@@ -651,18 +652,32 @@
   });
 
   // Magnetic primary buttons (site-wide) -- skipped entirely under reduced-motion.
+  // rAF-throttled and rects cached on scroll/resize only, so it doesn't force a
+  // synchronous layout read on every raw mousemove event (that was causing
+  // visible stutter on pages with a prominent hero CTA).
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion) {
     const magnetPad = 24; // extra px around each button that still pulls it
-    document.addEventListener('mousemove', (e) => {
-      document.querySelectorAll('.btn-primary').forEach((btn) => {
-        const r = btn.getBoundingClientRect();
+    const magnetBtns = Array.from(document.querySelectorAll('.btn-primary'));
+    let magnetRects = [];
+    function refreshMagnetRects() {
+      magnetRects = magnetBtns.map((btn) => btn.getBoundingClientRect());
+    }
+    refreshMagnetRects();
+    window.addEventListener('resize', refreshMagnetRects);
+    window.addEventListener('scroll', refreshMagnetRects, { passive: true });
+
+    let pendingX = null, pendingY = null, ticking = false;
+    function applyMagnet() {
+      ticking = false;
+      magnetBtns.forEach((btn, i) => {
+        const r = magnetRects[i];
         const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-        const withinX = e.clientX > r.left - magnetPad && e.clientX < r.right + magnetPad;
-        const withinY = e.clientY > r.top - magnetPad && e.clientY < r.bottom + magnetPad;
+        const withinX = pendingX > r.left - magnetPad && pendingX < r.right + magnetPad;
+        const withinY = pendingY > r.top - magnetPad && pendingY < r.bottom + magnetPad;
         if (withinX && withinY) {
-          const dx = (e.clientX - cx) / (r.width / 2 + magnetPad);
-          const dy = (e.clientY - cy) / (r.height / 2 + magnetPad);
+          const dx = (pendingX - cx) / (r.width / 2 + magnetPad);
+          const dy = (pendingY - cy) / (r.height / 2 + magnetPad);
           btn.style.setProperty('--mx', (dx * 8) + 'px');
           btn.style.setProperty('--my', (dy * 6) + 'px');
         } else {
@@ -670,7 +685,11 @@
           btn.style.setProperty('--my', '0px');
         }
       });
-    });
+    }
+    document.addEventListener('mousemove', (e) => {
+      pendingX = e.clientX; pendingY = e.clientY;
+      if (!ticking) { ticking = true; requestAnimationFrame(applyMagnet); }
+    }, { passive: true });
   }
 
 </script>

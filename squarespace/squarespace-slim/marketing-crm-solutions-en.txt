@@ -22,7 +22,14 @@
 <div class="funnel-seg" style="width:30%; background:var(--status-done);"><span><span class="i18n" data-es="Clientes" data-en="Customers">Customers</span></span><span class="count-num" data-target="42">0</span></div>
 
       </div>
-      <script>document.getElementById('mk').classList.add('visible'); animateCounters(document.getElementById('mk'));</script>
+      <script>
+      (function(){
+        var el = document.getElementById('mk');
+        var card = el.closest('.hero-in');
+        function trigger(){ el.classList.add('visible'); animateCounters(el); }
+        if (card) { card.addEventListener('animationend', trigger, {once:true}); } else { trigger(); }
+      })();
+    </script>
     </div>
   </div>
 </section>

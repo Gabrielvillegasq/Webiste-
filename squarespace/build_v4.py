@@ -322,11 +322,11 @@ STYLE = """
     transition: transform 0.75s var(--ease-emphasis), opacity 0.4s ease;
   }
   .board-card .chip-line { height: 6px; border-radius: 3px; background: var(--line); }
-  .board-card:nth-child(1) { top: 6px;   transform: translate(-36px,-12px) rotate(-13deg); }
-  .board-card:nth-child(2) { top: 42px;  transform: translate(32px,10px) rotate(10deg); }
-  .board-card:nth-child(3) { top: 78px;  transform: translate(-22px,20px) rotate(-8deg); }
-  .board-card:nth-child(4) { top: 114px; transform: translate(28px,-16px) rotate(9deg); }
-  .board-card:nth-child(5) { top: 150px; transform: translate(-30px,6px) rotate(-6deg); }
+  .board-card:nth-child(1) { top: 6px;   transform: translate(-52px,-20px) rotate(-18deg); }
+  .board-card:nth-child(2) { top: 42px;  transform: translate(46px,16px) rotate(15deg); }
+  .board-card:nth-child(3) { top: 78px;  transform: translate(-34px,26px) rotate(-12deg); }
+  .board-card:nth-child(4) { top: 114px; transform: translate(42px,-22px) rotate(13deg); }
+  .board-card:nth-child(5) { top: 150px; transform: translate(-44px,10px) rotate(-10deg); }
   .board-wrap.visible .board-card { transform: translate(0,0) rotate(0deg); }
   .board-wrap.visible .board-card:nth-child(1) { transition-delay: .05s; }
   .board-wrap.visible .board-card:nth-child(2) { transition-delay: .16s; }
@@ -521,9 +521,15 @@ LIGHT_STYLE = STYLE.replace(
     LIGHT_ROOT.strip()
 ) + LIGHT_OVERRIDES
 
-FONT_LINKS = """<link rel="preconnect" href="https://fonts.googleapis.com">
+# Loaded non-render-blocking: a slow/blocked font CDN (corporate proxy, ad-blocker,
+# regional restriction) must never stall the page's first paint -- which, since CSS
+# animations only start once rendering begins, was also silently delaying every
+# hero-in / count-up animation on this build until the font request resolved.
+_FONT_HREF = "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+FONT_LINKS = f"""<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">"""
+<link rel="preload" href="{_FONT_HREF}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="{_FONT_HREF}" rel="stylesheet"></noscript>"""
 
 EARLY_SCRIPT = """
 <script>
@@ -587,18 +593,32 @@ LANG_SCRIPT = """
   });
 
   // Magnetic primary buttons (site-wide) -- skipped entirely under reduced-motion.
+  // rAF-throttled and rects cached on scroll/resize only, so it doesn't force a
+  // synchronous layout read on every raw mousemove event (that was causing
+  // visible stutter on pages with a prominent hero CTA).
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion) {
     const magnetPad = 24; // extra px around each button that still pulls it
-    document.addEventListener('mousemove', (e) => {
-      document.querySelectorAll('.btn-primary').forEach((btn) => {
-        const r = btn.getBoundingClientRect();
+    const magnetBtns = Array.from(document.querySelectorAll('.btn-primary'));
+    let magnetRects = [];
+    function refreshMagnetRects() {
+      magnetRects = magnetBtns.map((btn) => btn.getBoundingClientRect());
+    }
+    refreshMagnetRects();
+    window.addEventListener('resize', refreshMagnetRects);
+    window.addEventListener('scroll', refreshMagnetRects, { passive: true });
+
+    let pendingX = null, pendingY = null, ticking = false;
+    function applyMagnet() {
+      ticking = false;
+      magnetBtns.forEach((btn, i) => {
+        const r = magnetRects[i];
         const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-        const withinX = e.clientX > r.left - magnetPad && e.clientX < r.right + magnetPad;
-        const withinY = e.clientY > r.top - magnetPad && e.clientY < r.bottom + magnetPad;
+        const withinX = pendingX > r.left - magnetPad && pendingX < r.right + magnetPad;
+        const withinY = pendingY > r.top - magnetPad && pendingY < r.bottom + magnetPad;
         if (withinX && withinY) {
-          const dx = (e.clientX - cx) / (r.width / 2 + magnetPad);
-          const dy = (e.clientY - cy) / (r.height / 2 + magnetPad);
+          const dx = (pendingX - cx) / (r.width / 2 + magnetPad);
+          const dy = (pendingY - cy) / (r.height / 2 + magnetPad);
           btn.style.setProperty('--mx', (dx * 8) + 'px');
           btn.style.setProperty('--my', (dy * 6) + 'px');
         } else {
@@ -606,7 +626,11 @@ LANG_SCRIPT = """
           btn.style.setProperty('--my', '0px');
         }
       });
-    });
+    }
+    document.addEventListener('mousemove', (e) => {
+      pendingX = e.clientX; pendingY = e.clientY;
+      if (!ticking) { ticking = true; requestAnimationFrame(applyMagnet); }
+    }, { passive: true });
   }
 
 </script>
@@ -805,6 +829,21 @@ def workflow_diagram(labels, id_prefix="h", tag_text="WORKFLOW_ENGINE // trustco
       </svg>
     </div>"""
 
+def _self_trigger_script(id_prefix):
+    # Waits for the diagram-card's own hero-in fade-in to finish before adding
+    # 'visible' / running the counters. Triggering immediately (at parse time)
+    # meant the "before" state (scattered cards, empty progress, zero bars) was
+    # invisible -- it played out and finished while the card was still fading
+    # in, so users only ever saw the final settled state with no visible motion.
+    return f"""<script>
+      (function(){{
+        var el = document.getElementById('{id_prefix}');
+        var card = el.closest('.hero-in');
+        function trigger(){{ el.classList.add('visible'); animateCounters(el); }}
+        if (card) {{ card.addEventListener('animationend', trigger, {{once:true}}); }} else {{ trigger(); }}
+      }})();
+    </script>"""
+
 def _card_shell(inner, tag_text, id_attr, delay=".2s", extra_class=""):
     return f"""<div class="diagram-card hero-in {extra_class}" id="{id_attr}" style="animation-delay:{delay}">
       <div class="diagram-head">
@@ -835,7 +874,7 @@ def training_checklist(id_prefix, tag_text, percent, items, cap_en, cap_es):
           <span class="ring-caption" style="text-align:left; margin-top:0;">{T(cap_en, cap_es)}</span>
         </div>
       </div>
-      <script>document.getElementById('{id_prefix}').classList.add('visible'); animateCounters(document.getElementById('{id_prefix}'));</script>"""
+      {_self_trigger_script(id_prefix)}"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
 def marketing_funnel(id_prefix, tag_text, stages):
@@ -852,7 +891,7 @@ def marketing_funnel(id_prefix, tag_text, stages):
         {dots}
         {rows}
       </div>
-      <script>document.getElementById('{id_prefix}').classList.add('visible'); animateCounters(document.getElementById('{id_prefix}'));</script>"""
+      {_self_trigger_script(id_prefix)}"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
 def operations_board(id_prefix, tag_text, uptime_en, uptime_es):
@@ -872,7 +911,7 @@ def operations_board(id_prefix, tag_text, uptime_en, uptime_es):
         {cards}
         <span class="uptime-tag">&#9679; <span class="count-num" data-target="99.9" data-suffix="%">0%</span> {T(uptime_en, uptime_es)}</span>
       </div>
-      <script>document.getElementById('{id_prefix}').classList.add('visible'); animateCounters(document.getElementById('{id_prefix}'));</script>"""
+      {_self_trigger_script(id_prefix)}"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
 def sales_chart(id_prefix, tag_text, target_value, label_en, label_es):
@@ -897,7 +936,7 @@ def sales_chart(id_prefix, tag_text, target_value, label_en, label_es):
         <div class="chart-bars-row">{bars}</div>
         <div class="ring-caption" style="margin-top:10px;">{T(label_en, label_es)}</div>
       </div>
-      <script>document.getElementById('{id_prefix}').classList.add('visible'); animateCounters(document.getElementById('{id_prefix}'));</script>"""
+      {_self_trigger_script(id_prefix)}"""
     return _card_shell(inner, tag_text, f"{id_prefix}-card")
 
 print("diagram builders ready")

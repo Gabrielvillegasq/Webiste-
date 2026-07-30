@@ -18,7 +18,14 @@
         <div class="board-card" style="border-left-color:var(--status-stuck);"><span class="chip-line" style="width:55%;"></span></div><div class="board-card" style="border-left-color:var(--status-working);"><span class="chip-line" style="width:72%;"></span></div><div class="board-card" style="border-left-color:var(--status-working);"><span class="chip-line" style="width:44%;"></span></div><div class="board-card" style="border-left-color:var(--status-stuck);"><span class="chip-line" style="width:80%;"></span></div><div class="board-card" style="border-left-color:var(--status-done);"><span class="chip-line" style="width:60%;"></span></div>
         <span class="uptime-tag">&#9679; <span class="count-num" data-target="99.9" data-suffix="%">0%</span> <span class="i18n" data-es="Disponibilidad" data-en="Uptime">Uptime</span></span>
       </div>
-      <script>document.getElementById('op').classList.add('visible'); animateCounters(document.getElementById('op'));</script>
+      <script>
+      (function(){
+        var el = document.getElementById('op');
+        var card = el.closest('.hero-in');
+        function trigger(){ el.classList.add('visible'); animateCounters(el); }
+        if (card) { card.addEventListener('animationend', trigger, {once:true}); } else { trigger(); }
+      })();
+    </script>
     </div>
   </div>
 </section>

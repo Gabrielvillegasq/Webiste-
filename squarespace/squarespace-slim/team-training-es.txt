@@ -33,7 +33,14 @@
           <span class="ring-caption" style="text-align:left; margin-top:0;"><span class="i18n" data-es="Dominio del Equipo" data-en="Team Proficiency">Team Proficiency</span></span>
         </div>
       </div>
-      <script>document.getElementById('tr').classList.add('visible'); animateCounters(document.getElementById('tr'));</script>
+      <script>
+      (function(){
+        var el = document.getElementById('tr');
+        var card = el.closest('.hero-in');
+        function trigger(){ el.classList.add('visible'); animateCounters(el); }
+        if (card) { card.addEventListener('animationend', trigger, {once:true}); } else { trigger(); }
+      })();
+    </script>
     </div>
   </div>
 </section>
