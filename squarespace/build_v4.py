@@ -8,6 +8,7 @@ import os
 LOGO_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/ab150a06-6b43-4f83-9884-46128c4aeafe/TRAZO+TRUST+CODE.png?content-type=image%2Fpng"          # "trustcode mx" wordmark -- header/footer brand mark
 MONDAY_BADGE_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng"  # hexagon badge -- hero pill + final CTA badge (compact spots)
 MONDAY_WORDMARK_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/62db7255-405d-4544-920e-1a5c025a6e74/monday.com+certified+partner+%281%29.png?content-type=image%2Fpng"  # wordmark -- footer, alongside the Trust Code logo
+MONDAY_LOGO_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng"  # plain monday.com logo (no partner text) -- not wired to a page yet, pending a placement decision
 # ------------------------------------------------------------------------
 
 BASE_URL = "https://www.trustcodemx.com"
