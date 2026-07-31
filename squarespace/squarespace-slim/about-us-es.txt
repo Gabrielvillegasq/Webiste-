@@ -71,7 +71,22 @@
     </div>
   </div>
 </section>
-
+<section>
+  <div class="tc-wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="i18n" data-es="la persona detr&amp;aacute;s" data-en="the person behind it">la persona detr&aacute;s</span></span>
+      <h2><span class="i18n" data-es="Conoce al Fundador" data-en="Meet the Founder">Conoce al Fundador</span></h2>
+    </div>
+    <div class="founder-card reveal">
+      <img class="founder-photo" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/5a457d5f-7752-4740-b7d8-8d9a084dd42b/IMG_4979+%281%29.PNG?content-type=image%2Fjpeg" alt="Gabriel Villegas">
+      <div class="founder-text">
+        <h3>Gabriel Villegas</h3>
+        <span class="eyebrow"><span class="i18n" data-es="Fundador y CEO" data-en="Founder &amp;amp; CEO">Fundador y CEO</span></span>
+        <p><span class="i18n" data-es="Gabriel Villegas es el fundador y CEO de Trust Code. Profesional de marketing con m&amp;aacute;s de 5 a&amp;ntilde;os de experiencia pr&amp;aacute;ctica en monday.com, ha construido flujos de trabajo a la medida, configurado sistemas CRM y gestionado plataformas digitales &amp;mdash; incluyendo eventos a gran escala &amp;mdash; que agilizan operaciones y generan crecimiento real. Gabriel capacita equipos, coordina proyectos multidisciplinarios y siempre busca el siguiente reto que resolver con un sistema m&amp;aacute;s inteligente." data-en="Gabriel Villegas is the founder and CEO of Trust Code. A marketing professional with 5+ years of hands-on experience in monday.com, he&#x27;s built custom workflows, configured CRM systems, and managed digital platforms &amp;mdash; including full-scale events &amp;mdash; that streamline operations and drive real business growth. Gabriel trains teams, coordinates cross-functional projects, and is always looking for the next challenge to solve with a smarter system.">Gabriel Villegas es el fundador y CEO de Trust Code. Profesional de marketing con m&aacute;s de 5 a&ntilde;os de experiencia pr&aacute;ctica en monday.com, ha construido flujos de trabajo a la medida, configurado sistemas CRM y gestionado plataformas digitales &mdash; incluyendo eventos a gran escala &mdash; que agilizan operaciones y generan crecimiento real. Gabriel capacita equipos, coordina proyectos multidisciplinarios y siempre busca el siguiente reto que resolver con un sistema m&aacute;s inteligente.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
 <section style="background:var(--surface);">
   <div class="tc-wrap">
     <div class="section-head reveal">

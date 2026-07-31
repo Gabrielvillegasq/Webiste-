@@ -4,6 +4,22 @@ Everything below refers to files in this same folder. Read this whole
 thing once before touching Squarespace -- the four code locations are
 easy to mix up.
 
+UPDATE (round 6) -- founder bio on About Us + mobile menu redesign
+----------------------------------------------------------------------------
+- About Us now has a "Meet the Founder" section: your photo, name, "Founder
+  & CEO", and a short bio (5+ years hands-on monday.com experience, per
+  your direction). Only the About Us page changed -- re-paste
+  squarespace-slim/about-us-en.txt and about-us-es.txt, nothing else.
+- Rebuilt the mobile menu per your feedback that it felt messy and didn't
+  scroll: it now mirrors the desktop nav exactly -- "Solutions" is a
+  collapsed accordion you tap to expand (same 7 sub-pages), and Certified
+  Partner / Blog / Why Us / About are flat links, same as desktop. Fixed
+  the underlying scrolling bug too: the panel is now fixed to the screen
+  below the header and scrolls independently, so short phone screens can
+  always reach every link and the CTA button. This is a site-wide header
+  change -- re-paste BOTH squarespace-sitewide/head-injection.txt and
+  footer-injection.txt.
+
 UPDATE (round 2) -- homepage got more dynamic, per your reference sites
 ----------------------------------------------------------------------------
 Four things were added to the HOMEPAGE only (subpages are unchanged):

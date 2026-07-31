@@ -9,6 +9,7 @@ LOGO_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316a
 MONDAY_BADGE_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng"  # hexagon badge -- hero pill + final CTA badge (compact spots)
 MONDAY_WORDMARK_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/62db7255-405d-4544-920e-1a5c025a6e74/monday.com+certified+partner+%281%29.png?content-type=image%2Fpng"  # wordmark -- footer, alongside the Trust Code logo
 MONDAY_LOGO_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng"  # plain monday.com logo (no partner text) -- not wired to a page yet, pending a placement decision
+GABRIEL_PHOTO_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/5a457d5f-7752-4740-b7d8-8d9a084dd42b/IMG_4979+%281%29.PNG?content-type=image%2Fjpeg"  # founder photo -- About Us page
 # ------------------------------------------------------------------------
 
 BASE_URL = "https://www.trustcodemx.com"
@@ -149,20 +150,34 @@ STYLE = """
   .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .mobile-menu {
-    display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: var(--surface);
-    border-top: 1px solid transparent; transition: max-height 0.35s var(--ease-interactive), border-color 0.2s ease;
+    display: flex; flex-direction: column; position: fixed; top: 78px; left: 0; right: 0; bottom: 0;
+    background: var(--surface); border-top: 1px solid var(--line); overflow-y: auto;
+    -webkit-overflow-scrolling: touch; z-index: 150;
+    opacity: 0; transform: translateY(-6px); pointer-events: none;
+    transition: opacity 0.25s var(--ease-interactive), transform 0.25s var(--ease-interactive);
   }
-  .mobile-menu.open { max-height: 600px; border-top-color: var(--line); }
+  .mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .mobile-menu a {
-    display: block; padding: 14px 32px; font-size: 15px; font-weight: 500; color: var(--ink) !important;
-    border-bottom: 1px solid var(--line); transition: background 0.15s ease;
+    display: block; padding: 15px 32px; font-size: 15.5px; font-weight: 500; color: var(--ink) !important;
+    border-bottom: 1px solid var(--line); transition: background 0.15s ease; flex-shrink: 0;
   }
   .mobile-menu a:active, .mobile-menu a:hover { background: var(--surface-2); }
-  .mobile-menu-divider { height: 8px; background: var(--surface-2); }
+  .mobile-accordion { border-bottom: 1px solid var(--line); flex-shrink: 0; }
+  .mobile-accordion-trigger {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 32px; font-size: 15.5px; font-weight: 500; color: var(--ink); font-family: var(--font-display);
+    background: transparent; border: none; cursor: pointer; text-align: left;
+  }
+  .mobile-accordion-trigger svg { width: 11px; height: 11px; flex-shrink: 0; transition: transform 0.2s ease; }
+  .mobile-accordion.open .mobile-accordion-trigger svg { transform: rotate(180deg); }
+  .mobile-accordion-panel { max-height: 0; overflow: hidden; background: var(--surface-2); transition: max-height 0.3s var(--ease-interactive); }
+  .mobile-accordion.open .mobile-accordion-panel { max-height: 500px; }
+  .mobile-accordion-panel a { padding-left: 46px; border-bottom: 1px solid var(--line); }
+  .mobile-accordion-panel a:last-child { border-bottom: none; }
   .mobile-cta {
-    display: block; margin: 16px 32px 22px; text-align: center; background: var(--purple);
+    display: block; margin: 20px 32px; text-align: center; background: var(--purple);
     color: #fff !important; padding: 14px; border-radius: 3px; font-weight: 700; font-size: 14.5px;
-    border-bottom: none !important;
+    border-bottom: none !important; flex-shrink: 0;
   }
 
   .hero { position: relative; padding: 90px 0 100px; border-bottom: 1px solid var(--line); }
@@ -477,6 +492,17 @@ STYLE = """
   .getcard b { display: block; font-size: 14px; margin-bottom: 2px; }
   .getcard p { font-size: 13px; color: var(--muted); }
 
+  /* --- founder / leadership card (About Us) --- */
+  .founder-card { display: flex; gap: 36px; align-items: flex-start; max-width: 760px; margin: 0 auto; }
+  .founder-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--line); }
+  .founder-text h3 { font-size: 21px; margin-bottom: 8px; }
+  .founder-text .eyebrow { display: inline-flex; margin-bottom: 14px; }
+  .founder-text p { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+  @media (max-width: 560px) {
+    .founder-card { flex-direction: column; align-items: center; text-align: center; }
+    .founder-text .eyebrow { justify-content: center; }
+  }
+
   /* --- tool integration marquee --- */
   .tool-marquee { overflow: hidden; position: relative; padding: 6px 0; }
   .tool-marquee::before, .tool-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; }
@@ -736,6 +762,13 @@ LANG_SCRIPT = """
     }
   });
 
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const burger = document.getElementById('navBurger');
+    if (menu) menu.classList.remove('open');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
   function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     const burger = document.getElementById('navBurger');
@@ -743,23 +776,15 @@ LANG_SCRIPT = """
     const opening = !menu.classList.contains('open');
     menu.classList.toggle('open', opening);
     burger.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    document.body.style.overflow = opening ? 'hidden' : '';
+  }
+  function toggleMobileAccordion(trigger) {
+    trigger.closest('.mobile-accordion').classList.toggle('open');
   }
   const mobileMenuEl = document.getElementById('mobileMenu');
   if (mobileMenuEl) {
-    mobileMenuEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      mobileMenuEl.classList.remove('open');
-      const burger = document.getElementById('navBurger');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-    }));
+    mobileMenuEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
   }
-  document.addEventListener('click', (e) => {
-    const menu = document.getElementById('mobileMenu');
-    const burger = document.getElementById('navBurger');
-    if (menu && menu.classList.contains('open') && !e.target.closest('.mobile-menu') && !e.target.closest('.nav-burger')) {
-      menu.classList.remove('open');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-    }
-  });
 
   // Magnetic primary buttons (site-wide) -- skipped entirely under reduced-motion.
   // rAF-throttled and rects cached on scroll/resize only, so it doesn't force a
@@ -911,7 +936,7 @@ def header():
     home_href = f"{p}/" if p else "/"
     next_lang_label = "EN" if is_es() else "ES"
     lang_button = f'<button class="lang-toggle" onclick="toggleLang()">{next_lang_label}</button>'
-    mobile_links = "\n".join([
+    mobile_solutions_links = "\n".join([
         f'<a href="{p}/work-management/">{T("Work Management","Gesti&oacute;n del Trabajo")}</a>',
         f'<a href="{p}/team-training/">{T("Training","Capacitaci&oacute;n")}</a>',
         f'<a href="{p}/marketing-crm-solutions/">{T("Marketing &amp; CRM","Marketing y CRM")}</a>',
@@ -919,7 +944,8 @@ def header():
         f'<a href="{p}/monday-sales-crm/">{T("Sales &amp; CRM","Ventas y CRM")}</a>',
         f'<a href="{p}/web-design-development/">{T("Web Design &amp; Development","Dise&ntilde;o y Desarrollo Web")}</a>',
         f'<a href="{p}/social-media-management/">{T("Social Media Management","Gesti&oacute;n de Redes Sociales")}</a>',
-        '<div class="mobile-menu-divider"></div>',
+    ])
+    mobile_top_links = "\n".join([
         f'<a href="{p}/monday-partner/">{T("Certified Partner","Socio Certificado")}</a>',
         f'<a href="{p}/blog/">{T("Blog","Blog")}</a>',
         f'<a href="{p}/#advantage">{T("Why Us","Por Qu&eacute; Nosotros")}</a>',
@@ -946,11 +972,17 @@ def header():
       </button>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    {mobile_links}
-    <a class="mobile-cta" href="https://wkf.ms/49age3d">{T('Free Strategy Session','Sesi&oacute;n Estrat&eacute;gica Gratuita')}</a>
-  </div>
 </header>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-accordion" id="mobileSolutions">
+    <button class="mobile-accordion-trigger" onclick="toggleMobileAccordion(this)">
+      {T('Solutions','Soluciones')} {chevron}
+    </button>
+    <div class="mobile-accordion-panel">{mobile_solutions_links}</div>
+  </div>
+  {mobile_top_links}
+  <a class="mobile-cta" href="https://wkf.ms/49age3d">{T('Free Strategy Session','Sesi&oacute;n Estrat&eacute;gica Gratuita')}</a>
+</div>
 """
 
 def footer():
@@ -1563,13 +1595,45 @@ def get_item(icon_key, en_t, es_t, en_d, es_d, delay=0.0):
     return f"""<div class="getcard icon-pop reveal" style="transition-delay:{delay:.2f}s"><div class="ic">{ICONS[icon_key]}</div>
       <div><b>{T(en_t, es_t)}</b><p>{T(en_d, es_d)}</p></div></div>"""
 
+def founder_section():
+    bio_en = ("Gabriel Villegas is the founder and CEO of Trust Code. A marketing professional "
+              "with 5+ years of hands-on experience in monday.com, he's built custom workflows, "
+              "configured CRM systems, and managed digital platforms &mdash; including full-scale "
+              "events &mdash; that streamline operations and drive real business growth. Gabriel "
+              "trains teams, coordinates cross-functional projects, and is always looking for the "
+              "next challenge to solve with a smarter system.")
+    bio_es = ("Gabriel Villegas es el fundador y CEO de Trust Code. Profesional de marketing con "
+              "m&aacute;s de 5 a&ntilde;os de experiencia pr&aacute;ctica en monday.com, ha construido "
+              "flujos de trabajo a la medida, configurado sistemas CRM y gestionado plataformas "
+              "digitales &mdash; incluyendo eventos a gran escala &mdash; que agilizan operaciones y "
+              "generan crecimiento real. Gabriel capacita equipos, coordina proyectos "
+              "multidisciplinarios y siempre busca el siguiente reto que resolver con un sistema "
+              "m&aacute;s inteligente.")
+    return f"""<section>
+  <div class="tc-wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{T('the person behind it','la persona detr&aacute;s')}</span>
+      <h2>{T('Meet the Founder','Conoce al Fundador')}</h2>
+    </div>
+    <div class="founder-card reveal">
+      <img class="founder-photo" src="{GABRIEL_PHOTO_URL}" alt="Gabriel Villegas">
+      <div class="founder-text">
+        <h3>Gabriel Villegas</h3>
+        <span class="eyebrow">{T('Founder &amp; CEO','Fundador y CEO')}</span>
+        <p>{T(bio_en, bio_es)}</p>
+      </div>
+    </div>
+  </div>
+</section>"""
+
 def subpage_body(crumb_en, crumb_es, h1_en, h1_es, lead_en, lead_es,
                   cta_en, cta_es, challenge, solution, getgrid_title_en, getgrid_title_es,
                   getcards, final_h2_en, final_h2_es, final_lead_en, final_lead_es,
                   final_cta_en, final_cta_es, diagram_html,
                   col1_header_en="The Challenge", col1_header_es="El Reto",
                   col2_header_en="Our Solution", col2_header_es="Nuestra Soluci&oacute;n",
-                  crumb_root_en="Solutions", crumb_root_es="Soluciones"):
+                  crumb_root_en="Solutions", crumb_root_es="Soluciones",
+                  extra_section_html=None):
     p = prefix()
     challenge_html = "\n".join(sub_item("challenge", ic, en_t, es_t, en_d, es_d, delay=i*0.08) for i, (ic, en_t, es_t, en_d, es_d) in enumerate(challenge))
     solution_html = "\n".join(sub_item("solution", ic, en_t, es_t, en_d, es_d, delay=i*0.08) for i, (ic, en_t, es_t, en_d, es_d) in enumerate(solution))
@@ -1602,7 +1666,7 @@ def subpage_body(crumb_en, crumb_es, h1_en, h1_es, lead_en, lead_es,
     </div>
   </div>
 </section>
-
+{extra_section_html() if extra_section_html else ''}
 <section style="background:var(--surface);">
   <div class="tc-wrap">
     <div class="section-head reveal">
@@ -1903,6 +1967,7 @@ build_subpage(
     final_lead_en="Let's talk about what's slowing your team down &mdash; and fix it.", final_lead_es="Hablemos de qu&eacute; est&aacute; frenando a tu equipo &mdash; y arregl&eacute;moslo.",
     final_cta_en="Schedule a Free Strategy Session", final_cta_es="Agenda una Sesi&oacute;n Estrat&eacute;gica Gratuita",
     diagram_html=lambda: workflow_diagram(("PEOPLE","PROCESS","PLATFORM","CULTURE","GROWTH"), id_prefix="au", tag_text="OUR_APPROACH // trustcodemx"),
+    extra_section_html=founder_section,
 )
 
 # ---------------- 8. Web Design & Development ----------------

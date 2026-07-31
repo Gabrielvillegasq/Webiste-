@@ -80,20 +80,34 @@
   .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .mobile-menu {
-    display: flex; flex-direction: column; max-height: 0; overflow: hidden; background: var(--surface);
-    border-top: 1px solid transparent; transition: max-height 0.35s var(--ease-interactive), border-color 0.2s ease;
+    display: flex; flex-direction: column; position: fixed; top: 78px; left: 0; right: 0; bottom: 0;
+    background: var(--surface); border-top: 1px solid var(--line); overflow-y: auto;
+    -webkit-overflow-scrolling: touch; z-index: 150;
+    opacity: 0; transform: translateY(-6px); pointer-events: none;
+    transition: opacity 0.25s var(--ease-interactive), transform 0.25s var(--ease-interactive);
   }
-  .mobile-menu.open { max-height: 600px; border-top-color: var(--line); }
+  .mobile-menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .mobile-menu a {
-    display: block; padding: 14px 32px; font-size: 15px; font-weight: 500; color: var(--ink) !important;
-    border-bottom: 1px solid var(--line); transition: background 0.15s ease;
+    display: block; padding: 15px 32px; font-size: 15.5px; font-weight: 500; color: var(--ink) !important;
+    border-bottom: 1px solid var(--line); transition: background 0.15s ease; flex-shrink: 0;
   }
   .mobile-menu a:active, .mobile-menu a:hover { background: var(--surface-2); }
-  .mobile-menu-divider { height: 8px; background: var(--surface-2); }
+  .mobile-accordion { border-bottom: 1px solid var(--line); flex-shrink: 0; }
+  .mobile-accordion-trigger {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 32px; font-size: 15.5px; font-weight: 500; color: var(--ink); font-family: var(--font-display);
+    background: transparent; border: none; cursor: pointer; text-align: left;
+  }
+  .mobile-accordion-trigger svg { width: 11px; height: 11px; flex-shrink: 0; transition: transform 0.2s ease; }
+  .mobile-accordion.open .mobile-accordion-trigger svg { transform: rotate(180deg); }
+  .mobile-accordion-panel { max-height: 0; overflow: hidden; background: var(--surface-2); transition: max-height 0.3s var(--ease-interactive); }
+  .mobile-accordion.open .mobile-accordion-panel { max-height: 500px; }
+  .mobile-accordion-panel a { padding-left: 46px; border-bottom: 1px solid var(--line); }
+  .mobile-accordion-panel a:last-child { border-bottom: none; }
   .mobile-cta {
-    display: block; margin: 16px 32px 22px; text-align: center; background: var(--purple);
+    display: block; margin: 20px 32px; text-align: center; background: var(--purple);
     color: #fff !important; padding: 14px; border-radius: 3px; font-weight: 700; font-size: 14.5px;
-    border-bottom: none !important;
+    border-bottom: none !important; flex-shrink: 0;
   }
 
   .hero { position: relative; padding: 90px 0 100px; border-bottom: 1px solid var(--line); }
@@ -408,6 +422,17 @@
   .getcard b { display: block; font-size: 14px; margin-bottom: 2px; }
   .getcard p { font-size: 13px; color: var(--muted); }
 
+  /* --- founder / leadership card (About Us) --- */
+  .founder-card { display: flex; gap: 36px; align-items: flex-start; max-width: 760px; margin: 0 auto; }
+  .founder-photo { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--line); }
+  .founder-text h3 { font-size: 21px; margin-bottom: 8px; }
+  .founder-text .eyebrow { display: inline-flex; margin-bottom: 14px; }
+  .founder-text p { font-size: 14.5px; color: var(--muted); line-height: 1.7; }
+  @media (max-width: 560px) {
+    .founder-card { flex-direction: column; align-items: center; text-align: center; }
+    .founder-text .eyebrow { justify-content: center; }
+  }
+
   /* --- tool integration marquee --- */
   .tool-marquee { overflow: hidden; position: relative; padding: 6px 0; }
   .tool-marquee::before, .tool-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; }
@@ -579,22 +604,26 @@
       </button>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="/es/work-management/"><span class="i18n" data-es="Gesti&amp;oacute;n del Trabajo" data-en="Work Management">Gesti&oacute;n del Trabajo</span></a>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-accordion" id="mobileSolutions">
+    <button class="mobile-accordion-trigger" onclick="toggleMobileAccordion(this)">
+      <span class="i18n" data-es="Soluciones" data-en="Solutions">Soluciones</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="mobile-accordion-panel"><a href="/es/work-management/"><span class="i18n" data-es="Gesti&amp;oacute;n del Trabajo" data-en="Work Management">Gesti&oacute;n del Trabajo</span></a>
 <a href="/es/team-training/"><span class="i18n" data-es="Capacitaci&amp;oacute;n" data-en="Training">Capacitaci&oacute;n</span></a>
 <a href="/es/marketing-crm-solutions/"><span class="i18n" data-es="Marketing y CRM" data-en="Marketing &amp;amp; CRM">Marketing y CRM</span></a>
 <a href="/es/monday-operations/"><span class="i18n" data-es="Operaciones" data-en="Operations">Operaciones</span></a>
 <a href="/es/monday-sales-crm/"><span class="i18n" data-es="Ventas y CRM" data-en="Sales &amp;amp; CRM">Ventas y CRM</span></a>
 <a href="/es/web-design-development/"><span class="i18n" data-es="Dise&amp;ntilde;o y Desarrollo Web" data-en="Web Design &amp;amp; Development">Dise&ntilde;o y Desarrollo Web</span></a>
-<a href="/es/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Gesti&oacute;n de Redes Sociales</span></a>
-<div class="mobile-menu-divider"></div>
-<a href="/es/monday-partner/"><span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Socio Certificado</span></a>
+<a href="/es/social-media-management/"><span class="i18n" data-es="Gesti&amp;oacute;n de Redes Sociales" data-en="Social Media Management">Gesti&oacute;n de Redes Sociales</span></a></div>
+  </div>
+  <a href="/es/monday-partner/"><span class="i18n" data-es="Socio Certificado" data-en="Certified Partner">Socio Certificado</span></a>
 <a href="/es/blog/"><span class="i18n" data-es="Blog" data-en="Blog">Blog</span></a>
 <a href="/es/#advantage"><span class="i18n" data-es="Por Qu&amp;eacute; Nosotros" data-en="Why Us">Por Qu&eacute; Nosotros</span></a>
 <a href="/es/about-us/"><span class="i18n" data-es="Nosotros" data-en="About">Nosotros</span></a>
-    <a class="mobile-cta" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Sesi&amp;oacute;n Estrat&amp;eacute;gica Gratuita" data-en="Free Strategy Session">Sesi&oacute;n Estrat&eacute;gica Gratuita</span></a>
-  </div>
-</header>
+  <a class="mobile-cta" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Sesi&amp;oacute;n Estrat&amp;eacute;gica Gratuita" data-en="Free Strategy Session">Sesi&oacute;n Estrat&eacute;gica Gratuita</span></a>
+</div>
 
 <section class="subhero" style="position:relative;">
   <div class="ambient-blob" style="width:260px; height:260px; top:-70px; right:6%; background:rgba(97,97,255,0.14); animation-delay:-3s;"></div>
@@ -758,6 +787,13 @@
     }
   });
 
+  function closeMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const burger = document.getElementById('navBurger');
+    if (menu) menu.classList.remove('open');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
   function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     const burger = document.getElementById('navBurger');
@@ -765,23 +801,15 @@
     const opening = !menu.classList.contains('open');
     menu.classList.toggle('open', opening);
     burger.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    document.body.style.overflow = opening ? 'hidden' : '';
+  }
+  function toggleMobileAccordion(trigger) {
+    trigger.closest('.mobile-accordion').classList.toggle('open');
   }
   const mobileMenuEl = document.getElementById('mobileMenu');
   if (mobileMenuEl) {
-    mobileMenuEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      mobileMenuEl.classList.remove('open');
-      const burger = document.getElementById('navBurger');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-    }));
+    mobileMenuEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
   }
-  document.addEventListener('click', (e) => {
-    const menu = document.getElementById('mobileMenu');
-    const burger = document.getElementById('navBurger');
-    if (menu && menu.classList.contains('open') && !e.target.closest('.mobile-menu') && !e.target.closest('.nav-burger')) {
-      menu.classList.remove('open');
-      if (burger) burger.setAttribute('aria-expanded', 'false');
-    }
-  });
 
   // Magnetic primary buttons (site-wide) -- skipped entirely under reduced-motion.
   // rAF-throttled and rects cached on scroll/resize only, so it doesn't force a
