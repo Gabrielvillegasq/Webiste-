@@ -405,13 +405,12 @@
   .footer-col a:hover { opacity: 1; color: var(--purple-bright); }
   .footer-bottom { border-top: 1px solid var(--line); padding-top: 22px; font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between; }
   .footer-bottom a:hover { color: var(--purple-bright); }
-  .footer-monday-cta { display: flex; justify-content: center; padding-bottom: 22px; }
-  .footer-monday-cta a {
+  .footer-col .footer-monday-cta {
     display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px;
-    letter-spacing: 0.04em; color: var(--muted); border: 1px solid var(--line); padding: 8px 16px;
-    border-radius: 20px; background: var(--surface); transition: border-color 0.2s ease, color 0.2s ease;
+    letter-spacing: 0.04em; color: var(--muted); opacity: 1; border: 1px solid var(--line); padding: 8px 16px;
+    border-radius: 20px; background: var(--surface); margin: 4px 0 0; transition: border-color 0.2s ease, color 0.2s ease;
   }
-  .footer-monday-cta a:hover { border-color: var(--purple-bright); color: var(--ink); }
+  .footer-col .footer-monday-cta:hover { border-color: var(--purple-bright); color: var(--ink); opacity: 1; }
 
   .subhero { padding: 64px 0 54px; border-bottom: 1px solid var(--line); }
   .crumb { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 16px; display:block; }
@@ -765,9 +764,13 @@
 <footer id="tc-footer">
   <div class="tc-wrap">
     <div class="footer-grid">
-      <div class="footer-col" style="display:flex; flex-direction:column; gap:14px;">
+      <div class="footer-col" style="display:flex; flex-direction:column; align-items:flex-start; gap:14px;">
         <img class="brand-logo-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/ab150a06-6b43-4f83-9884-46128c4aeafe/TRAZO+TRUST+CODE.png?content-type=image%2Fpng" alt="Trust Code MX" height="26">
         <img class="footer-monday-wordmark" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/62db7255-405d-4544-920e-1a5c025a6e74/monday.com+certified+partner+%281%29.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="34">
+        <a class="footer-monday-cta" href="https://try.monday.com/trustcodemmx" target="_blank" rel="noopener">
+          <img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:14px; height:14px; object-fit:contain; display:block;">
+          <span><span class="i18n" data-es="Prueba monday.com Gratis" data-en="Try monday.com Free">Prueba monday.com Gratis</span> &rarr; &#8599;</span>
+        </a>
       </div>
       <div class="footer-col">
         <h5><span class="i18n" data-es="Servicios" data-en="Services">Servicios</span></h5>
@@ -786,12 +789,6 @@
         <a href="/es/about-us/"><span class="i18n" data-es="Nosotros" data-en="About Us">Nosotros</span></a>
         <a href="https://wkf.ms/49age3d"><span class="i18n" data-es="Cont&amp;aacute;ctanos" data-en="Contact Us">Cont&aacute;ctanos</span></a>
       </div>
-    </div>
-    <div class="footer-monday-cta">
-      <a href="https://try.monday.com/trustcodemmx" target="_blank" rel="noopener">
-        <img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:14px; height:14px; object-fit:contain; display:block;">
-        <span><span class="i18n" data-es="Prueba monday.com Gratis" data-en="Try monday.com Free">Prueba monday.com Gratis</span> &rarr; &#8599;</span>
-      </a>
     </div>
     <div class="footer-bottom"><span>&copy; Trust Code Mx</span><a href="https://www.trustcodemx.com/privacypolicy" style="color:inherit;"><span class="i18n" data-es="Aviso de Privacidad" data-en="Privacy Policy">Aviso de Privacidad</span></a></div>
   </div>

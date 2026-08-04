@@ -491,13 +491,12 @@ STYLE = """
   .footer-col a:hover { opacity: 1; color: var(--purple-bright); }
   .footer-bottom { border-top: 1px solid var(--line); padding-top: 22px; font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between; }
   .footer-bottom a:hover { color: var(--purple-bright); }
-  .footer-monday-cta { display: flex; justify-content: center; padding-bottom: 22px; }
-  .footer-monday-cta a {
+  .footer-col .footer-monday-cta {
     display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px;
-    letter-spacing: 0.04em; color: var(--muted); border: 1px solid var(--line); padding: 8px 16px;
-    border-radius: 20px; background: var(--surface); transition: border-color 0.2s ease, color 0.2s ease;
+    letter-spacing: 0.04em; color: var(--muted); opacity: 1; border: 1px solid var(--line); padding: 8px 16px;
+    border-radius: 20px; background: var(--surface); margin: 4px 0 0; transition: border-color 0.2s ease, color 0.2s ease;
   }
-  .footer-monday-cta a:hover { border-color: var(--purple-bright); color: var(--ink); }
+  .footer-col .footer-monday-cta:hover { border-color: var(--purple-bright); color: var(--ink); opacity: 1; }
 
   .subhero { padding: 64px 0 54px; border-bottom: 1px solid var(--line); }
   .crumb { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 16px; display:block; }
@@ -1040,9 +1039,13 @@ def footer():
     return f"""<footer id="tc-footer">
   <div class="tc-wrap">
     <div class="footer-grid">
-      <div class="footer-col" style="display:flex; flex-direction:column; gap:14px;">
+      <div class="footer-col" style="display:flex; flex-direction:column; align-items:flex-start; gap:14px;">
         {brand_lockup()}
         {monday_wordmark()}
+        <a class="footer-monday-cta" href="{MONDAY_REFERRAL_GENERAL}" target="_blank" rel="noopener">
+          <img src="{MONDAY_LOGO_IMG_URL}" alt="monday.com" style="width:14px; height:14px; object-fit:contain; display:block;">
+          <span>{T('Try monday.com Free','Prueba monday.com Gratis')} &rarr; &#8599;</span>
+        </a>
       </div>
       <div class="footer-col">
         <h5>{T('Services','Servicios')}</h5>
@@ -1061,12 +1064,6 @@ def footer():
         <a href="{p}/about-us/">{T('About Us','Nosotros')}</a>
         <a href="https://wkf.ms/49age3d">{T('Contact Us','Cont&aacute;ctanos')}</a>
       </div>
-    </div>
-    <div class="footer-monday-cta">
-      <a href="{MONDAY_REFERRAL_GENERAL}" target="_blank" rel="noopener">
-        <img src="{MONDAY_LOGO_IMG_URL}" alt="monday.com" style="width:14px; height:14px; object-fit:contain; display:block;">
-        <span>{T('Try monday.com Free','Prueba monday.com Gratis')} &rarr; &#8599;</span>
-      </a>
     </div>
     <div class="footer-bottom"><span>&copy; Trust Code Mx</span><a href="https://www.trustcodemx.com/privacypolicy" style="color:inherit;">{T('Privacy Policy','Aviso de Privacidad')}</a></div>
   </div>
