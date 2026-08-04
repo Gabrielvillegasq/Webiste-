@@ -12,6 +12,15 @@ MONDAY_LOGO_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2
 GABRIEL_PHOTO_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/5a457d5f-7752-4740-b7d8-8d9a084dd42b/IMG_4979+%281%29.PNG?content-type=image%2Fjpeg"  # founder photo -- About Us page
 # ------------------------------------------------------------------------
 
+# --- real per-product monday.com app icons (160x160 source -- always rendered
+# at an explicit small size below, never left to width:auto, per the recurring
+# "renders huge" bug class already hit twice on this project) ---
+MONDAY_ICON_WORK_MANAGEMENT_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/a3a83225-8b27-4f0f-886c-1fcf041a9c3b/work_management.png?content-type=image%2Fpng"
+MONDAY_ICON_CRM_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/212ce386-d5e6-4cb8-a217-9ec7756378d2/crm.png?content-type=image%2Fpng"
+MONDAY_ICON_DEV_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/0c4b8427-436f-4530-a9e9-7085d312994a/dev.png?content-type=image%2Fpng"
+MONDAY_ICON_SERVICE_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/1ebc678c-8ac5-4072-881c-080b16aee1a2/service.png?content-type=image%2Fpng"
+# ------------------------------------------------------------------------
+
 # --- monday.com referral links (Certified Partner page products section) ---
 MONDAY_REFERRAL_GENERAL = "https://try.monday.com/trustcodemmx"          # general referral -- fallback + main "Start Free" CTA
 MONDAY_REFERRAL_CRM = "https://try.monday.com/crm_ub499wong7sr-bptw8j"    # monday CRM specific
@@ -1653,28 +1662,28 @@ MONDAY_PRODUCTS = [
     ("Work Management", "Gesti&oacute;n del Trabajo",
      "The core platform for projects, tasks, and team collaboration.",
      "La plataforma central para proyectos, tareas y colaboraci&oacute;n en equipo.",
-     MONDAY_REFERRAL_GENERAL),
+     MONDAY_REFERRAL_GENERAL, MONDAY_ICON_WORK_MANAGEMENT_URL),
     ("CRM", "CRM",
      "An AI-first CRM for leads, pipelines, and customer relationships.",
      "Un CRM con IA para leads, pipelines y relaciones con clientes.",
-     MONDAY_REFERRAL_CRM),
+     MONDAY_REFERRAL_CRM, MONDAY_ICON_CRM_URL),
     ("Dev", "Dev",
      "Sprint planning, roadmaps, and dev workflows.",
      "Planeaci&oacute;n de sprints, roadmaps y flujos de desarrollo.",
-     MONDAY_REFERRAL_DEV),
+     MONDAY_REFERRAL_DEV, MONDAY_ICON_DEV_URL),
     ("Service", "Service",
      "Ticketing, routing, and support operations.",
      "Tickets, ruteo y operaciones de soporte.",
-     MONDAY_REFERRAL_GENERAL),
+     MONDAY_REFERRAL_GENERAL, MONDAY_ICON_SERVICE_URL),
 ]
 
 def monday_products_section():
     cards = "\n".join(f"""<div class="getcard icon-pop reveal" style="transition-delay:{i*0.07:.2f}s">
-      <div class="ic"><img src="{MONDAY_LOGO_IMG_URL}" alt="monday.com" style="width:22px; height:22px; object-fit:contain; display:block;"></div>
+      <div class="ic"><img src="{icon_url}" alt="monday {name_en}" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain; border-radius:8px; display:block;"></div>
       <div><b>monday {T(name_en, name_es)}</b><p>{T(desc_en, desc_es)}</p>
         <a href="{link}" style="font-size:12px; font-weight:600; color:var(--purple-bright);">{T('Try it &rarr;','Pru&eacute;balo &rarr;')}</a>
       </div>
-    </div>""" for i, (name_en, name_es, desc_en, desc_es, link) in enumerate(MONDAY_PRODUCTS))
+    </div>""" for i, (name_en, name_es, desc_en, desc_es, link, icon_url) in enumerate(MONDAY_PRODUCTS))
     return f"""<section style="background:var(--surface);">
   <div class="tc-wrap">
     <div class="section-head reveal">

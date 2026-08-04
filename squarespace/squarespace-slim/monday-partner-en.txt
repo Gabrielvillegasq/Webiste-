@@ -49,25 +49,25 @@
       <h2><span class="i18n" data-es="Explora la Plataforma T&amp;uacute; Mismo" data-en="Explore the Platform Yourself">Explore the Platform Yourself</span></h2>
     </div>
     <div class="getgrid reveal"><div class="getcard icon-pop reveal" style="transition-delay:0.00s">
-      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:22px; height:22px; object-fit:contain; display:block;"></div>
+      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/a3a83225-8b27-4f0f-886c-1fcf041a9c3b/work_management.png?content-type=image%2Fpng" alt="monday Work Management" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain; border-radius:8px; display:block;"></div>
       <div><b>monday <span class="i18n" data-es="Gesti&amp;oacute;n del Trabajo" data-en="Work Management">Work Management</span></b><p><span class="i18n" data-es="La plataforma central para proyectos, tareas y colaboraci&amp;oacute;n en equipo." data-en="The core platform for projects, tasks, and team collaboration.">The core platform for projects, tasks, and team collaboration.</span></p>
         <a href="https://try.monday.com/trustcodemmx" style="font-size:12px; font-weight:600; color:var(--purple-bright);"><span class="i18n" data-es="Pru&amp;eacute;balo &amp;rarr;" data-en="Try it &amp;rarr;">Try it &rarr;</span></a>
       </div>
     </div>
 <div class="getcard icon-pop reveal" style="transition-delay:0.07s">
-      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:22px; height:22px; object-fit:contain; display:block;"></div>
+      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/212ce386-d5e6-4cb8-a217-9ec7756378d2/crm.png?content-type=image%2Fpng" alt="monday CRM" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain; border-radius:8px; display:block;"></div>
       <div><b>monday <span class="i18n" data-es="CRM" data-en="CRM">CRM</span></b><p><span class="i18n" data-es="Un CRM con IA para leads, pipelines y relaciones con clientes." data-en="An AI-first CRM for leads, pipelines, and customer relationships.">An AI-first CRM for leads, pipelines, and customer relationships.</span></p>
         <a href="https://try.monday.com/crm_ub499wong7sr-bptw8j" style="font-size:12px; font-weight:600; color:var(--purple-bright);"><span class="i18n" data-es="Pru&amp;eacute;balo &amp;rarr;" data-en="Try it &amp;rarr;">Try it &rarr;</span></a>
       </div>
     </div>
 <div class="getcard icon-pop reveal" style="transition-delay:0.14s">
-      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:22px; height:22px; object-fit:contain; display:block;"></div>
+      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/0c4b8427-436f-4530-a9e9-7085d312994a/dev.png?content-type=image%2Fpng" alt="monday Dev" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain; border-radius:8px; display:block;"></div>
       <div><b>monday <span class="i18n" data-es="Dev" data-en="Dev">Dev</span></b><p><span class="i18n" data-es="Planeaci&amp;oacute;n de sprints, roadmaps y flujos de desarrollo." data-en="Sprint planning, roadmaps, and dev workflows.">Sprint planning, roadmaps, and dev workflows.</span></p>
         <a href="https://try.monday.com/dev_x1j10ueoliud-bwoi6" style="font-size:12px; font-weight:600; color:var(--purple-bright);"><span class="i18n" data-es="Pru&amp;eacute;balo &amp;rarr;" data-en="Try it &amp;rarr;">Try it &rarr;</span></a>
       </div>
     </div>
 <div class="getcard icon-pop reveal" style="transition-delay:0.21s">
-      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:22px; height:22px; object-fit:contain; display:block;"></div>
+      <div class="ic"><img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/1ebc678c-8ac5-4072-881c-080b16aee1a2/service.png?content-type=image%2Fpng" alt="monday Service" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain; border-radius:8px; display:block;"></div>
       <div><b>monday <span class="i18n" data-es="Service" data-en="Service">Service</span></b><p><span class="i18n" data-es="Tickets, ruteo y operaciones de soporte." data-en="Ticketing, routing, and support operations.">Ticketing, routing, and support operations.</span></p>
         <a href="https://try.monday.com/trustcodemmx" style="font-size:12px; font-weight:600; color:var(--purple-bright);"><span class="i18n" data-es="Pru&amp;eacute;balo &amp;rarr;" data-en="Try it &amp;rarr;">Try it &rarr;</span></a>
       </div>
