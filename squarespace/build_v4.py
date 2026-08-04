@@ -1651,10 +1651,10 @@ def get_item(icon_key, en_t, es_t, en_d, es_d, delay=0.0):
       <div><b>{T(en_t, es_t)}</b><p>{T(en_d, es_d)}</p></div></div>"""
 
 def certified_partner_lockup():
-    # Light card by design -- the official lockup asset is black-on-transparent
+    # Light card by design -- the official badge asset is black-on-transparent
     # and would be nearly invisible on the dark .diagram-card panel used elsewhere.
     return f"""<div class="lockup-card">
-      <img src="{MONDAY_WORDMARK_IMG_URL}" alt="Certified Partner by monday.com" width="220"
+      <img src="{MONDAY_BADGE_IMG_URL}" alt="Certified Partner by monday.com" width="220"
            style="width:220px; height:auto; max-width:100%; display:block; margin:0 auto;">
     </div>"""
 
