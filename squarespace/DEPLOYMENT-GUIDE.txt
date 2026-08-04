@@ -4,6 +4,42 @@ Everything below refers to files in this same folder. Read this whole
 thing once before touching Squarespace -- the four code locations are
 easy to mix up.
 
+UPDATE (round 7) -- founder photo sizing fix, Home/Certified Partner/About Us content overhaul, monday.com referral links
+----------------------------------------------------------------------------
+- Fixed the founder photo rendering huge on the live About Us page: it now
+  has explicit width/height baked directly into the image tag (not just a
+  CSS class), so it can't be affected by whether the site-wide stylesheet
+  is current. Re-paste squarespace-slim/about-us-en.txt / -es.txt.
+- About Us got a full content rewrite per your latest brief: new hero copy,
+  an "How It Started" origin story naming Gabriel Villegas Quir&oacute;s,
+  a Mission/Vision section, "What We Believe" (4 values) / "How We Work"
+  (4 practices), the founder card, and a new final CTA. Note: the "What We
+  Believe" values section states "3+ years" (matching your LinkedIn/brief
+  wording) while the separate founder bio card states "5+ years" per your
+  earlier direct instruction -- these two numbers don't match each other;
+  let me know which is correct and I'll make them consistent.
+- Home page: removed the small "Certified Partner" pill above the H1
+  (per your request, not resized -- deleted). The monday.com partner badge
+  in the final CTA now renders at a real 86px with the same explicit-size
+  hardening as the founder photo, so it can't silently shrink again.
+- Certified Partner page: replaced the animated diagram hero with your
+  official monday.com wordmark image on a light card (the old dark panel
+  would have made the black-on-transparent asset unreadable). Added a new
+  "Explore the Platform Yourself" section with 4 monday.com product cards
+  (Work Management, CRM, Dev, Service), each linking to ITS OWN referral
+  link where you provided one (CRM and Dev have dedicated tracked links;
+  Work Management and Service use your general link), plus a "Start Free
+  with monday.com" button and a lighter "See Pricing" link, both pointing
+  to your real links, with a commission-disclosure line beneath.
+- Site-wide footer: added a small "Try monday.com Free &rarr;" chip with
+  the monday.com logo and an external-link cue (&#8599;), opening in a new
+  tab, so it's unmistakably a link to monday.com itself and not a
+  TrustCode page. This is a site-wide change -- re-paste BOTH
+  squarespace-sitewide/head-injection.txt and footer-injection.txt.
+- Re-paste squarespace-slim/home-en.txt / -es.txt and
+  squarespace-slim/monday-partner-en.txt / -es.txt for the Home and
+  Certified Partner changes above.
+
 UPDATE (round 6) -- founder bio on About Us + mobile menu redesign
 ----------------------------------------------------------------------------
 - About Us now has a "Meet the Founder" section: your photo, name, "Founder

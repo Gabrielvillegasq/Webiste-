@@ -3,8 +3,7 @@
   <div class="ambient-blob" style="width:220px; height:220px; bottom:-60px; left:4%; background:rgba(0,202,114,0.12); animation-delay:-6s;"></div>
   <div class="tc-wrap">
     <div>
-      <span class="eyebrow-logo hero-in has-badge-img"><img class="mb-badge-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="18"></span>
-      <h1 class="hero-in" style="animation-delay:.15s"><span class="i18n" data-es="Libera el M&amp;aacute;ximo" data-en="Unlock Peak">Unlock Peak</span> <span class="purple"><span class="i18n" data-es="Rendimiento" data-en="Performance">Performance</span></span></h1>
+      <h1 class="hero-in" style="animation-delay:.05s"><span class="i18n" data-es="Libera el M&amp;aacute;ximo" data-en="Unlock Peak">Unlock Peak</span> <span class="purple"><span class="i18n" data-es="Rendimiento" data-en="Performance">Performance</span></span></h1>
       <p class="lead hero-in" style="animation-delay:.25s"><span class="i18n" data-es="Convertimos la fricci&amp;oacute;n operativa en un motor de crecimiento a la medida &amp;mdash; en monday.com." data-en="We turn operational friction into a custom-built engine for growth &amp;mdash; on monday.com.">We turn operational friction into a custom-built engine for growth &mdash; on monday.com.</span></p>
       <div class="hero-in" style="display:flex; align-items:center; animation-delay:.35s">
         <a class="btn-primary" href="https://wkf.ms/49age3d">
@@ -170,6 +169,6 @@
     <h2><span class="i18n" data-es="&amp;iquest;Listo para revolucionar tus operaciones?" data-en="Ready to revolutionize your operations?">Ready to revolutionize your operations?</span></h2>
     <p><span class="i18n" data-es="Agenda tu consulta gratuita hoy." data-en="Schedule your free consultation today.">Schedule your free consultation today.</span></p>
     <a class="btn-primary" href="https://wkf.ms/49age3d"><span class="i18n" data-es="Reclama mi Consulta Gratuita" data-en="Claim My Free Consultation">Claim My Free Consultation</span></a>
-    <div><span class="badge has-badge-img"><img class="mb-badge-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="18"></span></div>
+    <div style="margin-top:28px; display:flex; justify-content:center;"><img class="mb-badge-img" src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/05b7e34f-8f9d-49aa-b1f8-eb40e5717b77/badge+for+your+website+only.png?content-type=image%2Fpng" alt="monday.com Certified Partner" height="86" style="height:86px; width:auto; max-height:86px; display:block;"></div>
   </div>
 </section>

@@ -12,6 +12,13 @@ MONDAY_LOGO_IMG_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2
 GABRIEL_PHOTO_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/5a457d5f-7752-4740-b7d8-8d9a084dd42b/IMG_4979+%281%29.PNG?content-type=image%2Fjpeg"  # founder photo -- About Us page
 # ------------------------------------------------------------------------
 
+# --- monday.com referral links (Certified Partner page products section) ---
+MONDAY_REFERRAL_GENERAL = "https://try.monday.com/trustcodemmx"          # general referral -- fallback + main "Start Free" CTA
+MONDAY_REFERRAL_CRM = "https://try.monday.com/crm_ub499wong7sr-bptw8j"    # monday CRM specific
+MONDAY_REFERRAL_DEV = "https://try.monday.com/dev_x1j10ueoliud-bwoi6"     # monday Dev specific
+MONDAY_REFERRAL_PRICING = "https://try.monday.com/xnjoh8f0jxi1-2f3ml"     # pricing page
+# ------------------------------------------------------------------------
+
 BASE_URL = "https://www.trustcodemx.com"
 OUT = os.path.dirname(os.path.abspath(__file__))
 PREVIEW_DIR = os.path.join(OUT, "preview")
@@ -204,6 +211,11 @@ STYLE = """
     margin-left: 18px; border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease;
   }
   .btn-ghost:hover { color: var(--ink) !important; border-color: var(--ink); }
+  .pricing-link {
+    display: inline-block; margin-left: 18px; font-size: 13px; color: var(--muted) !important;
+    border-bottom: 1px solid transparent; transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .pricing-link:hover { color: var(--ink) !important; border-color: var(--ink); }
 
   .diagram-card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 26px 24px 20px; }
   .diagram-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
@@ -470,6 +482,13 @@ STYLE = """
   .footer-col a:hover { opacity: 1; color: var(--purple-bright); }
   .footer-bottom { border-top: 1px solid var(--line); padding-top: 22px; font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between; }
   .footer-bottom a:hover { color: var(--purple-bright); }
+  .footer-monday-cta { display: flex; justify-content: center; padding-bottom: 22px; }
+  .footer-monday-cta a {
+    display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.04em; color: var(--muted); border: 1px solid var(--line); padding: 8px 16px;
+    border-radius: 20px; background: var(--surface); transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .footer-monday-cta a:hover { border-color: var(--purple-bright); color: var(--ink); }
 
   .subhero { padding: 64px 0 54px; border-bottom: 1px solid var(--line); }
   .crumb { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 16px; display:block; }
@@ -491,6 +510,24 @@ STYLE = """
   .getcard .ic { color: var(--emerald); }
   .getcard b { display: block; font-size: 14px; margin-bottom: 2px; }
   .getcard p { font-size: 13px; color: var(--muted); }
+
+  /* --- certified partner lockup hero (light card, official asset is black-on-transparent) --- */
+  .lockup-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    padding: 40px 20px; max-width: 380px; margin: 0 auto; text-align: center;
+    opacity: 0; transform: scale(0.96); animation: lockupIn 0.8s var(--ease-entrance) forwards;
+  }
+  @keyframes lockupIn { to { opacity: 1; transform: scale(1); } }
+
+  /* --- origin story prose + mission/vision (About Us) --- */
+  .prose { max-width: 720px; margin: 0 auto; }
+  .prose p { color: var(--muted); font-size: 15.5px; line-height: 1.75; margin-bottom: 18px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--ink); font-weight: 700; }
+  .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .mv-cell { background: var(--bg); padding: 32px 28px; }
+  .mv-cell .eyebrow { margin-bottom: 14px; }
+  .mv-cell p { font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.5; }
 
   /* --- founder / leadership card (About Us) --- */
   .founder-card { display: flex; gap: 36px; align-items: flex-start; max-width: 760px; margin: 0 auto; }
@@ -540,12 +577,12 @@ STYLE = """
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .nav-cta { display: none; }
-    .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr 1fr; }
+    .grid-4, .grid-2, .row-2, .getgrid, .grid-3, .mv-grid { grid-template-columns: 1fr 1fr; }
     .service-card { flex-basis: 45%; }
     .stat-row { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 560px) {
-    .grid-4, .grid-2, .row-2, .getgrid, .grid-3 { grid-template-columns: 1fr; }
+    .grid-4, .grid-2, .row-2, .getgrid, .grid-3, .mv-grid { grid-template-columns: 1fr; }
     .service-card { flex-basis: 100%; }
     .tc-wrap { padding: 0 20px; }
     .stat-row { grid-template-columns: 1fr; }
@@ -841,10 +878,14 @@ def brand_lockup():
         return f'<img class="brand-logo-img" src="{LOGO_IMG_URL}" alt="Trust Code MX" height="26">'
     return '<span class="brand-lockup"><span class="bl-trust">trust</span><span class="bl-code">code</span><span class="bl-mx">mx</span></span>'
 
-def monday_badge(label_en, label_es, cls="eyebrow-logo"):
+def monday_badge(label_en, label_es, cls="eyebrow-logo", height=18, bare=False):
     if MONDAY_BADGE_IMG_URL:
-        return (f'<span class="{cls} has-badge-img"><img class="mb-badge-img" src="{MONDAY_BADGE_IMG_URL}" '
-                f'alt="monday.com Certified Partner" height="18"></span>')
+        # Explicit inline height (not just a CSS class) so a Squarespace template
+        # style can't silently shrink this the way it has twice before -- same
+        # fix pattern as the About Us founder photo.
+        img = (f'<img class="mb-badge-img" src="{MONDAY_BADGE_IMG_URL}" alt="monday.com Certified Partner" '
+               f'height="{height}" style="height:{height}px; width:auto; max-height:{height}px; display:block;">')
+        return img if bare else f'<span class="{cls} has-badge-img">{img}</span>'
     return (f'<span class="{cls}"><span class="mb-ic">{ICONS["shield"]}</span>'
             f'<span class="mb-txt">monday.com &middot; {T(label_en, label_es)}</span></span>')
 
@@ -1011,6 +1052,12 @@ def footer():
         <a href="{p}/about-us/">{T('About Us','Nosotros')}</a>
         <a href="https://wkf.ms/49age3d">{T('Contact Us','Cont&aacute;ctanos')}</a>
       </div>
+    </div>
+    <div class="footer-monday-cta">
+      <a href="{MONDAY_REFERRAL_GENERAL}" target="_blank" rel="noopener">
+        <img src="{MONDAY_LOGO_IMG_URL}" alt="monday.com" style="width:14px; height:14px; object-fit:contain; display:block;">
+        <span>{T('Try monday.com Free','Prueba monday.com Gratis')} &rarr; &#8599;</span>
+      </a>
     </div>
     <div class="footer-bottom"><span>&copy; Trust Code Mx</span><a href="https://www.trustcodemx.com/privacypolicy" style="color:inherit;">{T('Privacy Policy','Aviso de Privacidad')}</a></div>
   </div>
@@ -1350,8 +1397,7 @@ def home_hero():
   <div class="ambient-blob" style="width:220px; height:220px; bottom:-60px; left:4%; background:rgba(0,202,114,0.12); animation-delay:-6s;"></div>
   <div class="tc-wrap">
     <div>
-      {monday_badge('Certified Partner','Socio Certificado', cls="eyebrow-logo hero-in")}
-      <h1 class="hero-in" style="animation-delay:.15s">{T('Unlock Peak','Libera el M&aacute;ximo')} <span class="purple">{T('Performance','Rendimiento')}</span></h1>
+      <h1 class="hero-in" style="animation-delay:.05s">{T('Unlock Peak','Libera el M&aacute;ximo')} <span class="purple">{T('Performance','Rendimiento')}</span></h1>
       <p class="lead hero-in" style="animation-delay:.25s">{T('We turn operational friction into a custom-built engine for growth &mdash; on monday.com.','Convertimos la fricci&oacute;n operativa en un motor de crecimiento a la medida &mdash; en monday.com.')}</p>
       <div class="hero-in" style="display:flex; align-items:center; animation-delay:.35s">
         <a class="btn-primary" href="https://wkf.ms/49age3d">
@@ -1546,7 +1592,7 @@ def home_final():
     <h2>{T('Ready to revolutionize your operations?','&iquest;Listo para revolucionar tus operaciones?')}</h2>
     <p>{T('Schedule your free consultation today.','Agenda tu consulta gratuita hoy.')}</p>
     <a class="btn-primary" href="https://wkf.ms/49age3d">{T('Claim My Free Consultation','Reclama mi Consulta Gratuita')}</a>
-    <div>{monday_badge('Certified Partner','Socio Certificado', cls="badge")}</div>
+    <div style="margin-top:28px; display:flex; justify-content:center;">{monday_badge('Certified Partner','Socio Certificado', height=86, bare=True)}</div>
   </div>
 </section>
 """
@@ -1595,6 +1641,55 @@ def get_item(icon_key, en_t, es_t, en_d, es_d, delay=0.0):
     return f"""<div class="getcard icon-pop reveal" style="transition-delay:{delay:.2f}s"><div class="ic">{ICONS[icon_key]}</div>
       <div><b>{T(en_t, es_t)}</b><p>{T(en_d, es_d)}</p></div></div>"""
 
+def certified_partner_lockup():
+    # Light card by design -- the official lockup asset is black-on-transparent
+    # and would be nearly invisible on the dark .diagram-card panel used elsewhere.
+    return f"""<div class="lockup-card">
+      <img src="{MONDAY_WORDMARK_IMG_URL}" alt="Certified Partner by monday.com" width="220"
+           style="width:220px; height:auto; max-width:100%; display:block; margin:0 auto;">
+    </div>"""
+
+MONDAY_PRODUCTS = [
+    ("Work Management", "Gesti&oacute;n del Trabajo",
+     "The core platform for projects, tasks, and team collaboration.",
+     "La plataforma central para proyectos, tareas y colaboraci&oacute;n en equipo.",
+     MONDAY_REFERRAL_GENERAL),
+    ("CRM", "CRM",
+     "An AI-first CRM for leads, pipelines, and customer relationships.",
+     "Un CRM con IA para leads, pipelines y relaciones con clientes.",
+     MONDAY_REFERRAL_CRM),
+    ("Dev", "Dev",
+     "Sprint planning, roadmaps, and dev workflows.",
+     "Planeaci&oacute;n de sprints, roadmaps y flujos de desarrollo.",
+     MONDAY_REFERRAL_DEV),
+    ("Service", "Service",
+     "Ticketing, routing, and support operations.",
+     "Tickets, ruteo y operaciones de soporte.",
+     MONDAY_REFERRAL_GENERAL),
+]
+
+def monday_products_section():
+    cards = "\n".join(f"""<div class="getcard icon-pop reveal" style="transition-delay:{i*0.07:.2f}s">
+      <div class="ic"><img src="{MONDAY_LOGO_IMG_URL}" alt="monday.com" style="width:22px; height:22px; object-fit:contain; display:block;"></div>
+      <div><b>monday {T(name_en, name_es)}</b><p>{T(desc_en, desc_es)}</p>
+        <a href="{link}" style="font-size:12px; font-weight:600; color:var(--purple-bright);">{T('Try it &rarr;','Pru&eacute;balo &rarr;')}</a>
+      </div>
+    </div>""" for i, (name_en, name_es, desc_en, desc_es, link) in enumerate(MONDAY_PRODUCTS))
+    return f"""<section style="background:var(--surface);">
+  <div class="tc-wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">{T('monday.com products','productos de monday.com')}</span>
+      <h2>{T('Explore the Platform Yourself','Explora la Plataforma T&uacute; Mismo')}</h2>
+    </div>
+    <div class="getgrid reveal">{cards}</div>
+    <div class="reveal" style="text-align:center; margin-top:28px;">
+      <a class="btn-ghost" style="margin-left:0;" href="{MONDAY_REFERRAL_GENERAL}">{T('Start Free with monday.com','Comienza Gratis con monday.com')}</a>
+      <a class="pricing-link" href="{MONDAY_REFERRAL_PRICING}">{T('See Pricing &rarr;','Ver Precios &rarr;')}</a>
+      <p style="font-family:var(--font-mono); font-size:11px; color:var(--muted); margin-top:14px; max-width:460px; margin-left:auto; margin-right:auto;">{T("TrustCode may earn a commission if you sign up through this link, at no extra cost to you.","TrustCode puede recibir una comisi&oacute;n si te registras a trav&eacute;s de este enlace, sin costo adicional para ti.")}</p>
+    </div>
+  </div>
+</section>"""
+
 def founder_section():
     bio_en = ("Gabriel Villegas is the founder and CEO of Trust Code. A marketing professional "
               "with 5+ years of hands-on experience in monday.com, he's built custom workflows, "
@@ -1609,14 +1704,14 @@ def founder_section():
               "generan crecimiento real. Gabriel capacita equipos, coordina proyectos "
               "multidisciplinarios y siempre busca el siguiente reto que resolver con un sistema "
               "m&aacute;s inteligente.")
-    return f"""<section>
+    return f"""<section id="founder">
   <div class="tc-wrap">
     <div class="section-head reveal">
       <span class="eyebrow">{T('the person behind it','la persona detr&aacute;s')}</span>
       <h2>{T('Meet the Founder','Conoce al Fundador')}</h2>
     </div>
     <div class="founder-card reveal">
-      <img class="founder-photo" src="{GABRIEL_PHOTO_URL}" alt="Gabriel Villegas">
+      <img class="founder-photo" src="{GABRIEL_PHOTO_URL}" alt="Gabriel Villegas" width="140" height="140" style="width:140px; height:140px; max-width:140px; border-radius:50%; object-fit:cover; flex-shrink:0; border:1px solid var(--line);">
       <div class="founder-text">
         <h3>Gabriel Villegas</h3>
         <span class="eyebrow">{T('Founder &amp; CEO','Fundador y CEO')}</span>
@@ -1926,48 +2021,130 @@ build_subpage(
     final_h2_en="Ready to work with a certified partner?", final_h2_es="&iquest;Listo para trabajar con un socio certificado?",
     final_lead_en="Schedule a free strategy session and see the difference certification makes.", final_lead_es="Agenda una sesi&oacute;n estrat&eacute;gica gratuita y comprueba la diferencia.",
     final_cta_en="Schedule a Strategy Session", final_cta_es="Agenda una Sesi&oacute;n Estrat&eacute;gica",
-    diagram_html=lambda: workflow_diagram(("CERTIFIED","TRAINED","VERIFIED","SUPPORTED","TRUSTED"), id_prefix="cp", tag_text="PARTNER_STATUS // trustcodemx"),
+    diagram_html=certified_partner_lockup,
+    extra_section_html=monday_products_section,
 )
 
-# ---------------- 7. About Us ----------------
-build_subpage(
-    slug="about-us",
-    title_en="About Trust Code | monday.com Consulting Partner",
-    title_es="Nosotros | Trust Code, Socio de Consultoría monday.com",
-    desc_en="Trust Code is a certified monday.com partner on a mission to end operational friction — consultants first, technologists second.",
-    desc_es="Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.",
-    crumb_en="About Us", crumb_es="Nosotros",
-    crumb_root_en="Company", crumb_root_es="Compa&ntilde;&iacute;a",
-    h1_en="We Exist to End Operational Friction", h1_es="Existimos para Acabar con la Fricci&oacute;n Operativa",
-    lead_en="Trust Code was built on a simple belief: the right workflow shouldn't feel like a fight. We're consultants first, technologists second.",
-    lead_es="Trust Code nace de una idea simple: el flujo de trabajo correcto no deber&iacute;a sentirse como una pelea. Somos consultores primero, tecn&oacute;logos despu&eacute;s.",
-    cta_en="Work With Us", cta_es="Trabaja con Nosotros",
-    col1_header_en="What We Believe", col1_header_es="En Qu&eacute; Creemos",
-    col2_header_en="How We Work", col2_header_es="C&oacute;mo Trabajamos",
-    challenge=[
-        ("briefcase","Business First","Negocio Primero","We're consultants before we're technologists &mdash; every decision starts with your bottom line.","Somos consultores antes que tecn&oacute;logos &mdash; toda decisi&oacute;n empieza por tu rentabilidad."),
-        ("bars","Results Over Reports","Resultados, No Solo Reportes","Measurable ROI, not just dashboards nobody reads.","ROI medible, no solo dashboards que nadie lee."),
-        ("venn","Partnership, Not a Handoff","Sociedad, No una Entrega","We stay involved after launch &mdash; support that grows with you.","Seguimos involucrados despu&eacute;s del lanzamiento."),
-        ("shield","Rigor Over Guesswork","Rigor, No Adivinanza","Certified expertise, not on-the-job learning at your expense.","Experiencia certificada, no aprendizaje a tu costa."),
-    ],
-    solution=[
-        ("eye","We Listen First","Escuchamos Primero","Every engagement starts with understanding your actual operation, not a template.","Cada proyecto empieza entendiendo tu operaci&oacute;n real, no una plantilla."),
-        ("grid","We Build for Your Team","Construimos para tu Equipo","Custom boards and automations designed around how you actually work.","Tableros y automatizaciones dise&ntilde;ados para c&oacute;mo trabajas de verdad."),
-        ("repeat","We Stay Accountable","Somos Responsables","Clear metrics from day one, so success isn't a matter of opinion.","M&eacute;tricas claras desde el d&iacute;a uno."),
-        ("trending","We Grow With You","Crecemos Contigo","Ongoing support as your business &mdash; and your platform &mdash; evolves.","Soporte continuo conforme tu negocio evoluciona."),
-    ],
-    getgrid_title_en="Why businesses choose Trust Code", getgrid_title_es="Por qu&eacute; las empresas eligen Trust Code",
-    getcards=[
-        ("shield","A Certified monday.com Partner","Un Socio Certificado de monday.com","Verified expertise, not a self-proclaimed title.","Experiencia verificada, no un t&iacute;tulo autoproclamado."),
-        ("briefcase","A Business-First Mindset","Una Mentalidad de Negocio Primero","We think like operators, not just implementers.","Pensamos como operadores, no solo implementadores."),
-        ("bars","Transparent, Measurable Results","Resultados Transparentes y Medibles","You'll always know what success looks like.","Siempre sabr&aacute;s c&oacute;mo se ve el &eacute;xito."),
-        ("venn","A Relationship, Not a Project","Una Relaci&oacute;n, No un Proyecto","We're here after launch, not just during it.","Seguimos aqu&iacute; despu&eacute;s del lanzamiento."),
-    ],
-    final_h2_en="Ready to build something that actually works?", final_h2_es="&iquest;Listo para construir algo que realmente funcione?",
-    final_lead_en="Let's talk about what's slowing your team down &mdash; and fix it.", final_lead_es="Hablemos de qu&eacute; est&aacute; frenando a tu equipo &mdash; y arregl&eacute;moslo.",
-    final_cta_en="Schedule a Free Strategy Session", final_cta_es="Agenda una Sesi&oacute;n Estrat&eacute;gica Gratuita",
-    diagram_html=lambda: workflow_diagram(("PEOPLE","PROCESS","PLATFORM","CULTURE","GROWTH"), id_prefix="au", tag_text="OUR_APPROACH // trustcodemx"),
-    extra_section_html=founder_section,
+# ---------------- 7. About Us (custom body -- full rewrite per ABOUT_US_FULL_COPY.md) ----------------
+ABOUT_VALUES = [
+    ("briefcase","Business Before Technology","Negocio Antes que Tecnolog&iacute;a",
+     "Marketing and operations experience comes first for us &mdash; the platform is just the tool. Every recommendation starts with what actually moves your business forward, not what's technically possible.",
+     "Para nosotros, la experiencia en marketing y operaciones va primero &mdash; la plataforma es solo la herramienta. Cada recomendaci&oacute;n empieza por lo que realmente impulsa tu negocio, no por lo que es t&eacute;cnicamente posible."),
+    ("shield","Real, Hands-On Expertise","Experiencia Real y Pr&aacute;ctica",
+     "Over 3 years of hands-on, in-the-trenches experience with monday.com &mdash; not theoretical certifications alone. We've built the systems we recommend, not just read about them.",
+     "M&aacute;s de 3 a&ntilde;os de experiencia pr&aacute;ctica y de primera l&iacute;nea con monday.com &mdash; no solo certificaciones te&oacute;ricas. Hemos construido los sistemas que recomendamos, no solo le&iacute;do sobre ellos."),
+    ("cap","Teach, Don't Just Deploy","Ense&ntilde;ar, No Solo Implementar",
+     "A system your team doesn't understand is a system they'll abandon. Training and coordination are part of every engagement, not an afterthought &mdash; because adoption is the actual measure of success.",
+     "Un sistema que tu equipo no entiende es un sistema que abandonar&aacute;. La capacitaci&oacute;n y la coordinaci&oacute;n son parte de cada proyecto, no un a&ntilde;adido &mdash; porque la adopci&oacute;n es la verdadera medida del &eacute;xito."),
+    ("trending","Built to Grow With You","Construido para Crecer Contigo",
+     "We started small and grew by actually delivering &mdash; so we understand what it takes to scale without losing control. Every system we build is designed to grow alongside your business, not need replacing in a year.",
+     "Empezamos peque&ntilde;os y crecimos entregando resultados reales &mdash; por eso entendemos lo que se necesita para escalar sin perder el control. Cada sistema que construimos est&aacute; dise&ntilde;ado para crecer junto con tu negocio, no para necesitar reemplazo en un a&ntilde;o."),
+]
+ABOUT_HOW_WE_WORK = [
+    ("eye","We Listen First","Escuchamos Primero",
+     "Every engagement starts with understanding your actual operation &mdash; not a generic template.",
+     "Cada proyecto empieza entendiendo tu operaci&oacute;n real &mdash; no una plantilla gen&eacute;rica."),
+    ("grid","We Build for Your Team, Not a Demo","Construimos para tu Equipo, No para una Demo",
+     "Custom boards and automations designed around how you really work.",
+     "Tableros y automatizaciones a la medida, dise&ntilde;ados para c&oacute;mo trabajas de verdad."),
+    ("repeat","We Train, Not Just Hand Off","Capacitamos, No Solo Entregamos",
+     "Your team learns to own the system, not just use it.",
+     "Tu equipo aprende a dominar el sistema, no solo a usarlo."),
+    ("check","We Stay Accountable","Somos Responsables",
+     "Clear metrics from day one, so success isn't a matter of opinion.",
+     "M&eacute;tricas claras desde el d&iacute;a uno, para que el &eacute;xito no sea cuesti&oacute;n de opini&oacute;n."),
+]
+
+def about_us_body():
+    values_html = "\n".join(sub_item("challenge", ic, en_t, es_t, en_d, es_d, delay=i*0.08) for i, (ic, en_t, es_t, en_d, es_d) in enumerate(ABOUT_VALUES))
+    how_html = "\n".join(sub_item("solution", ic, en_t, es_t, en_d, es_d, delay=i*0.08) for i, (ic, en_t, es_t, en_d, es_d) in enumerate(ABOUT_HOW_WE_WORK))
+    return f"""<section class="subhero" style="position:relative;">
+  <div class="ambient-blob" style="width:260px; height:260px; top:-70px; right:6%; background:rgba(97,97,255,0.14); animation-delay:-3s;"></div>
+  <div class="tc-wrap hero-split" style="position:relative;">
+    <div>
+      <span class="crumb hero-in" style="animation-delay:.05s"><a href="{prefix()}/">{T('Company','Compa&ntilde;&iacute;a')}</a> / <span class="accent">{T('About Us','Nosotros')}</span></span>
+      <h1 class="hero-in" style="animation-delay:.15s">{T('Built by Someone Who&rsquo;s Actually Done the Work','Construido por Alguien que Realmente Ha Hecho el Trabajo')}</h1>
+      <p class="lead hero-in" style="animation-delay:.25s">{T('Trust Code Mx isn&rsquo;t run by salespeople who learned monday.com from a brochure. It&rsquo;s led by a marketer who started implementing real business systems before he&rsquo;d even finished school &mdash; and never stopped.','Trust Code Mx no lo dirigen vendedores que aprendieron monday.com en un folleto. Lo lidera un merc&oacute;logo que empez&oacute; a implementar sistemas de negocio reales antes de terminar la escuela &mdash; y nunca se detuvo.')}</p>
+      <a class="btn-primary hero-in" style="animation-delay:.35s" href="#founder">{T('Meet the Team','Conoce al Equipo')}
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    {workflow_diagram(("PEOPLE","PROCESS","PLATFORM","CULTURE","GROWTH"), id_prefix="au", tag_text="OUR_APPROACH // trustcodemx")}
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap prose">
+    <div class="section-head reveal">
+      <span class="eyebrow">{T('our story','nuestra historia')}</span>
+      <h2>{T('How It Started','C&oacute;mo Comenz&oacute;')}</h2>
+    </div>
+    <div class="reveal">
+      <p>{T('Trust Code Mx began with a simple realization: most businesses don&rsquo;t fail because they lack good people or good ideas &mdash; they fail because the tools meant to support them get in the way instead.','Trust Code Mx naci&oacute; de una idea simple: la mayor&iacute;a de los negocios no fracasan por falta de buena gente o buenas ideas &mdash; fracasan porque las herramientas que deber&iacute;an apoyarlos terminan estorbando.')}</p>
+      <p>{T('Founder <strong>Gabriel Villegas Quir&oacute;s</strong> studied Marketing. Before he&rsquo;d even finished school, he was already implementing real workflow and CRM systems for real companies &mdash; not as an assignment, but because businesses around him needed someone who could actually make their operations work. What started as hands-on problem-solving with monday.com grew into something bigger: a dedicated practice built on the belief that the right workflow, configured the right way, can change how an entire team operates.','El fundador <strong>Gabriel Villegas Quir&oacute;s</strong> estudi&oacute; Mercadotecnia. Antes de terminar la escuela, ya implementaba sistemas reales de flujo de trabajo y CRM para empresas reales &mdash; no como una tarea, sino porque los negocios a su alrededor necesitaban a alguien que realmente hiciera funcionar sus operaciones. Lo que comenz&oacute; como resoluci&oacute;n pr&aacute;ctica de problemas con monday.com se convirti&oacute; en algo m&aacute;s grande: una pr&aacute;ctica dedicada, construida sobre la creencia de que el flujo de trabajo correcto, configurado de la forma correcta, puede cambiar c&oacute;mo opera un equipo entero.')}</p>
+      <p>{T('Today, Trust Code Mx is a small, hands-on team &mdash; not a call center, not a reseller &mdash; that partners with growing businesses to build custom monday.com systems, CRM configurations, and digital workflows that work the way your business actually works, not the other way around.','Hoy, Trust Code Mx es un equipo peque&ntilde;o y pr&aacute;ctico &mdash; no un call center, no un revendedor &mdash; que se asocia con negocios en crecimiento para construir sistemas de monday.com a la medida, configuraciones de CRM y flujos de trabajo digitales que funcionan como tu negocio realmente funciona, no al rev&eacute;s.')}</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);">
+  <div class="tc-wrap">
+    <div class="mv-grid reveal">
+      <div class="mv-cell">
+        <span class="eyebrow">{T('mission','misi&oacute;n')}</span>
+        <p>{T('To turn operational friction into clarity &mdash; by building monday.com systems, CRM configurations, and workflows that fit how your business actually operates, and training your team to own them with confidence.','Convertir la fricci&oacute;n operativa en claridad &mdash; construyendo sistemas de monday.com, configuraciones de CRM y flujos de trabajo que se ajustan a c&oacute;mo tu negocio realmente opera, y capacitando a tu equipo para dominarlos con confianza.')}</p>
+      </div>
+      <div class="mv-cell">
+        <span class="eyebrow">{T('vision','visi&oacute;n')}</span>
+        <p>{T('A future where growing businesses everywhere have access to enterprise-level operational clarity &mdash; without needing an enterprise-level budget or headcount to get it.','Un futuro donde los negocios en crecimiento de cualquier parte del mundo tengan acceso a claridad operativa de nivel empresarial &mdash; sin necesitar un presupuesto ni una plantilla de nivel empresarial para lograrlo.')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="tc-wrap row-2">
+    <div class="col-block reveal">
+      <h3>{T('What We Believe','En Qu&eacute; Creemos')}</h3>
+      <div class="item-list">{values_html}</div>
+    </div>
+    <div class="col-block reveal">
+      <h3>{T('How We Work','C&oacute;mo Trabajamos')}</h3>
+      <div class="item-list">{how_html}</div>
+    </div>
+  </div>
+</section>
+
+{founder_section()}
+
+<section>
+  <div class="tc-wrap final-cta reveal">
+    <span class="eyebrow" style="justify-content:center">{T('ready when you are','listos cuando t&uacute; lo est&eacute;s')}</span>
+    <h2>{T('Ready to work with a team that&rsquo;s actually done this before?','&iquest;Listo para trabajar con un equipo que realmente ya ha hecho esto?')}</h2>
+    <p>{T('Let&rsquo;s talk about what&rsquo;s slowing your team down &mdash; and build something that actually fits how you work.','Hablemos de qu&eacute; est&aacute; frenando a tu equipo &mdash; y construyamos algo que realmente se ajuste a c&oacute;mo trabajas.')}</p>
+    <a class="btn-primary" href="https://wkf.ms/49age3d">{T('Schedule a Free Strategy Session','Agenda una Sesi&oacute;n Estrat&eacute;gica Gratuita')}</a>
+  </div>
+</section>
+"""
+
+def about_us_jsonld():
+    return [
+        breadcrumb_jsonld("about-us", "About Us", "Nosotros"),
+        service_jsonld(
+            "Built by Someone Who's Actually Done the Work", "Construido por Alguien que Realmente Ha Hecho el Trabajo",
+            "Trust Code is a certified monday.com partner on a mission to end operational friction — consultants first, technologists second.",
+            "Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.",
+        ),
+    ]
+
+build_both_langs(
+    "about-us",
+    "About Trust Code | monday.com Consulting Partner",
+    "Nosotros | Trust Code, Socio de Consultoría monday.com",
+    "Trust Code is a certified monday.com partner on a mission to end operational friction — consultants first, technologists second.",
+    "Trust Code es socio certificado de monday.com, con la misión de acabar con la fricción operativa — consultores primero, tecnólogos después.",
+    about_us_body,
+    about_us_jsonld,
 )
 
 # ---------------- 8. Web Design & Development ----------------

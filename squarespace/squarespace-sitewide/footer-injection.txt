@@ -71,6 +71,12 @@
         <a href="https://wkf.ms/49age3d"><span class="i18n" data-es="Cont&amp;aacute;ctanos" data-en="Contact Us">Contact Us</span></a>
       </div>
     </div>
+    <div class="footer-monday-cta">
+      <a href="https://try.monday.com/trustcodemmx" target="_blank" rel="noopener">
+        <img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:14px; height:14px; object-fit:contain; display:block;">
+        <span><span class="i18n" data-es="Prueba monday.com Gratis" data-en="Try monday.com Free">Try monday.com Free</span> &rarr; &#8599;</span>
+      </a>
+    </div>
     <div class="footer-bottom"><span>&copy; Trust Code Mx</span><a href="https://www.trustcodemx.com/privacypolicy" style="color:inherit;"><span class="i18n" data-es="Aviso de Privacidad" data-en="Privacy Policy">Privacy Policy</span></a></div>
   </div>
 </footer>
@@ -147,6 +153,12 @@
         <a href="/es/about-us/"><span class="i18n" data-es="Nosotros" data-en="About Us">Nosotros</span></a>
         <a href="https://wkf.ms/49age3d"><span class="i18n" data-es="Cont&amp;aacute;ctanos" data-en="Contact Us">Cont&aacute;ctanos</span></a>
       </div>
+    </div>
+    <div class="footer-monday-cta">
+      <a href="https://try.monday.com/trustcodemmx" target="_blank" rel="noopener">
+        <img src="https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/9217fbfa-f063-4b18-9f2f-f76ae567aadb/logo_black.png?content-type=image%2Fpng" alt="monday.com" style="width:14px; height:14px; object-fit:contain; display:block;">
+        <span><span class="i18n" data-es="Prueba monday.com Gratis" data-en="Try monday.com Free">Prueba monday.com Gratis</span> &rarr; &#8599;</span>
+      </a>
     </div>
     <div class="footer-bottom"><span>&copy; Trust Code Mx</span><a href="https://www.trustcodemx.com/privacypolicy" style="color:inherit;"><span class="i18n" data-es="Aviso de Privacidad" data-en="Privacy Policy">Aviso de Privacidad</span></a></div>
   </div>
