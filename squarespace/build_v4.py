@@ -1676,7 +1676,7 @@ MONDAY_PRODUCTS = [
 
 def monday_products_section():
     cards = "\n".join(f"""<div class="getcard icon-pop reveal" style="transition-delay:{i*0.07:.2f}s">
-      <div class="ic"><img src="{icon_url}" alt="monday {name_en}" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain; border-radius:8px; display:block;"></div>
+      <div class="ic" style="width:40px; height:40px; flex-shrink:0;"><img src="{icon_url}" alt="monday {name_en}" width="40" height="40" style="width:40px; height:40px; max-width:40px; max-height:40px; object-fit:contain; border-radius:8px; display:block;"></div>
       <div><b>monday {T(name_en, name_es)}</b><p>{T(desc_en, desc_es)}</p>
         <a href="{link}" style="font-size:12px; font-weight:600; color:var(--purple-bright);">{T('Try it &rarr;','Pru&eacute;balo &rarr;')}</a>
       </div>
