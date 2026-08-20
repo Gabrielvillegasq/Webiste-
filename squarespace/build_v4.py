@@ -21,6 +21,11 @@ MONDAY_ICON_DEV_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2
 MONDAY_ICON_SERVICE_URL = "https://images.squarespace-cdn.com/content/67be24bed792a2372316aadf/1ebc678c-8ac5-4072-881c-080b16aee1a2/service.png?content-type=image%2Fpng"
 # ------------------------------------------------------------------------
 
+# --- social links (site-wide footer) ---
+SOCIAL_INSTAGRAM_URL = "https://www.instagram.com/trustcodemx/?hl=es"
+SOCIAL_LINKEDIN_URL = "https://www.linkedin.com/company/trustcode-mx"
+# ------------------------------------------------------------------------
+
 # --- monday.com referral links (Certified Partner page products section) ---
 MONDAY_REFERRAL_GENERAL = "https://try.monday.com/trustcodemmx"          # general referral -- fallback + main "Start Free" CTA
 MONDAY_REFERRAL_CRM = "https://try.monday.com/crm_ub499wong7sr-bptw8j"    # monday CRM specific
@@ -63,7 +68,12 @@ ICONS = {
     "share":       icon('<circle cx="6" cy="12" r="2.6"/><circle cx="17" cy="6" r="2.6"/><circle cx="17" cy="18" r="2.6"/><path d="M8.3 10.8l6.4-3.2M8.3 13.2l6.4 3.2"/>'),
     "image":       icon('<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/>'),
     "calendar":    icon('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'),
+    "instagram":   icon('<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>'),
 }
+
+# LinkedIn's mark is blocky/filled, not line-drawn like the rest of ICONS -- built
+# separately instead of forcing it through icon()'s stroke-based default.
+ICON_LINKEDIN = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" class="ic"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'
 
 ANIMATED_BARS = '<svg viewBox="0 0 24 24" fill="none" class="ic"><rect class="roi-bar b1" x="3" y="12" width="4.5" height="8" rx="1" fill="currentColor"/><rect class="roi-bar b2" x="9.75" y="7" width="4.5" height="13" rx="1" fill="currentColor"/><rect class="roi-bar b3" x="16.5" y="2" width="4.5" height="18" rx="1" fill="currentColor"/></svg>'
 
@@ -491,6 +501,10 @@ STYLE = """
   .footer-col a:hover { opacity: 1; color: var(--purple-bright); }
   .footer-bottom { border-top: 1px solid var(--line); padding-top: 22px; font-size: 12.5px; color: var(--muted); display: flex; justify-content: space-between; }
   .footer-bottom a:hover { color: var(--purple-bright); }
+  .footer-social { display: flex; align-items: center; gap: 16px; }
+  .footer-social a { display: inline-flex; color: var(--muted); transition: color 0.2s ease; }
+  .footer-social a:hover { color: var(--purple-bright); }
+  .footer-social .ic { width: 18px; height: 18px; }
   .footer-col .footer-monday-cta {
     display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px;
     letter-spacing: 0.04em; color: var(--muted); opacity: 1; border: 1px solid var(--line); padding: 8px 16px;
@@ -1065,7 +1079,14 @@ def footer():
         <a href="https://wkf.ms/49age3d">{T('Contact Us','Cont&aacute;ctanos')}</a>
       </div>
     </div>
-    <div class="footer-bottom"><span>&copy; Trust Code Mx</span><a href="https://www.trustcodemx.com/privacypolicy" style="color:inherit;">{T('Privacy Policy','Aviso de Privacidad')}</a></div>
+    <div class="footer-bottom">
+      <span>&copy; Trust Code Mx</span>
+      <div class="footer-social">
+        <a href="{SOCIAL_INSTAGRAM_URL}" target="_blank" rel="noopener" aria-label="Instagram">{ICONS['instagram']}</a>
+        <a href="{SOCIAL_LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="LinkedIn">{ICON_LINKEDIN}</a>
+      </div>
+      <a href="https://www.trustcodemx.com/privacypolicy" style="color:inherit;">{T('Privacy Policy','Aviso de Privacidad')}</a>
+    </div>
   </div>
 </footer>
 """
